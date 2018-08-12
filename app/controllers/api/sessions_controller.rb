@@ -20,4 +20,10 @@ class Api::SessionsController < ApplicationController
       render json: ["No one logged in!"], status: 404
     end
   end
+
+  private
+
+  def session_params
+    params.require(:user).permit(:username, :password)
+  end
 end

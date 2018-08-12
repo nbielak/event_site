@@ -10,6 +10,12 @@ class LoginForm extends React.Component {
     this.handleDemo = this.handleDemo.bind(this);
   }
 
+  componentDidMount() {
+    if (`${this.props.email}` === "demo@demo.com") {
+      this.setState({email: this.props.email, password: "123456"});
+    }
+  }
+
   update_password() {
     return e => {
       this.setState({email: this.props.email, password: e.target.value})
@@ -30,9 +36,9 @@ class LoginForm extends React.Component {
 
   handleDemo() {
     if (`${this.props.email}` === "demo@demo.com") {
-      return "123456";
+      return (<input className="look-up-form-input" value="123456" type="password" onChange={this.update_password()} />);
     } else {
-      return "";
+      return (<input className="look-up-form-input" type="password" onChange={this.update_password()} />);
     }
   }
 
@@ -81,7 +87,7 @@ class LoginForm extends React.Component {
                   <label className="look-up-form-label">Password</label>
                 </div>
                 <div className="look-up-form-input-container">
-                    <input value={this.handleDemo()}className="look-up-form-input" type="password" onChange={this.update_password()} />
+                    {this.handleDemo()}
                 </div>
               </div>
 
