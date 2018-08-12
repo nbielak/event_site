@@ -1,0 +1,28 @@
+
+
+header {
+  .logo {
+    display: block;
+    text-decoration: none;
+    float: left;
+    margin: 0 20px;
+    width: auto;
+    height: 30px;
+    cursor: pointer;
+    text-align: center;
+    .logo-link {
+      margin: auto;
+      text-decoration: inherit;
+      vertical-align: baseline;
+      display: inline;
+      font-style: normal;
+      font-weight: 700;
+      font-family: $benton-sans;
+      font-size: 25px;
+      line-height: 2.3;
+      color: #f6682F;
+      height: auto;
+      width: auto;
+    }
+  }
+}

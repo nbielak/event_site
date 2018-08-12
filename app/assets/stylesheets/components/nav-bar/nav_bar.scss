@@ -1,0 +1,80 @@
+header {
+  .nav-bar {
+    height: 60px;
+    display: flex;
+    justify-content: flex-end;
+    font-family: "Benton Sans", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+    .nav-bar-link {
+      display: inline-block;
+      text-decoration: none;
+      text-transform: uppercase;
+      border: none;
+      border-left: 1px solid #EFF2F5;
+      padding: 22px 20px 19px 20px;
+      font-size: 12px;
+      line-height: 19px;
+      vertical-align: top;
+      letter-spacing: 0.5px;
+      border-radius: 0px;
+      color: #45494E;
+      position: relative;
+
+      .nav-bar-drop-down {
+        display: none;
+        position: absolute;
+        width: 250px;
+        height: 350px;
+        z-index: 3;
+        border-left: 1px solid #EFF2F5;
+        border-right: 1px solid #EFF2F5;
+        border-bottom: 1px solid #EFF2F5;
+        right: -1px;
+        top: 60px;
+        white-space: nowrap;
+        overflow: hidden;
+        background: #fff;
+
+        .nav-bar-drop-down-list-item {
+          border-top: 1px solid #EFF2F5;
+          width: 100%;
+          position: relative;
+          text-align: center;
+          box-sizing: border-box;
+
+          .logout-button {
+            cursor: pointer;
+            border: 1px solid transparent;
+            text-align: center;
+            font-size: 14px;
+            width: 100%;
+
+
+          }
+          &:hover {
+            background-color: #EFF2F5;
+          }
+        }
+      }
+
+
+      &:hover {
+        background-color: #EFF2F5;
+
+        .nav-bar-drop-down {
+          display: block;
+        }
+
+      }
+
+      &:last-child {
+        color: #3177B3;
+        font-weight: 600;
+        &:hover {
+          background-color: white;
+          color: #45494E;
+        }
+      }
+    }
+
+  }
+}

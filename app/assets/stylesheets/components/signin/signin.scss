@@ -1,0 +1,56 @@
+.email-wrapper {
+  position: relative;
+  margin-top: 12px;
+  color: #363a43;
+
+  .static-email {
+    line-height: 1.5;
+    font-weight: 400;
+    font-size: 1rem;
+    color: #282c35;
+    margin-right: 48px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0 auto;
+  }
+  .static-email-button {
+    position: absolute;
+    right: 0;
+    top: -9px;
+    margin: 0;
+    padding: 0;
+
+    .static-email-button-icon-wrapper {
+      display: inline-block;
+      fill: #666a73;
+
+      &:hover {
+        fill: #363a43;
+      }
+
+      .static-email-button-icon {
+        border-radius: 40px;
+        padding: 6px;
+        background: none;
+        border: none;
+        text-align: left;
+        cursor: pointer;
+        text-transform: none;
+
+        .icon-image {
+          width: 24px;
+          height: 24px;
+          background-size: contain;
+          vertical-align: middle;
+          margin: 0 auto;
+          display: block;
+          .icon-svg {
+            width: 24px;
+            height: 24px;
+          }
+        }
+      }
+    }
+  }
+}
