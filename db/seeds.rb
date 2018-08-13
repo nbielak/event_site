@@ -46,42 +46,70 @@ sahar = User.create!(
   first_name: "Sahar",
   last_name: "Sahar"
 )
-#
-# #EVENTS
-#
-#
-# Event.create!(
-#   title: "Celebrating 23 Years of Sahar",
-#   description: "It's Sahar's birthday",
-#   location: "Berkeley, CA",
-#   start_time: Time.now,
-#   start_date: Date.parse("August 21"),
-#   user_id: nick[:id]
-# )
-#
-# Event.create!(
-#   title: "Dance Party",
-#   description: "Fun dancing",
-#   location: "San Francisco, CA",
-#   start_time: Time.now,
-#   start_date: Date.parse("August 19"),
-#   user_id: jane[:id]
-# )
-#
-# Event.create!(
-#   title: "Pizza Networking Social",
-#   description: "The best way into the pizza industry",
-#   location: "San Francisco, CA",
-#   start_time: Time.now,
-#   start_date: Date.parse("September 4"),
-#   user_id: demo[:id]
-# )
-#
-# Event.create!(
-#   title: "Painting Class",
-#   description: "Learn to paint",
-#   location: "San Francisco, CA",
-#   start_time: Time.now,
-#   start_date: Date.parse("August 21"),
-#   user_id: john[:id]
-# )
+
+#EVENTS
+
+
+Event.create!(
+  title: "It's Sahar's Birthday",
+  description: "Celebrating 23 years of Sahar",
+  venue_name: "Memorial Glade",
+  address: "University Drive",
+  city: "Berkeley",
+  state: "CA",
+  zip: "94708",
+  country: "United States of America",
+  lat: 1.0,
+  lng: 1.0,
+  start_time: Time.now,
+  start_date: Date.parse("August 21"),
+  user_id: nick[:id]
+)
+
+Event.create!(
+  title: "Dance Party",
+  description: "Fun dancing",
+  venue_name: "Church of 8 Wheels",
+  address: "554 Fillmore St",
+  city: "San Francisco",
+  state: "CA",
+  zip: "94117",
+  country: "United States of America",
+  lat: 2.0,
+  lng: 2.0,
+  start_time: Time.now,
+  start_date: Date.parse("August 19"),
+  user_id: jane[:id]
+)
+
+Event.create!(
+  title: "Pizza Networking Social",
+  description: "The best way into the pizza industry",
+  venue_name: "Golden Boy Pizza",
+  address: "542 Green St",
+  city: "San Francisco",
+  state: "CA",
+  zip: "94133",
+  country: "United States of America",
+  lat: 3.0,
+  lng: 3.0,
+  start_time: Time.now,
+  start_date: Date.parse("September 4"),
+  user_id: demo[:id]
+)
+
+Event.create!(
+  title: "Painting Class",
+  description: "Learn to paint",
+  venue_name: "SF MOMA",
+  address: "151 3rd St",
+  city: "San Francisco",
+  state: "CA",
+  zip: "94103",
+  country: "United States of America",
+  lat: 4.0,
+  lng: 4.0,
+  start_time: Time.now,
+  start_date: Date.parse("August 21"),
+  user_id: john[:id]
+)
