@@ -9,8 +9,8 @@ class Api::UsersController < ApplicationController
   end
 
   def sign_in
-    if params[:email] == "undefined"
-      render json: ["Invalid email"], status: 401
+    unless confirm_email(params[:email])
+      render json: ["Please enter a valid email address."], status: 401
     else
       @user = User.find_by_email(params[:email])
       found = nil

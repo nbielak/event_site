@@ -29,8 +29,6 @@ class ApplicationController < ActionController::Base
   end
 
   def confirm_email(email)
-    unless email.include?("@.")
-      render json: ["Please enter valid email"], status: 401
-    end
+    email.include?('@') && email.include?('.')
   end
 end

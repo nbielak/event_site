@@ -4,6 +4,7 @@ import { lookUpUser } from '../../actions/session_actions';
 import { connect } from 'react-redux';
 
 
+
 const mapStateToProps = state => ({
   email: state.session.lookUp.email,
   found: state.session.lookUp.found,

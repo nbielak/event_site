@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import ErrorList from './error_list';
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -89,6 +90,10 @@ class LoginForm extends React.Component {
                 <div className="look-up-form-input-container">
                     {this.handleDemo()}
                 </div>
+              </div>
+
+              <div className="error-list-wrapper">
+                <ErrorList errors={this.props.errors} />
               </div>
 
               <div className="look-up-form-button-container">

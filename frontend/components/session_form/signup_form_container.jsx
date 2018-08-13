@@ -7,7 +7,7 @@ const mapStateToProps = (state, ownProps) => ({
   user: state.entities.users[state.session.currentUser],
   email: state.session.lookUp.email,
   found: state.session.lookUp.found,
-  errors: state.errors
+  errors: state.errors.sessionErrors
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

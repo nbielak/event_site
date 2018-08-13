@@ -1,6 +1,7 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom';
 import LookUpFormContainer from './look_up_form_container';
+import ErrorList from './error_list';
 
 class LookUpForm extends React.Component {
   constructor(props) {
@@ -62,6 +63,9 @@ class LookUpForm extends React.Component {
                 <input type="email" className="look-up-form-input" onChange={this.update()} value={this.state.email || ''} placeholder="Enter email"/>
               </div>
 
+            </div>
+            <div className="error-list-wrapper">
+              <ErrorList errors={this.props.errors} />
             </div>
             <div className="look-up-form-button-container">
               <input className="look-up-form-button" type="submit" value="Get Started" />

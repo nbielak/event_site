@@ -94,7 +94,7 @@ div {
 
           .look-up-form-input-container {
             padding-top: 16px;
-            margin-bottom: 20px;
+            margin-bottom: 5px;
             font-size: 14px;
             line-height: 22px;
             font-weight: 400;
@@ -126,6 +126,7 @@ div {
               color: #45494e;
               font-size: 1rem;
               line-height: 22px;
+              outline: none;
 
               .look-up-form-input {
                 display: block;
@@ -133,18 +134,18 @@ div {
                 width: 100%;
                 outline: none;
                 border: 0;
-                padding: 8px 12px 9px;
+                padding: 8px 12px 9px 16px;
                 box-sizing: border-box;
                 background-color: #fff;
                 border-radius: 2px;
                 text-overflow: ellipsis;
                 overflow: hidden;
                 white-space: nowrap;
-                padding-left: 16px;
                 line-height: normal;
                 cursor: text;
                 font-size: 14px;
               }
+
             }
           }
           .look-up-form-button-container {
@@ -188,5 +189,14 @@ div {
         }
       }
     }
+  }
+}
+
+
+.error-list-wrapper {
+  margin-bottom: 10px;
+  .error-list {
+    color: red;
+    font-size: 12px;
   }
 }

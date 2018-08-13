@@ -29,27 +29,27 @@ export const receiveFound = (found) => ({
 export const login = currentUser => dispatch => (
   SessionApiUtil.login(currentUser).then(
     currentUser => dispatch(receiveCurrentUser(currentUser)),
-    errors => dispatch(receiveSessionErrors(errors))
+    errors => dispatch(receiveSessionErrors(errors.responseJSON))
   )
 );
 
 export const signup = currentUser => dispatch => (
   SessionApiUtil.signup(currentUser).then(
     currentUser => dispatch(receiveCurrentUser(currentUser)),
-    errors => dispatch(receiveSessionErrors(errors))
+    errors => dispatch(receiveSessionErrors(errors.responseJSON))
   )
 );
 
 export const logout = () => dispatch => (
   SessionApiUtil.logout().then(
     () => dispatch(logoutCurrentUser()),
-    errors => dispatch(receiveSessionErrors(errors))
+    errors => dispatch(receiveSessionErrors(errors.responseJSON))
   )
 );
 
 export const lookUpUser = email => dispatch => {
   return (SessionApiUtil.lookUpUser(email).then(
     found => dispatch(receiveFound(found)),
-    errors => dispatch(receiveSessionErrors(errors))
+    errors => dispatch(receiveSessionErrors(errors.responseJSON))
   ));
 };
