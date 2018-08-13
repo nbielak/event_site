@@ -6,12 +6,55 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
+Event.delete_all
 User.delete_all
+#USERS
+
+
 
 User.create!(
   email: "demo@demo.com",
-  password: "123456",
+  password: "123123",
   first_name: "Demo",
   last_name: "Demosthenes"
+)
+
+nick = User.create!(
+  email: "nick@nick.com",
+  password: "123123",
+  first_name: "Nick",
+  last_name: "Nick"
+)
+
+User.create!(
+  email: "john@john.com",
+  password: "123123",
+  first_name: "John",
+  last_name: "Doe"
+)
+
+User.create!(
+  email: "jane@jane.com",
+  password: "123123",
+  first_name: "Jane",
+  last_name: "Doe"
+)
+
+User.create!(
+  email: "sahar@sahar.com",
+  password: "123123",
+  first_name: "Sahar",
+  last_name: "Sahar"
+)
+
+#EVENTS
+
+
+Event.create!(
+  title: "Celebrating 23 Years of Sahar",
+  description: "It's Sahar's birthday",
+  location: "Berkeley, CA",
+  start_time: Time.now,
+  start_date: Date.parse("August 21"),
+  user_id: nick[:id]
 )
