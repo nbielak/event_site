@@ -8,7 +8,7 @@ export const fetchAllEvents = () => (
 export const fetchEvent = id => (
   $.ajax ({
     method: 'GET',
-    url: `/api/events/${id}`
+    url: `/api/events/${id}`,
     data: { id }
   })
 );
@@ -16,7 +16,7 @@ export const fetchEvent = id => (
 export const createEvent = event => (
   $.ajax ({
     method: 'POST',
-    url: `/api/events`
+    url: `/api/events`,
     data: { event }
   })
 );

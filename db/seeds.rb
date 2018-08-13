@@ -12,9 +12,9 @@ User.delete_all
 
 
 
-User.create!(
+demo = User.create!(
   email: "demo@demo.com",
-  password: "123123",
+  password: "123456",
   first_name: "Demo",
   last_name: "Demosthenes"
 )
@@ -26,35 +26,62 @@ nick = User.create!(
   last_name: "Nick"
 )
 
-User.create!(
+john = User.create!(
   email: "john@john.com",
   password: "123123",
   first_name: "John",
   last_name: "Doe"
 )
 
-User.create!(
+jane = User.create!(
   email: "jane@jane.com",
   password: "123123",
   first_name: "Jane",
   last_name: "Doe"
 )
 
-User.create!(
+sahar = User.create!(
   email: "sahar@sahar.com",
   password: "123123",
   first_name: "Sahar",
   last_name: "Sahar"
 )
-
-#EVENTS
-
-
-Event.create!(
-  title: "Celebrating 23 Years of Sahar",
-  description: "It's Sahar's birthday",
-  location: "Berkeley, CA",
-  start_time: Time.now,
-  start_date: Date.parse("August 21"),
-  user_id: nick[:id]
-)
+#
+# #EVENTS
+#
+#
+# Event.create!(
+#   title: "Celebrating 23 Years of Sahar",
+#   description: "It's Sahar's birthday",
+#   location: "Berkeley, CA",
+#   start_time: Time.now,
+#   start_date: Date.parse("August 21"),
+#   user_id: nick[:id]
+# )
+#
+# Event.create!(
+#   title: "Dance Party",
+#   description: "Fun dancing",
+#   location: "San Francisco, CA",
+#   start_time: Time.now,
+#   start_date: Date.parse("August 19"),
+#   user_id: jane[:id]
+# )
+#
+# Event.create!(
+#   title: "Pizza Networking Social",
+#   description: "The best way into the pizza industry",
+#   location: "San Francisco, CA",
+#   start_time: Time.now,
+#   start_date: Date.parse("September 4"),
+#   user_id: demo[:id]
+# )
+#
+# Event.create!(
+#   title: "Painting Class",
+#   description: "Learn to paint",
+#   location: "San Francisco, CA",
+#   start_time: Time.now,
+#   start_date: Date.parse("August 21"),
+#   user_id: john[:id]
+# )
