@@ -26,10 +26,20 @@ class EventIndexItem extends React.Component {
             <h2 className="event-title">{this.props.event.title}</h2>
 
 
-            <div>
-              <h4>{this.props.event.venueName || this.props.event.address}, {this.props.event.city}</h4>
+            <div className="event-location">
+              {this.props.event.venueName || this.props.event.address}, {this.props.event.city}
             </div>
 
+          </div>
+
+          <div className="event-footer">
+            <div className="event-footer-tags">
+            </div>
+
+            <div className="event-footer-actions">
+              <button id="event-footer-button" className="event-footer-button"></button>
+              <button id="event-footer-button" className="event-footer-button"></button>
+            </div>
           </div>
         </div>
       </div>

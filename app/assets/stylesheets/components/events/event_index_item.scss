@@ -18,6 +18,10 @@
     background: #fff;
     cursor: pointer;
 
+    &:hover {
+      box-shadow: 0 1px 2px 0 rgba(0,0,0,.15);
+    }
+
     .event-image-wrapper {
       height: 165px;
       background: #fff;
@@ -48,6 +52,9 @@
       padding: 5px 15px;
       border-top: 1px solid #EFF2F5;
       height: 108px;
+      line-height: 22px;
+      font-size: 15px;
+      font-weight: 400;
 
       .event-time {
         padding: 5px 0 0;
@@ -63,10 +70,49 @@
       }
 
       .event-title {
+        padding-top: 5px;
         font-weight: 600;
         color: #282C35;
         font-size: 15px;
         -webkit-font-smoothing: antialiased;
+        height: 2.5em;
+        max-height: 2.5em;
+      }
+
+      .event-location {
+        padding-top: 5px;
+      }
+    }
+
+    .event-footer {
+      position: relative;
+      min-height: 2.8em;
+      max-height: 3em;
+      line-height: 40px;
+      padding-right: 80px;
+      border-top: 1px solid #EFF2F5;
+      padding-left: 15px;
+
+      .event-footer-actions {
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 0;
+        line-height: 38px;
+        margin: 0;
+        padding: 0;
+
+        .event-footer-button {
+          display: inline-block;
+          color: #666A73;
+          font-size: 20px;
+          width: 40px;
+          height: 40px;
+          border-left: 1px solid #EFF2F5;
+          box-sizing: border-box;
+          text-align: center;
+          cursor: pointer;
+        }
       }
     }
   }
