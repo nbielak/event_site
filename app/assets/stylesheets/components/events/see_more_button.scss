@@ -1,0 +1,34 @@
+.see-more-button-wrapper {
+  padding: 0 15px;
+  vertical-align: top;
+  overflow: hidden;
+  display: inline-block;
+  box-sizing: border-box;
+  text-align: center;
+  width: 100%;
+
+  .see-more-button {
+    display: inline-block;
+    transition: all .2s ease-out;
+    vertical-align: middle;
+    position: relative;
+    width: auto;
+    height: auto;
+    text-align: center;
+    line-height: 22px;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    border-radius: 3px;
+    padding: 9px 18px;
+    background-color: transparent;
+    border: 2px solid #0278b8;
+    color: #0278b8;
+    cursor: pointer;
+
+    &:hover {
+      color: #fff;
+      background-color: #0278b8;
+    }
+  }
+}

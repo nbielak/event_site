@@ -113,3 +113,258 @@ Event.create!(
   start_date: Date.parse("August 21"),
   user_id: john[:id]
 )
+Event.create!(
+  title: "Painting Class",
+  description: "Learn to paint",
+  venue_name: "SF MOMA",
+  address: "151 3rd St",
+  city: "San Francisco",
+  state: "CA",
+  zip: "94103",
+  country: "United States of America",
+  lat: 4.0,
+  lng: 4.0,
+  start_time: Time.now,
+  start_date: Date.parse("August 21"),
+  user_id: john[:id]
+)
+Event.create!(
+  title: "Painting Class",
+  description: "Learn to paint",
+  venue_name: "SF MOMA",
+  address: "151 3rd St",
+  city: "San Francisco",
+  state: "CA",
+  zip: "94103",
+  country: "United States of America",
+  lat: 4.0,
+  lng: 4.0,
+  start_time: Time.now,
+  start_date: Date.parse("August 21"),
+  user_id: john[:id]
+)
+Event.create!(
+  title: "Painting Class",
+  description: "Learn to paint",
+  venue_name: "SF MOMA",
+  address: "151 3rd St",
+  city: "San Francisco",
+  state: "CA",
+  zip: "94103",
+  country: "United States of America",
+  lat: 4.0,
+  lng: 4.0,
+  start_time: Time.now,
+  start_date: Date.parse("August 21"),
+  user_id: john[:id]
+)
+Event.create!(
+  title: "Painting Class",
+  description: "Learn to paint",
+  venue_name: "SF MOMA",
+  address: "151 3rd St",
+  city: "San Francisco",
+  state: "CA",
+  zip: "94103",
+  country: "United States of America",
+  lat: 4.0,
+  lng: 4.0,
+  start_time: Time.now,
+  start_date: Date.parse("August 21"),
+  user_id: john[:id]
+)
+Event.create!(
+  title: "Painting Class",
+  description: "Learn to paint",
+  venue_name: "SF MOMA",
+  address: "151 3rd St",
+  city: "San Francisco",
+  state: "CA",
+  zip: "94103",
+  country: "United States of America",
+  lat: 4.0,
+  lng: 4.0,
+  start_time: Time.now,
+  start_date: Date.parse("August 21"),
+  user_id: john[:id]
+)
+Event.create!(
+  title: "Painting Class",
+  description: "Learn to paint",
+  venue_name: "SF MOMA",
+  address: "151 3rd St",
+  city: "San Francisco",
+  state: "CA",
+  zip: "94103",
+  country: "United States of America",
+  lat: 4.0,
+  lng: 4.0,
+  start_time: Time.now,
+  start_date: Date.parse("August 21"),
+  user_id: john[:id]
+)
+Event.create!(
+  title: "Painting Class",
+  description: "Learn to paint",
+  venue_name: "SF MOMA",
+  address: "151 3rd St",
+  city: "San Francisco",
+  state: "CA",
+  zip: "94103",
+  country: "United States of America",
+  lat: 4.0,
+  lng: 4.0,
+  start_time: Time.now,
+  start_date: Date.parse("August 21"),
+  user_id: john[:id]
+)
+Event.create!(
+  title: "Painting Class",
+  description: "Learn to paint",
+  venue_name: "SF MOMA",
+  address: "151 3rd St",
+  city: "San Francisco",
+  state: "CA",
+  zip: "94103",
+  country: "United States of America",
+  lat: 4.0,
+  lng: 4.0,
+  start_time: Time.now,
+  start_date: Date.parse("August 21"),
+  user_id: john[:id]
+)
+Event.create!(
+  title: "Painting Class",
+  description: "Learn to paint",
+  venue_name: "SF MOMA",
+  address: "151 3rd St",
+  city: "San Francisco",
+  state: "CA",
+  zip: "94103",
+  country: "United States of America",
+  lat: 4.0,
+  lng: 4.0,
+  start_time: Time.now,
+  start_date: Date.parse("August 21"),
+  user_id: john[:id]
+)
+Event.create!(
+  title: "Painting Class",
+  description: "Learn to paint",
+  venue_name: "SF MOMA",
+  address: "151 3rd St",
+  city: "San Francisco",
+  state: "CA",
+  zip: "94103",
+  country: "United States of America",
+  lat: 4.0,
+  lng: 4.0,
+  start_time: Time.now,
+  start_date: Date.parse("August 21"),
+  user_id: john[:id]
+)
+Event.create!(
+  title: "Painting Class",
+  description: "Learn to paint",
+  venue_name: "SF MOMA",
+  address: "151 3rd St",
+  city: "San Francisco",
+  state: "CA",
+  zip: "94103",
+  country: "United States of America",
+  lat: 4.0,
+  lng: 4.0,
+  start_time: Time.now,
+  start_date: Date.parse("August 21"),
+  user_id: john[:id]
+)
+Event.create!(
+  title: "Painting Class",
+  description: "Learn to paint",
+  venue_name: "SF MOMA",
+  address: "151 3rd St",
+  city: "San Francisco",
+  state: "CA",
+  zip: "94103",
+  country: "United States of America",
+  lat: 4.0,
+  lng: 4.0,
+  start_time: Time.now,
+  start_date: Date.parse("August 21"),
+  user_id: john[:id]
+)
+Event.create!(
+  title: "Painting Class",
+  description: "Learn to paint",
+  venue_name: "SF MOMA",
+  address: "151 3rd St",
+  city: "San Francisco",
+  state: "CA",
+  zip: "94103",
+  country: "United States of America",
+  lat: 4.0,
+  lng: 4.0,
+  start_time: Time.now,
+  start_date: Date.parse("August 21"),
+  user_id: john[:id]
+)
+Event.create!(
+  title: "Painting Class",
+  description: "Learn to paint",
+  venue_name: "SF MOMA",
+  address: "151 3rd St",
+  city: "San Francisco",
+  state: "CA",
+  zip: "94103",
+  country: "United States of America",
+  lat: 4.0,
+  lng: 4.0,
+  start_time: Time.now,
+  start_date: Date.parse("August 21"),
+  user_id: john[:id]
+)
+Event.create!(
+  title: "Painting Class",
+  description: "Learn to paint",
+  venue_name: "SF MOMA",
+  address: "151 3rd St",
+  city: "San Francisco",
+  state: "CA",
+  zip: "94103",
+  country: "United States of America",
+  lat: 4.0,
+  lng: 4.0,
+  start_time: Time.now,
+  start_date: Date.parse("August 21"),
+  user_id: john[:id]
+)
+Event.create!(
+  title: "Painting Class",
+  description: "Learn to paint",
+  venue_name: "SF MOMA",
+  address: "151 3rd St",
+  city: "San Francisco",
+  state: "CA",
+  zip: "94103",
+  country: "United States of America",
+  lat: 4.0,
+  lng: 4.0,
+  start_time: Time.now,
+  start_date: Date.parse("August 21"),
+  user_id: john[:id]
+)
+Event.create!(
+  title: "Painting Class",
+  description: "Learn to paint",
+  venue_name: "SF MOMA",
+  address: "151 3rd St",
+  city: "San Francisco",
+  state: "CA",
+  zip: "94103",
+  country: "United States of America",
+  lat: 4.0,
+  lng: 4.0,
+  start_time: Time.now,
+  start_date: Date.parse("August 21"),
+  user_id: john[:id]
+)

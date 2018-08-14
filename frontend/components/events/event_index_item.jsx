@@ -14,24 +14,26 @@ class EventIndexItem extends React.Component {
   render () {
     return (
       <div className="event-index-item">
-        <div className="index-item-content-wrapper" onClick={this.handleClick}>
-          <div className="event-image-wrapper">
-            <div className="event-image">
-              <img className="default-image" src="http://www.so-events.at/SYSTEM/image_background/standard/background_02.jpg" />
+        <div className="index-item-content-wrapper">
+          <div className="for-click-and-shadow" onClick={this.handleClick}>
+            <div className="event-image-wrapper">
+              <div className="event-image">
+                <img className="default-image" src="http://www.so-events.at/SYSTEM/image_background/standard/background_02.jpg" />
+              </div>
             </div>
-          </div>
-          <div className="event-info">
-            <time className="event-time">{this.props.event.startDate} {this.props.event.startTime}</time>
+            <div className="event-info">
+              <time className="event-time">{this.props.event.startDate} {this.props.event.startTime}</time>
 
-            <h2 className="event-title">{this.props.event.title}</h2>
+              <h2 className="event-title">{this.props.event.title}</h2>
 
 
-            <div className="event-location">
-              {this.props.event.venueName || this.props.event.address}, {this.props.event.city}
+              <div className="event-location">
+                {this.props.event.venueName || this.props.event.address}, {this.props.event.city}
+              </div>
+
             </div>
 
           </div>
-
           <div className="event-footer">
             <div className="event-footer-tags">
             </div>
