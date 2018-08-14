@@ -33,6 +33,9 @@ class EventIndex extends React.Component {
               </ul>
             </div>
           </div>
+          <div className="see-more-button-wrapper">
+            <button className="see-more-button">See More</button>
+          </div>
         </div>
       </div>
     );
