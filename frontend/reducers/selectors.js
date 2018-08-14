@@ -1,9 +1,9 @@
-export const getCityEvents = ({events, city}) {
+export const getCityEvents = ({events, city}) => {
   let result = [];
-  for (let id in events) {
+  Object.keys(events).forEach(id => {
     if (events[id].city === city ) {
-      result.push(events[id])
+      result.push(events[id]);
     }
-  }
+  })
   return result;
 };

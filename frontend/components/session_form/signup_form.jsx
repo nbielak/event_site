@@ -83,7 +83,7 @@ class SignupForm extends React.Component {
                     </div>
 
                     <div className="first-name-input-wrapper">
-                      <input className="first-name-input" type="text" onChange={this.update('first_name')}/>
+                      <input className="first-name-input" type="text" onChange={this.update('firstName')}/>
                     </div>
                   </div>
 
@@ -93,7 +93,7 @@ class SignupForm extends React.Component {
                     </div>
 
                     <div className="first-name-input-wrapper">
-                      <input className="first-name-input" type="text" onChange={this.update('last_name')}/>
+                      <input className="first-name-input" type="text" onChange={this.update('lastName')}/>
                     </div>
                   </div>
                 </div>

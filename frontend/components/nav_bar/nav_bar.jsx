@@ -6,7 +6,7 @@ const NavBar = ({currentUser, logout}) => {
   const loggedInNavBar = () => (
     <nav className = "nav-bar">
       <Link className="nav-bar-link" to="/">browse events</Link>
-      <Link className="nav-bar-link" to="/">{currentUser.first_name}
+      <Link className="nav-bar-link" to="/">{currentUser.firstName}
         <ul className="nav-bar-drop-down">
           <li className="nav-bar-drop-down-list-item">
             <button className="logout-button" onClick={() => logout()}>Log Out</button>

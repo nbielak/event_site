@@ -6,8 +6,7 @@ import { getCityEvents } from '../../reducers/selectors';
 
 const mapStateToProps = state => {
   return ({
-    events: state.entities.events,
-    cityEvents: getCityEvents(state)
+    events: getCityEvents({events: state.entities.events, city: "San Francisco"})
   });
 };
 

@@ -1,0 +1,40 @@
+.splash-page {
+
+  .splash-page-content {
+    max-width: 1080px;
+    margin: auto;
+    align-content: center;
+
+    .events-for-you {
+
+      .events-for-you-title-wrapper {
+        padding: 5px 0;
+        width: 100%;
+
+        .events-for-you-second-wrapper {
+          padding: 15px;
+          vertical-align: top;
+          box-sizing: border-box;
+          text-align: center;
+          margin-top: 20px;
+          font-size: 15px;
+          overflow: visible;
+          position: relative;
+          line-height: 44px;
+          letter-spacing: .5px;
+
+          .events-for-you-title {
+            text-align: center;
+            font-size: 25px;
+            line-height: 30px;
+            font-weight: 200;
+            width: auto;
+            vertical-align: middle;
+
+          }
+        }
+      }
+    }
+  }
+
+}
