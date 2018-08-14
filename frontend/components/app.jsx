@@ -12,6 +12,7 @@ import NavBarContainer from './nav_bar/nav_bar_container';
 import LookUpFormContainer from './session_form/look_up_form_container';
 import EventIndexContainer from './events/event_index_container';
 import EventShowContainer from './events/event_show_container';
+import RedirectToMain from './redirect_to_main';
 import { AuthRoute, EmailAuthRoute } from '../util/route_util';
 
 const App = () => (
@@ -27,11 +28,12 @@ const App = () => (
     </header>
     <div className="main-container">
       <Switch>
+        <Route exact path="/" component={EventIndexContainer}/>
         <EmailAuthRoute exact path="/signin/login" component={LoginFormContainer} />
         <EmailAuthRoute exact path="/signin/signup" component={SignupFormContainer} />
         <AuthRoute exact path="/signin" component={LookUpFormContainer}/>
         <Route path="/events/:eventId" component={EventShowContainer} />
-        <Route exact path="/" component={EventIndexContainer}/>
+        <Route component={RedirectToMain} />
       </Switch>
     </div>
   </div>

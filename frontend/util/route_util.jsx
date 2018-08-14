@@ -12,7 +12,7 @@ const Auth = ({component: Component, path, loggedIn, exact,}) => (
   )}/>
 );
 
-const EmailAuth = ({component: Component, path, loggedIn, email, exact,}) => (
+const EmailAuth = ({component: Component, path, loggedIn, email, exact}) => (
   <Route path={path} exact={exact} render={(props) => (
     !loggedIn && email ? (
       <Component {...props} />
