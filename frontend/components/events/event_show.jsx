@@ -18,24 +18,51 @@ class EventShow extends React.Component {
 
   render() {
     return (
-      <div>
-        <div>
+      <div className="event-listing-background">
+        <div className="event-listing-grid">
           <div className="event-listing-body">
             <div className="event-listing-header-info">
               <div className="event-listing-header-image">
+                <img className="show-default-image" src="http://www.so-events.at/SYSTEM/image_background/standard/background_02.jpg" />
               </div>
-              <div>
-                <p>{this.state.startDate}</p>
-              </div>
+              <div className="event-header-info-block">
+                <div className="info-block-wrapper">
+                  <div className="event-header-start-date">
+                    <time className="date" dateTime={this.state.startDate}>
+                      <p>{this.state.startDate}</p>
+                    </time>
 
-              <div>
-                <h1>
-                  {this.state.title}
-                </h1>
+                  </div>
+
+                  <div className="event-header-title">
+                    <h1>
+                      {this.state.title}
+                    </h1>
+
+                    <h2>
+                      ORGANIZER
+                    </h2>
+                  </div>
+                </div>
+
               </div>
             </div>
 
             <div className="event-listing-bookmark">
+              <div>
+                <ul>
+                  <li>
+                    <button></button>
+                  </li>
+                  <li>
+                    <button></button>
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <button></button>
+              </div>
             </div>
 
             <div className="event-listing-detailed-info">
