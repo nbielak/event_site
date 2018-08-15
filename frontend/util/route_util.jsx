@@ -17,7 +17,7 @@ const EmailAuth = ({component: Component, path, loggedIn, email, exact}) => (
     !loggedIn && email ? (
       <Component {...props} />
     ) : (
-      <Redirect to="/" />
+      <Redirect to="/signin" />
     )
   )}/>
 );

@@ -17,6 +17,7 @@ class EventShow extends React.Component {
   }
 
   render() {
+    debugger;
     return (
       <div className="event-listing-background">
         <div className="event-listing-grid">
@@ -63,24 +64,35 @@ class EventShow extends React.Component {
 
             <div className="event-listing-detailed-info">
               <div className="info-wrapper">
-                <div className="event-description">
-                  <h2>About this Event</h2>
-                  <p>{this.state.description}</p>
+                <div className="event-description-and-tags">
+                  <div className="event-description-wrapper">
+                    <div className="event-description">
+                      <h2 className="event-label">Description</h2>
+                      <p className="event-description-body">{this.state.description}</p>
+                    </div>
+
+                    <div className="event-tags">
+                    </div>
+                  </div>
                 </div>
 
                 <div className="event-time-location">
                   <div className="time">
-                    <p>Date and Time</p>
+                    <p className="event-label">Date and Time</p>
+                    <div className="event-date">
+                      <p>{this.state.startDate} {this.state.startTime}</p>
+                    </div>
 
-                    <p>{this.state.startDate} {this.state.startTime}</p>
 
                   </div>
 
-                  <div className="location">
-                    <p>Location</p>
-                    <p>{this.state.venueName}</p>
-                    <p>{this.state.address}</p>
-                    <p>{this.state.city}, {this.state.state} {this.state.zip}</p>
+                  <div className="event-location">
+                    <p className="event-label">Location</p>
+                    <div className="location">
+                      <p>{this.state.venueName}</p>
+                      <p>{this.state.address}</p>
+                      <p>{this.state.city}, {this.state.state} {this.state.zip}</p>
+                    </div>
                   </div>
                 </div>
               </div>

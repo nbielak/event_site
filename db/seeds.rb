@@ -49,6 +49,12 @@ sahar = User.create!(
 
 #EVENTS
 
+paragraph = "
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam suscipit velit sit amet augue tempor, nec euismod sem consectetur. Proin et semper risus. Donec aliquet tincidunt hendrerit. Maecenas sit amet dictum magna. Morbi pretium nulla ut volutpat pellentesque. Suspendisse cursus tellus id nunc efficitur, non tempus felis consectetur. Phasellus scelerisque posuere purus sit amet sollicitudin. Sed eu malesuada metus. Nulla id placerat nisl, vel feugiat ex. In leo felis, consectetur a sapien et, facilisis sollicitudin ipsum. Aenean porta lectus vitae condimentum placerat. Donec mollis mi felis, id mollis nulla aliquam id. Morbi et turpis in eros fringilla dignissim. Donec rutrum ante quam, id congue leo scelerisque sit amet. Ut maximus mi dui, et tincidunt velit cursus a. Aliquam nec turpis neque.
+
+Mauris faucibus purus leo, id lacinia sem auctor ut. Aenean dignissim varius gravida. Maecenas maximus ligula at lorem tristique, accumsan eleifend dolor consequat. Quisque posuere ante metus, et fermentum ligula congue a. Sed in faucibus urna. Vestibulum sem felis, rutrum at dictum ac, fringilla et augue. Aenean vestibulum aliquam enim et fringilla. Cras sit amet pulvinar felis. Vestibulum nulla metus, aliquet at nunc ut, scelerisque viverra neque. Maecenas ac elit eu leo lobortis ultricies eu eget eros. Fusce bibendum ut erat non molestie.
+
+Donec laoreet lectus et diam laoreet laoreet. Donec ornare dolor a turpis fringilla, eu gravida ligula vehicula. Nunc sit amet lorem fermentum, luctus metus et, vestibulum nulla. Praesent at lacus ac ipsum tincidunt congue. Etiam rutrum odio ipsum, a aliquet libero semper vel. Mauris suscipit nisi risus, sed euismod sapien rhoncus luctus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut sed arcu ut leo mollis ullamcorper id commodo velit. Aenean tempus scelerisque erat, vehicula feugiat est maximus quis. Nam aliquet suscipit ipsum at laoreet. Nullam fermentum aliquet risus, eget bibendum ex rhoncus sed. Aliquam suscipit, lacus ut vulputate lobortis, enim lorem vestibulum dolor, quis bibendum mi ipsum at nulla. Ut malesuada vel massa non imperdiet. In consectetur est eu semper efficitur."
 
 Event.create!(
   title: "It's Sahar's Birthday",
@@ -68,7 +74,7 @@ Event.create!(
 
 Event.create!(
   title: "Dance Party",
-  description: "Fun dancing",
+  description: paragraph,
   venue_name: "Church of 8 Wheels",
   address: "554 Fillmore St",
   city: "San Francisco",
@@ -84,7 +90,7 @@ Event.create!(
 
 Event.create!(
   title: "Pizza Networking Social",
-  description: "The best way into the pizza industry",
+  description: paragraph,
   venue_name: "Golden Boy Pizza",
   address: "542 Green St",
   city: "San Francisco",
@@ -100,7 +106,7 @@ Event.create!(
 
 Event.create!(
   title: "Painting Class",
-  description: "Learn to paint",
+  description: paragraph,
   venue_name: "SF MOMA",
   address: "151 3rd St",
   city: "San Francisco",
@@ -115,7 +121,7 @@ Event.create!(
 )
 Event.create!(
   title: "Painting Class",
-  description: "Learn to paint",
+  description: paragraph,
   venue_name: "SF MOMA",
   address: "151 3rd St",
   city: "San Francisco",
@@ -130,7 +136,7 @@ Event.create!(
 )
 Event.create!(
   title: "Painting Class",
-  description: "Learn to paint",
+  description: paragraph,
   venue_name: "SF MOMA",
   address: "151 3rd St",
   city: "San Francisco",
@@ -145,7 +151,7 @@ Event.create!(
 )
 Event.create!(
   title: "Painting Class",
-  description: "Learn to paint",
+  description: paragraph,
   venue_name: "SF MOMA",
   address: "151 3rd St",
   city: "San Francisco",
@@ -160,7 +166,7 @@ Event.create!(
 )
 Event.create!(
   title: "Painting Class",
-  description: "Learn to paint",
+  description: paragraph,
   venue_name: "SF MOMA",
   address: "151 3rd St",
   city: "San Francisco",
@@ -175,7 +181,7 @@ Event.create!(
 )
 Event.create!(
   title: "Painting Class",
-  description: "Learn to paint",
+  description: paragraph,
   venue_name: "SF MOMA",
   address: "151 3rd St",
   city: "San Francisco",
@@ -190,7 +196,7 @@ Event.create!(
 )
 Event.create!(
   title: "Painting Class",
-  description: "Learn to paint",
+  description: paragraph,
   venue_name: "SF MOMA",
   address: "151 3rd St",
   city: "San Francisco",
@@ -205,7 +211,7 @@ Event.create!(
 )
 Event.create!(
   title: "Painting Class",
-  description: "Learn to paint",
+  description: paragraph,
   venue_name: "SF MOMA",
   address: "151 3rd St",
   city: "San Francisco",
@@ -220,7 +226,7 @@ Event.create!(
 )
 Event.create!(
   title: "Painting Class",
-  description: "Learn to paint",
+  description: paragraph,
   venue_name: "SF MOMA",
   address: "151 3rd St",
   city: "San Francisco",
@@ -235,7 +241,7 @@ Event.create!(
 )
 Event.create!(
   title: "Painting Class",
-  description: "Learn to paint",
+  description: paragraph,
   venue_name: "SF MOMA",
   address: "151 3rd St",
   city: "San Francisco",
@@ -250,7 +256,7 @@ Event.create!(
 )
 Event.create!(
   title: "Painting Class",
-  description: "Learn to paint",
+  description: paragraph,
   venue_name: "SF MOMA",
   address: "151 3rd St",
   city: "San Francisco",
@@ -265,7 +271,7 @@ Event.create!(
 )
 Event.create!(
   title: "Painting Class",
-  description: "Learn to paint",
+  description: paragraph,
   venue_name: "SF MOMA",
   address: "151 3rd St",
   city: "San Francisco",
@@ -280,7 +286,7 @@ Event.create!(
 )
 Event.create!(
   title: "Painting Class",
-  description: "Learn to paint",
+  description: paragraph,
   venue_name: "SF MOMA",
   address: "151 3rd St",
   city: "San Francisco",
@@ -295,7 +301,7 @@ Event.create!(
 )
 Event.create!(
   title: "Painting Class",
-  description: "Learn to paint",
+  description: paragraph,
   venue_name: "SF MOMA",
   address: "151 3rd St",
   city: "San Francisco",
@@ -310,7 +316,7 @@ Event.create!(
 )
 Event.create!(
   title: "Painting Class",
-  description: "Learn to paint",
+  description: paragraph,
   venue_name: "SF MOMA",
   address: "151 3rd St",
   city: "San Francisco",
@@ -325,7 +331,7 @@ Event.create!(
 )
 Event.create!(
   title: "Painting Class",
-  description: "Learn to paint",
+  description: paragraph,
   venue_name: "SF MOMA",
   address: "151 3rd St",
   city: "San Francisco",
@@ -340,7 +346,7 @@ Event.create!(
 )
 Event.create!(
   title: "Painting Class",
-  description: "Learn to paint",
+  description: paragraph,
   venue_name: "SF MOMA",
   address: "151 3rd St",
   city: "San Francisco",
@@ -355,7 +361,7 @@ Event.create!(
 )
 Event.create!(
   title: "Painting Class",
-  description: "Learn to paint",
+  description: paragraph,
   venue_name: "SF MOMA",
   address: "151 3rd St",
   city: "San Francisco",
