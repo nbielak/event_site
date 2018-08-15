@@ -8,7 +8,6 @@ class EventShow extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this.state);
     this.props.fetchEvent(this.props.match.params.eventId).then(action => this.setState(action.event))
   }
 
@@ -21,7 +20,6 @@ class EventShow extends React.Component {
     if (!this.state) {
       return null;
     }
-    console.log("state at render", this.state);
     return (
       <div className="event-listing-background">
         <div className="event-listing-grid">

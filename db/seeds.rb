@@ -67,7 +67,7 @@ Event.create!(
   country: "United States of America",
   lat: 1.0,
   lng: 1.0,
-  start_time: Time.now,
+  start_time: Time.parse("7:00"),
   start_date: Date.parse("August 21"),
   user_id: nick[:id]
 )
@@ -83,7 +83,7 @@ Event.create!(
   country: "United States of America",
   lat: 2.0,
   lng: 2.0,
-  start_time: Time.now,
+  start_time: Time.parse("7:00"),
   start_date: Date.parse("August 19"),
   user_id: jane[:id]
 )
@@ -99,7 +99,7 @@ Event.create!(
   country: "United States of America",
   lat: 3.0,
   lng: 3.0,
-  start_time: Time.now,
+  start_time: Time.parse("7:00"),
   start_date: Date.parse("September 4"),
   user_id: demo[:id]
 )
@@ -115,7 +115,7 @@ Event.create!(
   country: "United States of America",
   lat: 4.0,
   lng: 4.0,
-  start_time: Time.now,
+  start_time: Time.parse("7:00"),
   start_date: Date.parse("August 21"),
   user_id: john[:id]
 )
@@ -130,7 +130,7 @@ Event.create!(
   country: "United States of America",
   lat: 4.0,
   lng: 4.0,
-  start_time: Time.now,
+  start_time: Time.parse("7:00"),
   start_date: Date.parse("August 21"),
   user_id: john[:id]
 )
@@ -145,7 +145,7 @@ Event.create!(
   country: "United States of America",
   lat: 4.0,
   lng: 4.0,
-  start_time: Time.now,
+  start_time: Time.parse("7:00"),
   start_date: Date.parse("August 21"),
   user_id: john[:id]
 )
@@ -160,7 +160,7 @@ Event.create!(
   country: "United States of America",
   lat: 4.0,
   lng: 4.0,
-  start_time: Time.now,
+  start_time: Time.parse("7:00"),
   start_date: Date.parse("August 21"),
   user_id: john[:id]
 )
@@ -175,7 +175,7 @@ Event.create!(
   country: "United States of America",
   lat: 4.0,
   lng: 4.0,
-  start_time: Time.now,
+  start_time: Time.parse("7:00"),
   start_date: Date.parse("August 21"),
   user_id: john[:id]
 )
@@ -190,7 +190,7 @@ Event.create!(
   country: "United States of America",
   lat: 4.0,
   lng: 4.0,
-  start_time: Time.now,
+  start_time: Time.parse("7:00"),
   start_date: Date.parse("August 21"),
   user_id: john[:id]
 )
@@ -205,7 +205,7 @@ Event.create!(
   country: "United States of America",
   lat: 4.0,
   lng: 4.0,
-  start_time: Time.now,
+  start_time: Time.parse("7:00"),
   start_date: Date.parse("August 21"),
   user_id: john[:id]
 )
@@ -220,7 +220,7 @@ Event.create!(
   country: "United States of America",
   lat: 4.0,
   lng: 4.0,
-  start_time: Time.now,
+  start_time: Time.parse("7:00"),
   start_date: Date.parse("August 21"),
   user_id: john[:id]
 )
@@ -235,7 +235,7 @@ Event.create!(
   country: "United States of America",
   lat: 4.0,
   lng: 4.0,
-  start_time: Time.now,
+  start_time: Time.parse("7:00"),
   start_date: Date.parse("August 21"),
   user_id: john[:id]
 )
@@ -250,7 +250,7 @@ Event.create!(
   country: "United States of America",
   lat: 4.0,
   lng: 4.0,
-  start_time: Time.now,
+  start_time: Time.parse("7:00"),
   start_date: Date.parse("August 21"),
   user_id: john[:id]
 )
@@ -265,7 +265,7 @@ Event.create!(
   country: "United States of America",
   lat: 4.0,
   lng: 4.0,
-  start_time: Time.now,
+  start_time: Time.parse("7:00"),
   start_date: Date.parse("August 21"),
   user_id: john[:id]
 )
@@ -280,7 +280,7 @@ Event.create!(
   country: "United States of America",
   lat: 4.0,
   lng: 4.0,
-  start_time: Time.now,
+  start_time: Time.parse("7:00"),
   start_date: Date.parse("August 21"),
   user_id: john[:id]
 )
@@ -295,7 +295,7 @@ Event.create!(
   country: "United States of America",
   lat: 4.0,
   lng: 4.0,
-  start_time: Time.now,
+  start_time: Time.parse("7:00"),
   start_date: Date.parse("August 21"),
   user_id: john[:id]
 )
@@ -310,7 +310,7 @@ Event.create!(
   country: "United States of America",
   lat: 4.0,
   lng: 4.0,
-  start_time: Time.now,
+  start_time: Time.parse("7:00"),
   start_date: Date.parse("August 21"),
   user_id: john[:id]
 )
@@ -325,7 +325,7 @@ Event.create!(
   country: "United States of America",
   lat: 4.0,
   lng: 4.0,
-  start_time: Time.now,
+  start_time: Time.parse("7:00"),
   start_date: Date.parse("August 21"),
   user_id: john[:id]
 )
@@ -340,7 +340,7 @@ Event.create!(
   country: "United States of America",
   lat: 4.0,
   lng: 4.0,
-  start_time: Time.now,
+  start_time: Time.parse("7:00"),
   start_date: Date.parse("August 21"),
   user_id: john[:id]
 )
@@ -355,7 +355,7 @@ Event.create!(
   country: "United States of America",
   lat: 4.0,
   lng: 4.0,
-  start_time: Time.now,
+  start_time: Time.parse("7:00"),
   start_date: Date.parse("August 21"),
   user_id: john[:id]
 )
@@ -370,7 +370,7 @@ Event.create!(
   country: "United States of America",
   lat: 4.0,
   lng: 4.0,
-  start_time: Time.now,
+  start_time: Time.parse("7:00"),
   start_date: Date.parse("August 21"),
   user_id: john[:id]
 )
