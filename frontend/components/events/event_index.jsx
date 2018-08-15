@@ -18,6 +18,14 @@ class EventIndex extends React.Component {
           <img className="splash-image"src="https://yropenmic.com/wp-content/uploads/2017/07/cropped-openmic_background-1.jpeg"/>
         </section>
         <div className="splash-page-content">
+          <div className="splash-overflow-search">
+            <div className="splash-search">
+              <h1 className="splash-search-title">Find your next experience</h1>
+
+            <div className="splash-search-bar">
+            </div>
+            </div>
+          </div>
           <div className="events-for-you">
             <div className="events-for-you-title-wrapper">
               <div className="events-for-you-second-wrapper">

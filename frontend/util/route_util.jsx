@@ -12,6 +12,16 @@ const Auth = ({component: Component, path, loggedIn, exact,}) => (
   )}/>
 );
 
+const Protected = ({component: Component, path, loggedIn, exact,}) => (
+  <Route path={path} exact={exact} render={(props) => (
+    loggedIn ? (
+      <Component {...props} />
+    ) : (
+      <Redirect to="/signin" />
+    )
+  )}/>
+);
+
 const EmailAuth = ({component: Component, path, loggedIn, email, exact}) => (
   <Route path={path} exact={exact} render={(props) => (
     !loggedIn && email ? (
@@ -28,3 +38,4 @@ const mapStateToProps = state => {
 
 export const AuthRoute = withRouter(connect(mapStateToProps, null)(Auth));
 export const EmailAuthRoute = withRouter(connect(mapStateToProps, null)(EmailAuth));
+export const ProtectedRoute = withRouter(connect(mapStateToProps)(Protected));

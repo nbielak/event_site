@@ -8,7 +8,8 @@ class EventShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchEvent(this.props.match.params.eventId)
+    console.log(this.state);
+    this.props.fetchEvent(this.props.match.params.eventId).then(action => this.setState(action.event))
   }
 
   findOrganizer() {
@@ -17,7 +18,10 @@ class EventShow extends React.Component {
   }
 
   render() {
-    debugger;
+    if (!this.state) {
+      return null;
+    }
+    console.log("state at render", this.state);
     return (
       <div className="event-listing-background">
         <div className="event-listing-grid">

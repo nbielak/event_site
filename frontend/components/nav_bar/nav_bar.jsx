@@ -13,7 +13,7 @@ const NavBar = ({currentUser, logout}) => {
           </li>
         </ul>
       </Link>
-      <Link className="nav-bar-link" to="/">create event</Link>
+      <Link className="nav-bar-link" to="/create">create event</Link>
 
     </nav>
   );
@@ -22,7 +22,7 @@ const NavBar = ({currentUser, logout}) => {
     <nav className = "nav-bar">
       <Link className="nav-bar-link" to="/">browse events</Link>
       <Link className="nav-bar-link" to="/signin">sign in</Link>
-      <Link className="nav-bar-link" to="/">create event</Link>
+      <Link className="nav-bar-link" to="/create">create event</Link>
     </nav>
   );
 
