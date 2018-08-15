@@ -49,20 +49,16 @@ class EventShow extends React.Component {
             </div>
 
             <div className="event-listing-bookmark">
-              <div>
-                <ul>
-                  <li>
-                    <button></button>
-                  </li>
-                  <li>
-                    <button></button>
-                  </li>
-                </ul>
+              <div className="bookmark-content-wrapper">
+
+                <div className="placeholder"></div>
+
+                <div className="bookmark-ticket-button-wrapper">
+                  <button className="bookmark-ticket-button">tickets</button>
+                </div>
               </div>
 
-              <div>
-                <button></button>
-              </div>
+
             </div>
 
             <div className="event-listing-detailed-info">

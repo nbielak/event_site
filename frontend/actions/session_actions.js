@@ -36,7 +36,10 @@ export const login = currentUser => dispatch => (
 export const signup = currentUser => dispatch => (
   SessionApiUtil.signup(currentUser).then(
     currentUser => dispatch(receiveCurrentUser(currentUser)),
-    errors => dispatch(receiveSessionErrors(errors.responseJSON))
+    errors => {
+      console.log(errors);
+      dispatch(receiveSessionErrors(errors.responseJSON))
+    }
   )
 );
 

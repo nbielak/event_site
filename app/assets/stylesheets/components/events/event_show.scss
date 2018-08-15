@@ -86,3 +86,66 @@
     line-height: 30px;
     color: #282C35;
   }
+
+
+  .event-listing-bookmark {
+    border: 1px solid #EFF2F5;
+    box-sizing: border-box;;
+    width: 100%;
+    position: relative;
+
+    .bookmark-content-wrapper {
+      height: 46px;
+      padding: 10px 0;
+      background-color: #fff;
+
+      .bookmark-ticket-button-wrapper {
+        display: block;
+        padding-left: 15px;
+        padding-right: 15px;
+        width: 33.33333333333%;
+        text-align: right;
+        margin-left: 690px;
+
+        .bookmark-ticket-button {
+          width: 100%;
+          background-color: #00ab44;
+          color: #fff;
+          position: relative;
+          height: auto;
+          padding: 11px 20px;
+          line-height: 22px;
+          font-size: 16px;
+          border-radius: 3px;
+          text-transform: uppercase;
+          font-weight: 600;
+          cursor: pointer;
+
+          &:hover {
+            background-color: #00451b;
+          }
+        }
+
+      }
+    }
+  }
+
+  .placeholder {
+    display: block;
+    width: 66.66666666%;
+  }
+
+  .event-listing-detailed-info {
+    padding-top: 50px;
+    position: relative;
+
+    .info-wrapper {
+      margin-left: 8.3333333333%;
+      width: 91.6666666666666666666667%;
+      padding: 0 15px;
+      letter-spacing: .5px;
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 22px;
+    }
+  }
