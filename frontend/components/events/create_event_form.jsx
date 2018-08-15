@@ -53,7 +53,7 @@ class CreateEventForm extends React.Component {
 
                     <div className="event-title-input-wrapper">
                       <div className="event-title-input">
-                        <input value={this.state.title || ""}
+                        <input className="event-title-input-val" value={this.state.title || ""}
                           onChange={this.update('title')}
                           type="text"
                           placeholder="Give it a short, distinct name"/>
@@ -111,7 +111,7 @@ class CreateEventForm extends React.Component {
 
                         <div className="country-select-wrapper">
                           <select onChange={this.update('country')} className="country-select">
-                            <option selected="selected" value="US">United States of America
+                            <option value="US">United States
                             </option>
                           </select>
                         </div>
@@ -158,6 +158,55 @@ class CreateEventForm extends React.Component {
                       </div>
                     </div>
                   </div>
+
+                  <div className="event-image-wrapper">
+                    <div className="event-info-label-wrapper">
+                      <label className="event-info-label">
+                      </label>
+                    </div>
+
+                    <div className="event-image-input-wrapper">
+                    </div>
+
+                  </div>
+
+                  <div className="event-description-wrapper">
+                    <div className="event-info-label-wrapper">
+                      <label className="event-info-label">EVENT DESCRIPTION
+                      </label>
+                    </div>
+
+                    <div className="event-description">
+                      <textarea value={this.state.description || ""}
+                        className="event-description-input"
+                        onChange={this.update('description')}>
+                      </textarea>
+                    </div>
+                  </div>
+
+                  <div className="event-organizer">
+                    <div className="event-info-label-wrapper">
+                      <label className="event-info-label">ORGANIZER NAME
+                      </label>
+                    </div>
+
+                    <div className="event-title-input">
+                      <input className="event-title-input-val"
+                        value={this.state.organizerName || ""}
+                        onChange={this.update('organizerName')}/>
+                    </div>
+                  </div>
+
+                  <div className="event-organizer-description">
+                    <label className="organizer-description-label">ORGANIZER DESCRIPTION
+                    </label>
+                  </div>
+
+                  <textarea value={this.state.organizerDescription || ""}
+                    className="org-desc-input">
+                    onChange={this.update('organizerDescription')}
+                  </textarea>
+
                 </div>
               </div>
 
@@ -166,6 +215,10 @@ class CreateEventForm extends React.Component {
 
               <div className="add-categories-wrapper">
               </div>
+            </div>
+
+            <div className="form-footer">
+              <input className="form-submit" type="submit" value="Make Your Event Live"/>
             </div>
           </form>
         </div>

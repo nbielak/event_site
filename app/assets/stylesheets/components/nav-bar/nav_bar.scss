@@ -18,6 +18,7 @@ header {
       border-radius: 0px;
       color: #45494E;
       position: relative;
+      cursor: pointer;
 
       .nav-bar-drop-down {
         display: none;
@@ -33,6 +34,7 @@ header {
         white-space: nowrap;
         overflow: hidden;
         background: #fff;
+        cursor: pointer;
 
         .nav-bar-drop-down-list-item {
           border-top: 1px solid #EFF2F5;
@@ -40,14 +42,14 @@ header {
           position: relative;
           text-align: center;
           box-sizing: border-box;
+          cursor: pointer;
 
           .logout-button {
-            cursor: pointer;
             border: 1px solid transparent;
             text-align: center;
             font-size: 14px;
             width: 100%;
-
+            cursor: pointer;
 
           }
           &:hover {
