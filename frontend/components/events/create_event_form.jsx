@@ -5,6 +5,7 @@ class CreateEventForm extends React.Component {
     super(props);
     this.state = {}
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.setTime = this.setTime.bind(this);
   }
 
   update(field) {
@@ -17,6 +18,30 @@ class CreateEventForm extends React.Component {
     e.preventDefault();
     const event = Object.assign({}, this.state)
     this.props.createEvent(event).then(action => this.props.history.push(`/events/${action.event.id}`))
+  }
+
+  setTime() {
+    let hour = ""
+    let min = ""
+    let meridian = ""
+    if (this.state.startTimeObj.hour > 12) {
+      hour = `${this.state.startTimeObj.hour - 12}`;
+      meridian = "PM";
+    } else if (this.state.startTimeObj.hour === 0) {
+      hour = "12";
+      meridian = "AM";
+    } else {
+      hour = `${this.state.startTimeObj.hour}`;
+      meridian = "AM";
+    }
+
+    if (this.state.startTimeObj.minute < 10) {
+      min = `0${this.state.startTimeObj.minute}`;
+    } else {
+      min = `${this.state.startTimeObj.minute}`;
+    }
+
+    return `${hour}:${min} ${meridian}`;
   }
 
   render() {

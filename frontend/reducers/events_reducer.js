@@ -11,10 +11,10 @@ const EventsReducer = (state={}, action) => {
       return merge({}, state, newEvent);
     case REMOVE_EVENT:
       let newState = merge({}, state);
-      newState.delete(action.eventId);
+      delete newState[action.eventId];
       return newState;
     default:
-    return state;
+      return state;
   }
 }
 

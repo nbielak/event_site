@@ -25,7 +25,7 @@ class ManageEvents extends React.Component {
           <div className="events-for-you-list-wrapper">
             <ul className="events-for-you-list">
               {this.props.events.map(event => {
-                return (<ManageEventIndexItem key={event.id} event={event} />);
+                return (<ManageEventIndexItem key={event.id} event={event} deleteEvent={this.props.deleteEvent}/>);
               })}
             </ul>
           </div>

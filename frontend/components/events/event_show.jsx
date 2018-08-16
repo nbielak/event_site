@@ -14,7 +14,7 @@ class EventShow extends React.Component {
   }
 
   createStartDate() {
-    const days =["Mon", "Tues", "Wed", "Thurs", "Fri", "Sat", "Sun"];
+    const days =["", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat", "Sun"];
 
     let weekday = days[this.state.startDateObj.cwday];
     return `${weekday}, ${this.setMonth()} ${this.state.startDateObj.date}, ${this.state.startDateObj.year}, ${this.setTime()}`;
@@ -67,6 +67,7 @@ class EventShow extends React.Component {
     if (!this.state) {
       return null;
     }
+    debugger;
     return (
       <div className="event-listing-background">
         <div className="event-listing-grid">

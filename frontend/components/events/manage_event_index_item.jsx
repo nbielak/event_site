@@ -4,16 +4,18 @@ import { withRouter } from 'react-router-dom';
 class ManageEventIndexItem extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.props.event
+    this.state = this.props.event;
     this.handleClick = this.handleClick.bind(this);
     this.createStartDate = this.createStartDate.bind(this);
     this.setMonth = this.setMonth.bind(this);
     this.setTime = this.setTime.bind(this);
+    this.deleteEvent = this.props.deleteEvent.bind(this);
   }
 
   handleClick(e) {
-    this.props.history.push(`/events/${this.props.event.id}`)
+    this.props.history.push(`/events/${this.props.event.id}/edit`)
   }
+
 
   createStartDate() {
     const days =["", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat", "Sun"];
@@ -94,7 +96,7 @@ class ManageEventIndexItem extends React.Component {
             </div>
 
             <div className="event-footer-actions">
-              <button id="event-footer-button" className="event-footer-button">X</button>
+              <button onClick={() => this.deleteEvent(this.state.id).then(this.props.history.replace('/myevents'))}id="event-footer-button" className="event-footer-button">X</button>
             </div>
           </div>
         </div>

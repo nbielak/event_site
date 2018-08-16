@@ -30,8 +30,9 @@ class Api::EventsController < ApplicationController
   end
 
   def destroy
-    @event = current_user.events.find(params[:id])
+    @event = Event.find(params[:id])
     @event.destroy
+    @events = Event.all
     render 'api/events/index'
   end
 
