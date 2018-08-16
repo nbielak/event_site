@@ -4,16 +4,64 @@ class EventShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.props.event;
-    this.findOrganizer = this.findOrganizer.bind(this);
+    this.createStartDate = this.createStartDate.bind(this);
+    this.setMonth = this.setMonth.bind(this);
+    this.setTime = this.setTime.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchEvent(this.props.match.params.eventId).then(action => this.setState(action.event))
   }
 
-  findOrganizer() {
-    let user = this.props.fetchUser(this.state.userId);
-    return user.firstName;
+  createStartDate() {
+    debugger;
+    const days =["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+
+    let weekday = days[this.state.startDateObj.cwday];
+    return `${weekday}, ${this.setMonth()} ${this.state.startDateObj.date}, ${this.state.startDateObj.year}, ${this.setTime()}`;
+
+  }
+
+  setMonth() {
+    const months = {
+      1: "Jan",
+      2: "Feb",
+      3: "Mar",
+      4: "Apr",
+      5: "May",
+      6: "Jun",
+      7: "Jul",
+      8: "Aug",
+      9: "Sep",
+      10: "Oct",
+      11: 'Nov',
+      12: 'Dec'
+    }
+    return months[this.state.startDateObj.month]
+  }
+
+  setTime() {
+    let hour = ""
+    let min = ""
+    let meridian = ""
+    if (this.state.startTimeObj.hour > 12) {
+      hour = `${this.state.startTimeObj.hour - 12}`;
+      meridian = "PM";
+    } else if (this.state.startTimeObj.hour === 0) {
+      hour = "12";
+      meridian = "AM";
+    } else {
+      hour = `${this.state.startTimeObj.hour}`;
+      meridian = "AM";
+    }
+
+    if (this.state.startTimeObj.minute < 10) {
+      min = `0${this.state.startTimeObj.minute}`;
+    } else {
+      min = `${this.state.startTimeObj.minute}`;
+    }
+
+    return `${hour}:${min} ${meridian}`;
   }
 
   render() {
@@ -31,8 +79,9 @@ class EventShow extends React.Component {
               <div className="event-header-info-block">
                 <div className="info-block-wrapper">
                   <div className="event-header-start-date">
-                    <time className="date" dateTime={this.state.startDate}>
-                      <p>{this.state.startDate}</p>
+                    <time className="date">
+                      <p>{this.setMonth()}</p>
+                      <p>{this.state.startDateObj.date}</p>
                     </time>
 
                   </div>
@@ -82,7 +131,7 @@ class EventShow extends React.Component {
                   <div className="time">
                     <p className="event-label">Date and Time</p>
                     <div className="event-date">
-                      <p>{this.state.startDate} {this.state.startTime}</p>
+                      <p>{this.createStartDate()}</p>
                     </div>
 
 

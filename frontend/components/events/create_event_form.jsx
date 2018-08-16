@@ -16,9 +16,7 @@ class CreateEventForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const event = Object.assign({}, this.state)
-    this.props.createEvent(event).then(action => {
-      debugger;
-      this.props.history.push(`/events/${action.event.id}`)})
+    this.props.createEvent(event).then(action => this.props.history.push(`/events/${action.event.id}`))
   }
 
   render() {
