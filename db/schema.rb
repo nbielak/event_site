@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180813181250) do
+ActiveRecord::Schema.define(version: 20180816174228) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,8 +32,8 @@ ActiveRecord::Schema.define(version: 20180813181250) do
     t.string "state"
     t.integer "zip"
     t.string "country"
-    t.float "lat"
-    t.float "lng"
+    t.string "organizer_name", null: false
+    t.text "organizer_description", null: false
     t.index ["address"], name: "index_events_on_address"
     t.index ["title"], name: "index_events_on_title"
     t.index ["user_id"], name: "index_events_on_user_id"

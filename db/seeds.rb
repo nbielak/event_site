@@ -69,6 +69,8 @@ Event.create!(
   lng: 1.0,
   start_time: Time.parse("7:00"),
   start_date: Date.parse("August 21"),
+  organizer_name: "Nick",
+  organizer_description: "it's lil ol me",
   user_id: nick[:id]
 )
 
@@ -85,6 +87,8 @@ Event.create!(
   lng: 2.0,
   start_time: Time.parse("7:00"),
   start_date: Date.parse("August 19"),
+  organizer_name: "Fun Company",
+  organizer_description: "We only serve fun!",
   user_id: jane[:id]
 )
 
@@ -101,6 +105,8 @@ Event.create!(
   lng: 3.0,
   start_time: Time.parse("7:00"),
   start_date: Date.parse("September 4"),
+  organizer_name: "The Pizza Conglomerate",
+  organizer_description: "Controlling the pizza business by hotile take overs since 1983!",
   user_id: demo[:id]
 )
 
@@ -117,6 +123,8 @@ Event.create!(
   lng: 4.0,
   start_time: Time.parse("7:00"),
   start_date: Date.parse("August 21"),
+  organizer_name: "Let's Paint!",
+  organizer_description: "Painting! It's not boring anymore!",
   user_id: john[:id]
 )
 Event.create!(
@@ -132,6 +140,8 @@ Event.create!(
   lng: 4.0,
   start_time: Time.parse("7:00"),
   start_date: Date.parse("August 21"),
+  organizer_name: "Let's Paint!",
+  organizer_description: "Painting! It's not boring anymore!",
   user_id: john[:id]
 )
 Event.create!(
@@ -147,6 +157,8 @@ Event.create!(
   lng: 4.0,
   start_time: Time.parse("7:00"),
   start_date: Date.parse("August 21"),
+  organizer_name: "Let's Paint!",
+  organizer_description: "Painting! It's not boring anymore!",
   user_id: john[:id]
 )
 Event.create!(
@@ -162,6 +174,8 @@ Event.create!(
   lng: 4.0,
   start_time: Time.parse("7:00"),
   start_date: Date.parse("August 21"),
+  organizer_name: "Let's Paint!",
+  organizer_description: "Painting! It's not boring anymore!",
   user_id: john[:id]
 )
 Event.create!(
@@ -177,6 +191,8 @@ Event.create!(
   lng: 4.0,
   start_time: Time.parse("7:00"),
   start_date: Date.parse("August 21"),
+  organizer_name: "Let's Paint!",
+  organizer_description: "Painting! It's not boring anymore!",
   user_id: john[:id]
 )
 Event.create!(
@@ -192,6 +208,8 @@ Event.create!(
   lng: 4.0,
   start_time: Time.parse("7:00"),
   start_date: Date.parse("August 21"),
+  organizer_name: "Let's Paint!",
+  organizer_description: "Painting! It's not boring anymore!",
   user_id: john[:id]
 )
 Event.create!(
@@ -207,6 +225,8 @@ Event.create!(
   lng: 4.0,
   start_time: Time.parse("7:00"),
   start_date: Date.parse("August 21"),
+  organizer_name: "Let's Paint!",
+  organizer_description: "Painting! It's not boring anymore!",
   user_id: john[:id]
 )
 Event.create!(
@@ -222,6 +242,8 @@ Event.create!(
   lng: 4.0,
   start_time: Time.parse("7:00"),
   start_date: Date.parse("August 21"),
+  organizer_name: "Let's Paint!",
+  organizer_description: "Painting! It's not boring anymore!",
   user_id: john[:id]
 )
 Event.create!(
@@ -237,6 +259,8 @@ Event.create!(
   lng: 4.0,
   start_time: Time.parse("7:00"),
   start_date: Date.parse("August 21"),
+  organizer_name: "Let's Paint!",
+  organizer_description: "Painting! It's not boring anymore!",
   user_id: john[:id]
 )
 Event.create!(
@@ -252,6 +276,8 @@ Event.create!(
   lng: 4.0,
   start_time: Time.parse("7:00"),
   start_date: Date.parse("August 21"),
+  organizer_name: "Let's Paint!",
+  organizer_description: "Painting! It's not boring anymore!",
   user_id: john[:id]
 )
 Event.create!(
@@ -267,6 +293,8 @@ Event.create!(
   lng: 4.0,
   start_time: Time.parse("7:00"),
   start_date: Date.parse("August 21"),
+  organizer_name: "Let's Paint!",
+  organizer_description: "Painting! It's not boring anymore!",
   user_id: john[:id]
 )
 Event.create!(
@@ -282,6 +310,8 @@ Event.create!(
   lng: 4.0,
   start_time: Time.parse("7:00"),
   start_date: Date.parse("August 21"),
+  organizer_name: "Let's Paint!",
+  organizer_description: "Painting! It's not boring anymore!",
   user_id: john[:id]
 )
 Event.create!(
@@ -297,6 +327,8 @@ Event.create!(
   lng: 4.0,
   start_time: Time.parse("7:00"),
   start_date: Date.parse("August 21"),
+  organizer_name: "Let's Paint!",
+  organizer_description: "Painting! It's not boring anymore!",
   user_id: john[:id]
 )
 Event.create!(
@@ -312,6 +344,8 @@ Event.create!(
   lng: 4.0,
   start_time: Time.parse("7:00"),
   start_date: Date.parse("August 21"),
+  organizer_name: "Let's Paint!",
+  organizer_description: "Painting! It's not boring anymore!",
   user_id: john[:id]
 )
 Event.create!(
@@ -327,6 +361,8 @@ Event.create!(
   lng: 4.0,
   start_time: Time.parse("7:00"),
   start_date: Date.parse("August 21"),
+  organizer_name: "Let's Paint!",
+  organizer_description: "Painting! It's not boring anymore!",
   user_id: john[:id]
 )
 Event.create!(
@@ -342,6 +378,8 @@ Event.create!(
   lng: 4.0,
   start_time: Time.parse("7:00"),
   start_date: Date.parse("August 21"),
+  organizer_name: "Let's Paint!",
+  organizer_description: "Painting! It's not boring anymore!",
   user_id: john[:id]
 )
 Event.create!(
@@ -357,6 +395,8 @@ Event.create!(
   lng: 4.0,
   start_time: Time.parse("7:00"),
   start_date: Date.parse("August 21"),
+  organizer_name: "Let's Paint!",
+  organizer_description: "Painting! It's not boring anymore!",
   user_id: john[:id]
 )
 Event.create!(
@@ -372,5 +412,58 @@ Event.create!(
   lng: 4.0,
   start_time: Time.parse("7:00"),
   start_date: Date.parse("August 21"),
+  organizer_name: "Let's Paint!",
+  organizer_description: "Painting! It's not boring anymore!",
+  user_id: john[:id]
+)
+Event.create!(
+  title: "Painting Class",
+  description: paragraph,
+  venue_name: "SF MOMA",
+  address: "151 3rd St",
+  city: "San Francisco",
+  state: "CA",
+  zip: "94103",
+  country: "United States of America",
+  lat: 4.0,
+  lng: 4.0,
+  start_time: Time.parse("7:00"),
+  start_date: Date.parse("August 21"),
+  organizer_name: "Let's Paint!",
+  organizer_description: "Painting! It's not boring anymore!",
+  user_id: john[:id]
+)
+Event.create!(
+  title: "Painting Class",
+  description: paragraph,
+  venue_name: "SF MOMA",
+  address: "151 3rd St",
+  city: "San Francisco",
+  state: "CA",
+  zip: "94103",
+  country: "United States of America",
+  lat: 4.0,
+  lng: 4.0,
+  start_time: Time.parse("7:00"),
+  start_date: Date.parse("August 21"),
+  organizer_name: "Let's Paint!",
+  organizer_description: "Painting! It's not boring anymore!",
+  user_id: john[:id]
+)
+Event.create!(
+  title: "Painting Class",
+  description: paragraph,
+  venue_name: "SF MOMA",
+  address: "151 3rd St",
+  city: "San Francisco",
+  state: "CA",
+  zip: "94103",
+  country: "United States of America",
+  lat: 4.0,
+  lng: 4.0,
+  start_time: Time.parse("7:00"),
+  start_date: Date.parse("August 21"),
+  organizer_name: "Let's Paint!",
+  organizer_description: "Painting! It's not boring anymore!",
   user_id: john[:id]
 )

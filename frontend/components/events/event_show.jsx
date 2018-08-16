@@ -43,7 +43,7 @@ class EventShow extends React.Component {
                     </h1>
 
                     <h2>
-                      ORGANIZER
+                      {this.state.organizerName}
                     </h2>
                   </div>
                 </div>

@@ -31,11 +31,11 @@ class Event < ApplicationRecord
     :state,
     :zip,
     :country,
-    :lat,
-    :lng,
-    :start_date, 
+    :start_date,
     :start_time,
     :user_id,
+    :organizer_name,
+    :organizer_description,
     presence: true
 
   belongs_to :organizer,
