@@ -7,3 +7,14 @@ export const getSplashCityEvents = ({events, city}) => {
   })
   return result;
 };
+
+export const getUserEvents = ({events, currentUserId}) => {
+  let result = [];
+  Object.keys(events).forEach(id =>{
+    if (events[id].userId === currentUserId) {
+      result.push(events[id])
+    }
+  })
+
+  return result;
+};

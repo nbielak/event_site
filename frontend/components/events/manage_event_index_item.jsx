@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-class EventIndexItem extends React.Component {
+class ManageEventIndexItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.props.event
@@ -94,8 +94,7 @@ class EventIndexItem extends React.Component {
             </div>
 
             <div className="event-footer-actions">
-              <button id="event-footer-button" className="event-footer-button"></button>
-              <button id="event-footer-button" className="event-footer-button"></button>
+              <button id="event-footer-button" className="event-footer-button">X</button>
             </div>
           </div>
         </div>
@@ -104,4 +103,4 @@ class EventIndexItem extends React.Component {
   }
 }
 
-export default withRouter(EventIndexItem);
+export default withRouter(ManageEventIndexItem);

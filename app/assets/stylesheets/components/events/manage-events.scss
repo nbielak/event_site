@@ -1,0 +1,38 @@
+.manage-page {
+  background: #F8F8FA;
+  min-height: 1000px;
+
+  .user-events {
+    width: 1080px;
+    margin-left: auto;
+    margin-right: auto;
+
+    .events-for-you-title-wrapper {
+      padding: 0;
+      width: 100%;
+
+      .events-for-you-second-wrapper {
+        padding: 15px;
+        vertical-align: top;
+        box-sizing: border-box;
+        margin-top: 20px;
+        font-size: 15px;
+        overflow: visible;
+        position: relative;
+        line-height: 44px;
+        letter-spacing: .5px;
+
+        .events-for-you-title {
+          font-size: 35px;
+          line-height: 40px;
+          font-weight: 500;
+          width: auto;
+          vertical-align: middle;
+          color: #282C35;
+
+        }
+      }
+    }
+  }
+
+}

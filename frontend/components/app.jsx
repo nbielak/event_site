@@ -13,6 +13,7 @@ import LookUpFormContainer from './session_form/look_up_form_container';
 import EventIndexContainer from './events/event_index_container';
 import EventShowContainer from './events/event_show_container';
 import CreateEventFormContainer from './events/create_event_form_container';
+import ManageEventsContainer from './events/manage_events_container';
 import RedirectToMain from './redirect_to_main';
 import { AuthRoute, ProtectedRoute, EmailAuthRoute } from '../util/route_util';
 
@@ -34,6 +35,7 @@ const App = () => (
         <EmailAuthRoute exact path="/signin/signup" component={SignupFormContainer} />
         <AuthRoute exact path="/signin" component={LookUpFormContainer}/>
         <ProtectedRoute exact path="/create" component={CreateEventFormContainer}/>
+        <ProtectedRoute exact path="/myevents" component={ManageEventsContainer}/>
         <Route path="/events/:eventId" component={EventShowContainer} />
         <Route component={RedirectToMain} />
       </Switch>

@@ -21,7 +21,7 @@ const NavBar = ({currentUser, logout}) => {
             <Link to='/'>Following</Link>
           </li>
           <li className="nav-bar-drop-down-list-item">
-            <Link to='/'>Manage Events</Link>
+            <Link to='/myevents'>Manage Events</Link>
           </li>
           <li className="nav-bar-drop-down-list-item">
             <Link to='/'>Account Settings</Link>
