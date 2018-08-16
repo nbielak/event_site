@@ -72,17 +72,130 @@
 .event-detail-content {
   margin-top: 10px;
 
-  .event-info-label-wrapper {
-    position: relative;
+
+  .event-title-input {
+    margin-top: 5px;
     width: 100%;
 
-    .event-info-label {
-      line-height: 22px;
-      vertical-align: middle;
+    .event-title-input-val {
+      line-height: 24px;
       font-size: 16px;
-      color: #282C35;
       font-weight: 400;
-      letter-spacing: 0.5px;
+      color: #45494E;
+      background: #fff;
+      border: 1px solid #D2D6DF;
+      padding: 9px 12px;
+      width: 66.666666666666666%;
+      border-radius: 3px;
     }
   }
+
+}
+
+.event-info-label-wrapper {
+  position: relative;
+  width: 100%;
+  margin-top: 15px;
+
+  .event-info-label {
+    line-height: 22px;
+    vertical-align: middle;
+    font-size: 16px;
+    color: #282C35;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+  }
+}
+
+.event-location-input {
+  margin-top: 5px;
+  width: 50%;
+
+  .address-cell {
+    margin-top: 5px;
+    display: block;
+    line-height: 24px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #45494E;
+    background: #fff;
+    border: 1px solid #D2D6DF;
+    padding: 9px 12px;
+    width: 80%;
+    border-radius: 3px;
+
+    &:first-child {
+      margin-top: 10px;
+    }
+  }
+}
+
+.event-state-zip-country {
+  margin-top: 5px;
+
+  .state-zip-input {
+    display: inline-block;
+    width: 40%;
+
+    .zip-cell {
+      display: inline-block;
+      line-height: 24px;
+      font-size: 16px;
+      font-weight: 400;
+      color: #45494E;
+      background: #fff;
+      border: 1px solid #D2D6DF;
+      padding: 9px 12px;
+      width: 85%;
+      border-radius: 3px;
+
+    }
+
+    &:first-child {
+      margin-right: 30px;
+    }
+
+
+  }
+
+  .country-select-wrapper {
+    margin-top: 5px;
+    display: inline-block;
+    width: 85%;
+    border-radius: 3px;
+
+    .country-select {
+      height: 42px;
+      width: 100%;
+      line-height: 24px;
+      font-size: 16px;
+      font-weight: 400;
+      color: #45494E;
+      background: #fff;
+      color: #45494E;
+      background: #fff;
+    }
+  }
+}
+
+.event-date-wrapper {
+  width: 100%;
+  margin-top: 5px;
+
+  .event-date-input-wrapper {
+    display: inline-block;
+    margin-top: 5px;
+    margin-right: 20px;
+    width: auto;
+
+    .date-time-wrapper {
+      justify-content: space-between;
+
+      .date-time-inputs {
+        display: flex;
+
+      }
+    }
+  }
+
 }
