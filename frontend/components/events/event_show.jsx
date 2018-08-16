@@ -14,8 +14,7 @@ class EventShow extends React.Component {
   }
 
   createStartDate() {
-    debugger;
-    const days =["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+    const days =["Mon", "Tues", "Wed", "Thurs", "Fri", "Sat", "Sun"];
 
     let weekday = days[this.state.startDateObj.cwday];
     return `${weekday}, ${this.setMonth()} ${this.state.startDateObj.date}, ${this.state.startDateObj.year}, ${this.setTime()}`;
