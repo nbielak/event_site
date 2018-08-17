@@ -40,16 +40,30 @@ header {
           border-top: 1px solid #EFF2F5;
           width: 100%;
           position: relative;
-          text-align: center;
+          text-align: left;
           box-sizing: border-box;
           cursor: pointer;
+          height: 14.2857142857%;
+          padding-top: 15px;
+          padding-left: 15px;
+          text-decoration: none;
 
           .logout-button {
-            border: 1px solid transparent;
-            text-align: center;
-            font-size: 14px;
+            text-align: left;
+            text-decoration: none;
+            color: #45494E;
+            font-size: 12px;
+            font-weight: 400px;
+            line-height: 19px;
+            letter-spacing: 0.5px;
             width: 100%;
             cursor: pointer;
+            background-color: transparent;
+            text-transform: uppercase;
+
+            &:hover {
+              background-color: #EFF2F5;
+            }
 
           }
           &:hover {
@@ -79,4 +93,14 @@ header {
     }
 
   }
+}
+
+.link {
+  text-align: left;
+  text-decoration: none;
+  color: #45494E;
+  font-size: 12px;
+  font-weight: 400px;
+  line-height: 19px;
+  letter-spacing: 0.5px;
 }

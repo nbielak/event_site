@@ -96,7 +96,7 @@ class ManageEventIndexItem extends React.Component {
             </div>
 
             <div className="event-footer-actions">
-              <button onClick={() => this.deleteEvent(this.state.id).then(this.props.history.replace('/myevents'))}id="event-footer-button" className="event-footer-button">X</button>
+              <button onClick={() => this.deleteEvent(this.state.id).then(this.props.history.replace('/myevents'))}id="manage-event-footer-button" className="manage-event-footer-button">X</button>
             </div>
           </div>
         </div>

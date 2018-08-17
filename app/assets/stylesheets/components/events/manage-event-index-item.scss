@@ -1,0 +1,17 @@
+.manage-event-footer-button {
+  display: inline-block;
+  color: #666A73;
+  font-size: 20px;
+  width: 40px;
+  height: 40px;
+  border-left: 1px solid #EFF2F5;
+  box-sizing: border-box;
+  text-align: center;
+  cursor: pointer;
+  color: red;
+
+  &:hover {
+    background: red;
+    color: white;
+  }
+}
