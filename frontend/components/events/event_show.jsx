@@ -147,6 +147,24 @@ class EventShow extends React.Component {
                 </div>
               </div>
             </div>
+
+            <div className="organizer-info-wrapper">
+              <div className="organizer-name-desc-wrapper">
+                <div className="organizer-name-desc">
+                  <div className="organizer-name">
+                    <a className="o-name">{this.state.organizerName}</a>
+                  </div>
+
+                  <div className="organizer-event-description">
+                    <p className="o-ev-desc">Organizer of {this.state.title}</p>
+                  </div>
+
+                  <div className="organizer-desc">
+                    <p className="o-desc">{this.state.organizerDescription}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
