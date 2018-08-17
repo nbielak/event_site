@@ -16,6 +16,7 @@ import CreateEventFormContainer from './events/create_event_form_container';
 import ManageEventsContainer from './events/manage_events_container';
 import EditEventFormContainer from './events/edit_event_form_container';
 import RedirectToMain from './redirect_to_main';
+import PageFooter from './footer/footer';
 import { AuthRoute, ProtectedRoute, EmailAuthRoute } from '../util/route_util';
 
 const App = () => (
@@ -42,6 +43,8 @@ const App = () => (
         <Route component={RedirectToMain} />
       </Switch>
     </div>
+
+    <PageFooter/>
   </div>
 );
 

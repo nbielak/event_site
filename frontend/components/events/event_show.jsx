@@ -67,7 +67,6 @@ class EventShow extends React.Component {
     if (!this.state) {
       return null;
     }
-    debugger;
     return (
       <div className="event-listing-background">
         <div className="event-listing-grid">

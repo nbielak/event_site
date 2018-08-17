@@ -18,7 +18,7 @@ class ManageEvents extends React.Component {
         <div className="user-events">
           <div className="events-for-you-title-wrapper">
             <div className="events-for-you-second-wrapper">
-              <p className="events-for-you-title">Mangage Events</p>
+              <p className="events-for-you-title">Manage Events</p>
             </div>
 
           </div>
