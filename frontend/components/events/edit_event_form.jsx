@@ -5,8 +5,8 @@ class EditEventForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.props.event;
-    debugger;
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.setTime = this.setTime.bind(this);
   }
 
   componentDidMount() {
@@ -21,6 +21,14 @@ class EditEventForm extends React.Component {
     }
   }
 
+  setTime(time) {
+    if (time) {
+      return time.slice(-13, -8);
+    } else {
+      return "00:00"
+    }
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     const event = Object.assign({}, this.state)
@@ -31,7 +39,6 @@ class EditEventForm extends React.Component {
     if (!this.state) {
       return null;
     } else {
-      debugger;
       return (
         <div>
           <div className="create-event-top">
@@ -142,7 +149,7 @@ class EditEventForm extends React.Component {
                             className="date-input" type="date"
                             onChange={this.update('startDate')}/>
 
-                          <input value={this.state.startTime || ""}
+                          <input value={this.setTime(this.state.startTime) || ""}
                             className="time-input" type="time"
                             onChange={this.update('startTime')}/>
 
@@ -162,7 +169,7 @@ class EditEventForm extends React.Component {
                             className="date-input" type="date"
                             onChange={this.update('endDate')}/>
 
-                          <input value={this.state.endTime || ""}
+                          <input value={this.setTime(this.state.endTime) || ""}
                             className="time-input" type="time"
                             onChange={this.update('endTime')}/>
 
