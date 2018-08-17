@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter, Redirect } from 'react-router-dom';
+import ErrorList from '../session_form/error_list';
 
 class EditEventForm extends React.Component {
   constructor(props) {
@@ -63,6 +64,10 @@ class EditEventForm extends React.Component {
                   </div>
 
                   <div className="event-detail-content">
+
+                    <div className="error-list-wrapper">
+                      <ErrorList errors={this.props.errors} />
+                    </div>
 
                     <div className="event-title-wrapper">
                       <div className="event-info-label-wrapper">

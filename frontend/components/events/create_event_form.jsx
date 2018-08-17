@@ -1,4 +1,5 @@
 import React from 'react';
+import ErrorList from '../session_form/error_list';
 
 class CreateEventForm extends React.Component {
   constructor(props) {
@@ -67,6 +68,10 @@ class CreateEventForm extends React.Component {
                 </div>
 
                 <div className="event-detail-content">
+
+                  <div className="error-list-wrapper">
+                    <ErrorList errors={this.props.errors} />
+                  </div>
 
                   <div className="event-title-wrapper">
                     <div className="event-info-label-wrapper">

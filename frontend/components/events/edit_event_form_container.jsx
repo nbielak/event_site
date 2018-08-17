@@ -4,7 +4,8 @@ import EditEventForm from './edit_event_form';
 
 const mapStateToProps = (state, ownProps) => ({
   event: state.entities.events[ownProps.match.params.eventId],
-  currentUser: state.session.currentUser
+  currentUser: state.session.currentUser,
+  errors: state.errors.eventErrors
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -28,34 +28,34 @@ const receiveEventErrors = errors => ({
 export const fetchAllEvents = () => dispatch => (
   EventApiUtil.fetchAllEvents().then(
     events => dispatch(receiveAllEvents(events)),
-    errors => dispatch(receiveEventErrors(errors))
+    errors => dispatch(receiveEventErrors(errors.responseJSON))
   )
 );
 
 export const fetchEvent = (eventId) => dispatch => (
   EventApiUtil.fetchEvent(eventId).then(
     event => dispatch(receiveEvent(event)),
-    errors => dispatch(receiveEventErrors(errors))
+    errors => dispatch(receiveEventErrors(errors.responseJSON))
   )
 );
 
 export const createEvent = event => dispatch => (
   EventApiUtil.createEvent(event).then(
     event => dispatch(receiveEvent(event)),
-    errors => dispatch(receiveEventErrors(errors))
+    errors => dispatch(receiveEventErrors(errors.responseJSON))
   )
 );
 
 export const updateEvent = event => dispatch => (
   EventApiUtil.updateEvent(event).then(
     event => dispatch(receiveEvent(event)),
-    errors => dispatch(receiveEventErrors(errors))
+    errors => dispatch(receiveEventErrors(errors.responseJSON))
   )
 );
 
 export const deleteEvent = eventId => dispatch => (
   EventApiUtil.deleteEvent(eventId).then(
     event => dispatch(removeEvent(eventId)),
-    errors => dispatch(receiveEventErrors(errors))
+    errors => dispatch(receiveEventErrors(errors.responseJSON))
   )
 );
