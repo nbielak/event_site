@@ -25,7 +25,7 @@ class EditEventForm extends React.Component {
     if (time) {
       return time.slice(-13, -8);
     } else {
-      return "00:00"
+      return "--:--"
     }
   }
 
@@ -127,8 +127,8 @@ class EditEventForm extends React.Component {
 
                         <div className="country-select-wrapper">
                           <select onChange={this.update('country')} className="country-select">
-                            <option selected disabled>Choose Country</option>
-                            <option value="US">United States</option>
+                            <option disabled>Choose Country</option>
+                            <option selected="selected" value="US">United States</option>
                           </select>
                         </div>
                       </div>
