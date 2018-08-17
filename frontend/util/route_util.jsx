@@ -32,6 +32,7 @@ const EmailAuth = ({component: Component, path, loggedIn, email, exact}) => (
   )}/>
 );
 
+
 const mapStateToProps = state => {
   return {loggedIn: Boolean(state.session.currentUser), email: Boolean(state.session.lookUp.email)};
 };

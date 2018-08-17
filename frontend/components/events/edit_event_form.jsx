@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Redirect } from 'react-router-dom';
 
 class EditEventForm extends React.Component {
   constructor(props) {
@@ -38,11 +38,13 @@ class EditEventForm extends React.Component {
   render() {
     if (!this.state) {
       return null;
+    } else if (this.state.userId !== this.props.currentUser) {
+      return (<Redirect to="/" />)
     } else {
       return (
         <div>
           <div className="create-event-top">
-            <h2 className="event-top">Create an Event</h2>
+            <h2 className="event-top">Edit Your Event</h2>
           </div>
 
           <div className="create-event-edit-design">

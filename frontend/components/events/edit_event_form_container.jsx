@@ -3,7 +3,8 @@ import { fetchEvent, updateEvent } from '../../actions/event_actions';
 import EditEventForm from './edit_event_form';
 
 const mapStateToProps = (state, ownProps) => ({
-  event: state.entities.events[ownProps.match.params.eventId]
+  event: state.entities.events[ownProps.match.params.eventId],
+  currentUser: state.session.currentUser
 });
 
 const mapDispatchToProps = dispatch => ({
