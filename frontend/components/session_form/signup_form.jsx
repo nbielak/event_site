@@ -129,3 +129,5 @@ class SignupForm extends React.Component {
 }
 
 export default withRouter(SignupForm);
+
+// svg path is from EventBrite
