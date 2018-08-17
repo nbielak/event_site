@@ -7,11 +7,13 @@ class Api::EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    # ensure_local_time(@event)
   end
 
   def create
     @event = Event.new(event_params)
     @event.user_id = current_user.id
+    # ensure_local_time(@event)
 
     if @event.save
       render 'api/events/show'
@@ -22,6 +24,8 @@ class Api::EventsController < ApplicationController
 
   def update
     @event = current_user.events.find(params[:id])
+    # ensure_local_time(@event)
+
     if @event.update_attributes(event_params)
       render 'api/events/show'
     else
@@ -56,4 +60,9 @@ class Api::EventsController < ApplicationController
       :organizer_name,
       :organizer_description)
   end
+
+  # def ensure_local_time(event)
+  #   event.start_time = event.start_time.localtime
+  #   event.end_time = event.end_time.localtime if @event.end_time
+  # end
 end
