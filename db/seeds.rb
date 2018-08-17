@@ -242,7 +242,7 @@ Event.create!(
   country: "United States of America",
   start_time: Time.parse("04:00"),
   start_date: Date.parse("September 3"),
-  organizer_name: "Movie's R Us",
+  organizer_name: "Movies R Us",
   organizer_description: "We're big picture people!",
   user_id: demo[:id]
 )
