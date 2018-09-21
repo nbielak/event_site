@@ -20,6 +20,10 @@ class User < ApplicationRecord
 
   has_many :events
 
+  has_many :created_tickets
+    through: :events,
+    source: :tickets
+
   attr_reader :password
 
   def self.find_by_credentials(email, password)

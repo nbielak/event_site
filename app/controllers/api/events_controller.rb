@@ -60,9 +60,4 @@ class Api::EventsController < ApplicationController
       :organizer_name,
       :organizer_description)
   end
-
-  # def ensure_local_time(event)
-  #   event.start_time = event.start_time.localtime
-  #   event.end_time = event.end_time.localtime if @event.end_time
-  # end
 end
