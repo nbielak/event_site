@@ -1,6 +1,11 @@
 class Api::TicketsController < ApplicationController
     before_action :require_login
 
+    def show
+        @ticket = Ticket.find(params[:id])
+        render 'api/tickets/show'
+    end
+
     def create
         @ticket = Ticket.new(ticket_params)
         if @ticket.save
