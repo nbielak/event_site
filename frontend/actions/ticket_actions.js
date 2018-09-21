@@ -19,22 +19,22 @@ const receiveTicketErrors = errors => ({
     errors
 });
 
-export const fetchTicket = ticketId => dispatch => (
-    TicketApiUtil.fetchTicket(ticketId).then(
+export const fetchTicket = (eventId, ticketId) => dispatch => (
+    TicketApiUtil.fetchTicket(eventId, ticketId).then(
         ticket => dispatch(receiveTicket(ticket)),
         errors => dispatch(receiveTicketErrors(errors.responseJSON))
     )
 );
 
-export const createTicket = ticket => dispatch => (
-    TicketApiUtil.createTicket(ticket).then(
+export const createTicket = (eventId, ticket) => dispatch => (
+    TicketApiUtil.createTicket(eventId, ticket).then(
         ticket => dispatch(receiveTicket(ticket)),
         errors => dispatch(receiveTicketErrors(errors.responseJSON))
     )
 );
 
-export const deleteTicket = ticketId => dispatch => (
-    TicketApiUtil.deleteTicket(ticketId).then(
+export const deleteTicket = (eventId, ticketId) => dispatch => (
+    TicketApiUtil.deleteTicket(eventId, ticketId).then(
         ticket => dispatch(removeTicket(ticketId))
     )
 );

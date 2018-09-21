@@ -16,4 +16,4 @@ const TicketsReducer = (state={}, action) => {
     }
 }
 
-export default TicketReducer;
+export default TicketsReducer;

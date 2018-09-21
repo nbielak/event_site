@@ -20,7 +20,7 @@ class User < ApplicationRecord
 
   has_many :events
 
-  has_many :created_tickets
+  has_many :created_tickets,
     through: :events,
     source: :tickets
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import ErrorList from '../session_form/error_list';
+import CreateTicketFormContainer from '../tickets/create_ticket_form_container';
 
 class CreateEventForm extends React.Component {
   constructor(props) {
@@ -240,6 +241,7 @@ class CreateEventForm extends React.Component {
               </div>
 
               <div className="create-tickets-wrapper">
+                <CreateTicketFormContainer />
               </div>
 
               <div className="add-categories-wrapper">

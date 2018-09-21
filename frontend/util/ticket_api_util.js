@@ -1,23 +1,23 @@
-export const fetchTicket = id => (
+export const fetchTicket = (eventId, id) => (
     $.ajax ({
         method: 'GET',
-        url: `/api/tickets/${id}`,
+        url: `/api/events/${eventId}/tickets/${id}`,
         data: { id }
     })
 )
 
-export const createTicket = ticket => (
+export const createTicket = (eventId, ticket) => (
     $.ajax ({
         method: `POST`,
-        url: '/api/tickets',
+        url: `/api/events/${eventId}/tickets`,
         data: { ticket }
     })
 );
 
-export const updateTicket = ticket => (
+export const updateTicket = (eventId, ticket) => (
     $.ajax ({
         method: PATCH,
-        url: `/api/tickets/${ticket.id}`,
+        url: `/api/events/${eventId}tickets/${ticket.id}`,
         data: { ticket }
     })
 );
@@ -25,6 +25,6 @@ export const updateTicket = ticket => (
 export const deleteTicket = id => (
     $.ajax ({
         method: 'DELETE',
-        url: `api/tickets/${id}`
+        url: `api/events/${eventId}tickets/${id}`
     })
 );

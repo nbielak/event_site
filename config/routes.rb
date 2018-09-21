@@ -5,7 +5,9 @@ Rails.application.routes.draw do
     resources :users
     get '/email', to: 'users#sign_in', as: 'user_sign_in'
     resource :session, only: [:create, :destroy]
-    resources :events
-    resources :tickets, only: [:show, :create, :update, :destroy]
+    resources :events do 
+      resources :tickets, only: [:show, :create, :update, :destroy]
+    end
+    
   end
 end
