@@ -19,4 +19,7 @@ class Ticket < ApplicationRecord
     has_one :creator,
         through: :event,
         source: :organizer
+    
+    has_many :user_tickets,
+        dependent: :destroy
 end

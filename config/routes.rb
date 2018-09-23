@@ -8,6 +8,6 @@ Rails.application.routes.draw do
     resources :events do 
       resources :tickets, only: [:show, :create, :update, :destroy]
     end
-    
+    resources :user_tickets, only: [:index, :create, :destroy]
   end
 end

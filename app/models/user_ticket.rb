@@ -4,7 +4,7 @@
 #
 #  id         :bigint(8)        not null, primary key
 #  user_id    :integer          not null
-#  event_id   :integer          not null
+#  ticket_id  :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
@@ -15,6 +15,6 @@ class UserTicket < ApplicationRecord
     belongs_to :user,
         foreign_key: :user_id
     
-    belongs_to :event,
-        foreign_key: :event_id
+    belongs_to :ticket,
+        foreign_key: :ticket_id
 end
