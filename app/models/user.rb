@@ -18,7 +18,11 @@ class User < ApplicationRecord
   validates :password, length: {minimum: 6, allow_nil: true}
   after_initialize :ensure_session_token
 
-  has_many :events
+  has_many :events,
+    dependent: :destroy
+
+  has_many :user_tickets,
+    dependent: :destroy
 
   has_many :created_tickets,
     through: :events,

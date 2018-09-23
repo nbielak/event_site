@@ -30,10 +30,14 @@ class CreateTicketForm extends React.Component{
                 <label>Quantity</label>
                 <input onChange={this.update("quantity")}
                     type="number"
+                    min="1"
                     placeholder="100" />
 
                 <label>Price</label>
-                <input onChange={this.update("price")} type="number" placeholder="15.00" />
+                <input onChange={this.update("price")} 
+                type="number" 
+                min="0" 
+                placeholder="15.00" />
                 
             </div>
         );

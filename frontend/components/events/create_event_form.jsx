@@ -1,46 +1,74 @@
 import React from 'react';
 import ErrorList from '../session_form/error_list';
-import CreateTicketFormContainer from '../tickets/create_ticket_form_container';
 
 class CreateEventForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = { event: {}, ticket: {} };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.setTime = this.setTime.bind(this);
+    this.updateEvent = this.updateEvent.bind(this);
+    this.updateTicket = this.updateTicket.bind(this);
   }
 
-  update(field) {
+  // componentDidMount() {
+  //   this.setState({event: {}, ticket: {}});
+  // }
+
+  updateEvent(field) {
+    // debugger;
     return e => {
-      this.setState({[field]: e.target.value})
+      let event = this.state.event;
+      event[field] = e.target.value;
+      this.setState({ event })
     }
   }
 
+  updateTicket(field){
+    // debugger;
+    return e => {
+      let ticket = this.state.ticket;
+      ticket[field] = e.target.value;
+      this.setState({ ticket })
+    }
+  }
+
+  updateTicketEventId(id) {
+    let ticket = this.state.ticket;
+    ticket["eventId"] = id;
+    this.setState({ ticket });
+  }
+
   handleSubmit(e) {
+    debugger;
     e.preventDefault();
-    const event = Object.assign({}, this.state)
-    this.props.createEvent(event).then(action => this.props.history.push(`/events/${action.event.id}`))
+    const event = Object.assign({}, this.state.event);
+    this.props.createEvent(event).then(action => {
+      this.updateTicketEventId(action.event.id);
+      const ticket = Object.assign({}, this.state.ticket);
+      this.props.createTicket(action.event.id, ticket);
+    }).then(action => this.props.history.push(`/events/${action.ticket.eventId}`))
   }
 
   setTime() {
     let hour = ""
     let min = ""
     let meridian = ""
-    if (this.state.startTimeObj.hour > 12) {
-      hour = `${this.state.startTimeObj.hour - 12}`;
+    if (this.state.event.startTimeObj.hour > 12) {
+      hour = `${this.state.event.startTimeObj.hour - 12}`;
       meridian = "PM";
-    } else if (this.state.startTimeObj.hour === 0) {
+    } else if (this.state.event.startTimeObj.hour === 0) {
       hour = "12";
       meridian = "AM";
     } else {
-      hour = `${this.state.startTimeObj.hour}`;
+      hour = `${this.state.event.startTimeObj.hour}`;
       meridian = "AM";
     }
 
-    if (this.state.startTimeObj.minute < 10) {
-      min = `0${this.state.startTimeObj.minute}`;
+    if (this.state.event.startTimeObj.minute < 10) {
+      min = `0${this.state.event.startTimeObj.minute}`;
     } else {
-      min = `${this.state.startTimeObj.minute}`;
+      min = `${this.state.event.startTimeObj.minute}`;
     }
 
     return `${hour}:${min} ${meridian}`;
@@ -71,7 +99,7 @@ class CreateEventForm extends React.Component {
                 <div className="event-detail-content">
 
                   <div className="error-list-wrapper">
-                    <ErrorList errors={this.props.errors} />
+                    <ErrorList errors={this.props.eventErrors && this.props.ticketErrors} />
                   </div>
 
                   <div className="event-title-wrapper">
@@ -81,8 +109,8 @@ class CreateEventForm extends React.Component {
                     </div>
 
                     <div className="event-title-input">
-                      <input className="event-title-input-val" value={this.state.title || ""}
-                        onChange={this.update('title')}
+                      <input className="event-title-input-val" value={this.state.event.title || ""}
+                        onChange={this.updateEvent('title')}
                         type="text"
                         placeholder="Give it a short, distinct name"/>
                     </div>
@@ -100,45 +128,45 @@ class CreateEventForm extends React.Component {
                   <div className="event-location-input">
                     <div className="event-address-city">
                       <input className="address-cell"
-                        onChange={this.update('venueName')}
+                        onChange={this.updateEvent('venueName')}
                         type="text"
-                        value={this.state.venueName || ""}
+                        value={this.state.event.venueName || ""}
                         placeholder="Venue Name"/>
                       <input className="address-cell"
-                        onChange={this.update('address')}
+                        onChange={this.updateEvent('address')}
                         type="text"
-                        value={this.state.address || ""}
+                        value={this.state.event.address || ""}
                         placeholder="Address"/>
                       <input className="address-cell"
-                        onChange={this.update('address2')}
+                        onChange={this.updateEvent('address2')}
                         type="text"
-                        value={this.state.address2 || ""}
+                        value={this.state.event.address2 || ""}
                         placeholder="Address 2"/>
                       <input className="address-cell"
-                        onChange={this.update('city')}
+                        onChange={this.updateEvent('city')}
                         type="text"
-                        value={this.state.city || ""}
+                        value={this.state.event.city || ""}
                         placeholder="City"/>
                     </div>
 
                     <div className="event-state-zip-country">
                       <div className="state-zip-input">
                         <input className="zip-cell"
-                          onChange={this.update('state')}
+                          onChange={this.updateEvent('state')}
                           type="text"
-                          value={this.state.state || ""}
+                          value={this.state.event.state || ""}
                           placeholder="State"/>
                       </div>
 
                       <div className="state-zip-input">
                         <input className="zip-cell"
-                          onChange={this.update('zip')}
-                          type="number" value={this.state.zip || ""}
+                          onChange={this.updateEvent('zip')}
+                          type="number" value={this.state.event.zip || ""}
                           placeholder="Zip/Postal"/>
                       </div>
 
                       <div className="country-select-wrapper">
-                        <select onChange={this.update('country')} className="country-select">
+                        <select onChange={this.updateEvent('country')} className="country-select">
                           <option selected disabled>Choose Country</option>
                           <option value="US">United States</option>
                         </select>
@@ -157,13 +185,13 @@ class CreateEventForm extends React.Component {
 
                       <div className="date-time-inputs">
 
-                        <input value={this.state.startDate || ""}
+                        <input value={this.state.event.startDate || ""}
                           className="date-input" type="date"
-                          onChange={this.update('startDate')}/>
+                          onChange={this.updateEvent('startDate')}/>
 
-                        <input value={this.state.startTime || ""}
+                        <input value={this.state.event.startTime || ""}
                           className="time-input" type="time"
-                          onChange={this.update('startTime')}/>
+                          onChange={this.updateEvent('startTime')}/>
 
                       </div>
                     </div>
@@ -177,13 +205,13 @@ class CreateEventForm extends React.Component {
 
                       <div className="date-time-inputs">
 
-                        <input value={this.state.endDate || ""}
+                        <input value={this.state.event.endDate || ""}
                           className="date-input" type="date"
-                          onChange={this.update('endDate')}/>
+                          onChange={this.updateEvent('endDate')}/>
 
-                        <input value={this.state.endTime || ""}
+                        <input value={this.state.event.endTime || ""}
                           className="time-input" type="time"
-                          onChange={this.update('endTime')}/>
+                          onChange={this.updateEvent('endTime')}/>
 
                       </div>
                     </div>
@@ -207,9 +235,9 @@ class CreateEventForm extends React.Component {
                     </div>
 
                     <div className="event-description">
-                      <textarea value={this.state.description || ""}
+                      <textarea value={this.state.event.description || ""}
                         className="event-description-input"
-                        onChange={this.update('description')}>
+                        onChange={this.updateEvent('description')}>
                       </textarea>
                     </div>
                   </div>
@@ -222,8 +250,8 @@ class CreateEventForm extends React.Component {
 
                     <div className="event-title-input">
                       <input className="event-title-input-val"
-                        value={this.state.organizerName || ""}
-                        onChange={this.update('organizerName')}/>
+                        value={this.state.event.organizerName || ""}
+                        onChange={this.updateEvent('organizerName')}/>
                     </div>
                   </div>
 
@@ -232,16 +260,34 @@ class CreateEventForm extends React.Component {
                     </label>
                   </div>
 
-                  <textarea value={this.state.organizerDescription || ""}
+                  <textarea value={this.state.event.organizerDescription || ""}
                     className="org-desc-input"
-                    onChange={this.update('organizerDescription')}>
+                    onChange={this.updateEvent('organizerDescription')}>
                   </textarea>
 
                 </div>
               </div>
 
               <div className="create-tickets-wrapper">
-                <CreateTicketFormContainer />
+                <div>
+                  <h1>Tickets</h1>
+
+                  <label>Name</label>
+                  <input value="General Admission" />
+
+                  <label>Quantity</label>
+                  <input onChange={this.updateTicket("quantity")}
+                    type="number"
+                    min="1"
+                    placeholder="100" />
+
+                  <label>Price</label>
+                  <input onChange={this.updateTicket("price")}
+                    type="number"
+                    min="0"
+                    placeholder="15.00" />
+
+                </div>
               </div>
 
               <div className="add-categories-wrapper">
