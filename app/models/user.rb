@@ -24,6 +24,10 @@ class User < ApplicationRecord
   has_many :user_tickets,
     dependent: :destroy
 
+  has_many :event_tickets,
+    through: :user_tickets,
+    source: :ticket_id
+
   has_many :created_tickets,
     through: :events,
     source: :tickets

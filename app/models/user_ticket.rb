@@ -10,11 +10,16 @@
 #
 
 class UserTicket < ApplicationRecord
-    validates :user_id, :event_id, presence: true
+    validates :user_id, :ticket_id, presence: true
 
     belongs_to :user,
         foreign_key: :user_id
     
     belongs_to :ticket,
         foreign_key: :ticket_id
+
+    has_one :event,
+        through: :ticket,
+        source: :event_id
+
 end

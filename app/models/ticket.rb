@@ -22,4 +22,12 @@ class Ticket < ApplicationRecord
     
     has_many :user_tickets,
         dependent: :destroy
+    
+    def update_ticket_quantity!
+        debugger
+        # p quantity
+        self.quantity -= 1
+        self.save!
+        self.quantity
+    end
 end
