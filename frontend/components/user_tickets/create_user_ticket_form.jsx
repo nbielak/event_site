@@ -39,18 +39,14 @@ class CreateUserTicketForm extends React.Component {
   handleSubmit(e) {
       e.preventDefault();
       const userTicket = Object.assign({}, this.state);
-        // console.log("this.prop");
       for (let i = 0; i < this.quantity; i ++) {
           if (i === (this.quantity - 1)) {
               return this.props.createUserTicket(userTicket).then(action =>{
-                  console.log("AHHHHH");
                   this.props.closeModal();
-                //   return this.props.history.push(`/events/${this.props.eventId}`)
               });
           }
           this.props.createUserTicket(userTicket);
       }
-    //   this.props.closeModal(e);
   }
 
   name() {
@@ -70,19 +66,26 @@ class CreateUserTicketForm extends React.Component {
   }
 
   render(){
-    debugger;
+      debugger;
     return (
-        <div>
+        <div >
+            <div>
+                <button onClick={() => this.closeModal()}>X</button>
+            </div>
             <form onSubmit={this.handleSubmit}>
-                <label>{this.name()}</label>
-                <label>{this.price()}</label>
-                <select onChange={this.updateQuantity()} size="3" required>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                </select>
-
-                <input type="submit" value="Register" />
+                <div>
+                    <label>{this.name()}</label>
+                    <label>{this.price()}</label>
+                    <select onChange={this.updateQuantity()} size="3" required>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </div>
+                
+                <div>   
+                    <input type="submit" value="Register" />
+                </div>  
             </form>
         </div>
     );

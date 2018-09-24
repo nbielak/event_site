@@ -40,7 +40,6 @@ const App = () => (
         <ProtectedRoute exact path="/create" component={CreateEventFormContainer}/>
         <ProtectedRoute exact path="/myevents" component={ManageEventsContainer}/>
         <ProtectedRoute exact path="/events/:eventId/edit" component={EditEventFormContainer} />
-        <ProtectedRoute exact path="/events/:eventId/tickets" component={CreateUserTicketFormContainer} />
         <Route exact path="/events/:eventId" component={EventShowContainer} />
         <Route component={RedirectToMain} />
       </Switch>
