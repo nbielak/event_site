@@ -15,7 +15,7 @@ class Api::UserTicketsController < ApplicationController
     def create
         @user_ticket = UserTicket.new(user_ticket_params)
         if @user_ticket.save
-            decrement_ticket(@user_ticket)
+            decrement_ticket
             render 'api/user_tickets/show'
         else
             render json: @user_ticket.errors.full_messages, status: 401
@@ -23,7 +23,8 @@ class Api::UserTicketsController < ApplicationController
     end
 
     def destroy
-        @user_ticket = UserTicket.find(params[:id]);
+        @user_ticket = UserTicket.find(params[:id])
+        increment_ticket
         @user_ticket.destroy
     end
 
@@ -33,8 +34,12 @@ class Api::UserTicketsController < ApplicationController
         params.require(:user_ticket).permit(:ticket_id, :user_id)
     end
 
-    def decrement_ticket(user_ticket)
-        @ticket.update_ticket_quantity!
+    def decrement_ticket
+        @ticket.update_ticket_quantity!(-1)
+    end
+
+    def increment_ticket
+        @ticket.update_ticket_quantity!(1)
     end
 
     def check_ticket_quantity
