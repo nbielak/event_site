@@ -1,4 +1,5 @@
 import React from 'react';
+import ModalContainer from '../modal/modal_container';
 
 class EventShow extends React.Component {
   constructor(props) {
@@ -8,6 +9,7 @@ class EventShow extends React.Component {
     this.setMonth = this.setMonth.bind(this);
     this.setTime = this.setTime.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.modal = this.props.modal
   }
 
   componentDidMount() {
@@ -24,7 +26,8 @@ class EventShow extends React.Component {
 
   handleClick(e) {
     e.preventDefault;
-    this.props.history.push(`/events/${this.state.id}/tickets`)
+    // this.props.history.push(`/events/${this.state.id}/tickets`)
+    this.openModal();
   }
 
   setMonth() {
@@ -69,10 +72,25 @@ class EventShow extends React.Component {
     return `${hour}:${min} ${meridian}`;
   }
 
+  openModal() {
+    this.isModalOpen = true;
+  }
+
+  closeModal() {
+    this.isModalOpen = false;
+  }
+
+
   render() {
     if (!this.state) {
       return null;
     }
+
+    if(this.isModalOpen) {
+      debugger;
+      return <ModalContainer isOpen={this.isModalOpen}/>
+    }
+
     return (
       <div className="event-listing-background">
         <div className="event-listing-grid">

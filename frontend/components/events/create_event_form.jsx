@@ -35,13 +35,14 @@ class CreateEventForm extends React.Component {
   }
 
   handleSubmit(e) {
-    debugger;
+    // debugger;
     e.preventDefault();
     const event = Object.assign({}, this.state.event);
+    debugger;
     this.props.createEvent(event).then(action => {
       this.updateTicketEventId(action.event.id);
       const ticket = Object.assign({}, this.state.ticket);
-      this.props.createTicket(action.event.id, ticket);
+      return this.props.createTicket(ticket.eventId, ticket);
     }).then(action => this.props.history.push(`/events/${action.ticket.eventId}`))
   }
 
@@ -208,17 +209,31 @@ class CreateEventForm extends React.Component {
               </div>
 
               <div className="create-tickets-wrapper">
-                <div>
-                  <h1>Tickets</h1>
+                <div className="create-event-form-content">
+                  <div className="form-header-info-wrapper">
+                    <div className="form-header-info">
+                      <span className="detail-block">2</span>
+                      <h2 className="form-headers">Create Tickets</h2>
+                    </div>
+                  </div>
 
-                  <label>Name</label>
-                  <input onChange={this.updateTicket("name")} type="text" placeholder="General Admission" />
+                  <div className="event-location-input">
+                    <div className="event-info-label-wrapper">
+                      <label className="event-info-label">NAME</label>
+                    </div>
+                    
+                    <input className="address-cell" onChange={this.updateTicket("name")} type="text" placeholder="General Admission" />
+                    <div className="event-info-label-wrapper">
+                      <label className="event-info-label">QUANTITY</label>
+                    </div>
+                    
+                    <input className="address-cell" onChange={this.updateTicket("quantity")} type="number" min="1" placeholder="100" />
 
-                  <label>Quantity</label>
-                  <input onChange={this.updateTicket("quantity")} type="number" min="1" placeholder="100" />
-
-                  <label>Price</label>
-                  <input onChange={this.updateTicket("price")} type="number" min="0" placeholder="15.00" />
+                    <div className="event-info-label-wrapper">
+                      <label className="event-info-label">PRICE</label>
+                    </div>
+                    <input className="address-cell" onChange={this.updateTicket("price")} type="number" min="0" placeholder="15.00" />
+                  </div>
                 </div>
               </div>
 
