@@ -4,18 +4,20 @@ import CreateUserTicketFormContainer from "../user_tickets/create_user_ticket_fo
 class Modal extends React.Component {
     constructor(props) {
         super(props);
-        this.state = this.props;
+        this.state = this.props.modal;
+        console.log(this.props);
     }
 
     render() {
-        if (this.props.modal === false) {
-            return null
-        }
-
+        // if (this.state.modal === false) {
+        //     return null
+        // }
+        console.log("render");
+        debugger;
         return (
-            <div className="backdrop" onClick={this.closeModal}>
+            <div className="backdrop" onClick={() => this.props.closeModal()}>
                 <div className="modal">
-                    <h1>HELLO</h1>
+                    <CreateUserTicketFormContainer />
                 </div>
             </div>
         );

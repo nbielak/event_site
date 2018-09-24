@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import CreateUserTicketForm from './create_user_ticket_form';
 import { createUserTicket } from '../../actions/user_ticket_actions';
 import { fetchAllTickets } from '../../actions/ticket_actions';
+import { withRouter } from 'react-router';
 
 const mapStateToProps = (state, ownProps) => ({
     userId: state.entities.users[state.session.currentUser].id,
@@ -13,4 +14,4 @@ const mapDispatchToProps = dispatch => ({
     fetchAllTickets: eventId => dispatch(fetchAllTickets(eventId))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreateUserTicketForm);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CreateUserTicketForm));

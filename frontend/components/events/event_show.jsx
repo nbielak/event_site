@@ -1,5 +1,5 @@
 import React from 'react';
-import ModalContainer from '../modal/modal_container';
+import CreateUserTicketFormContainer from "../user_tickets/create_user_ticket_form_container";
 
 class EventShow extends React.Component {
   constructor(props) {
@@ -9,7 +9,7 @@ class EventShow extends React.Component {
     this.setMonth = this.setMonth.bind(this);
     this.setTime = this.setTime.bind(this);
     this.handleClick = this.handleClick.bind(this);
-    this.modal = this.props.modal
+    this.modal = null;
   }
 
   componentDidMount() {
@@ -24,10 +24,29 @@ class EventShow extends React.Component {
 
   }
 
-  handleClick(e) {
-    e.preventDefault;
+  handleClick() {
+    // e.preventDefault();
+    let modal = document.getElementsByClassName("backdrop")[0];
+    modal.style.display = "block";
+    // console.log(window);
+    window.onclick = e => {
+      if (e.target == modal) {
+        return modal.style.display = "none";
+      }
+    }
+    // debugger;
     // this.props.history.push(`/events/${this.state.id}/tickets`)
-    this.openModal();
+    // this.props.openModal(true, this.props.match.params.eventId);
+  }
+
+  closeModal() {
+    // e.preventDefault();
+    // // let modal = this.modal;
+    let modal = document.getElementsByClassName("backdrop")[0];
+    modal.style.display = "none";
+    // if (e.target == modal) {
+    //   modal.style.display = "none";
+    // }
   }
 
   setMonth() {
@@ -72,13 +91,13 @@ class EventShow extends React.Component {
     return `${hour}:${min} ${meridian}`;
   }
 
-  openModal() {
-    this.isModalOpen = true;
-  }
+  // openModal() {
+  //   this.modal = true;
+  // }
 
-  closeModal() {
-    this.isModalOpen = false;
-  }
+  // closeModal() {
+  //   this.modal = false;
+  // }
 
 
   render() {
@@ -86,13 +105,12 @@ class EventShow extends React.Component {
       return null;
     }
 
-    if(this.isModalOpen) {
-      debugger;
-      return <ModalContainer isOpen={this.isModalOpen}/>
-    }
+    // if(this.isModalOpen) {
+    //   debugger;
+    //   return <ModalContainer isOpen={this.modal}/>
+    // }
 
-    return (
-      <div className="event-listing-background">
+    return <div className="event-listing-background">
         <div className="event-listing-grid">
           <div className="event-listing-body">
             <div className="event-listing-header-info">
@@ -106,34 +124,27 @@ class EventShow extends React.Component {
                       <p>{this.setMonth()}</p>
                       <p>{this.state.startDateObj.date}</p>
                     </time>
-
                   </div>
 
                   <div className="event-header-title">
-                    <h1>
-                      {this.state.title}
-                    </h1>
+                    <h1>{this.state.title}</h1>
 
-                    <h2>
-                      {this.state.organizerName}
-                    </h2>
+                    <h2>{this.state.organizerName}</h2>
                   </div>
                 </div>
-
               </div>
             </div>
 
             <div className="event-listing-bookmark">
               <div className="bookmark-content-wrapper">
-
-                <div className="placeholder"></div>
+                <div className="placeholder" />
 
                 <div className="bookmark-ticket-button-wrapper">
-                  <button onClick={this.handleClick} className="bookmark-ticket-button">tickets</button>
+                  <button onClick={() => this.handleClick()} className="bookmark-ticket-button">
+                    tickets
+                  </button>
                 </div>
               </div>
-
-
             </div>
 
             <div className="event-listing-detailed-info">
@@ -142,11 +153,12 @@ class EventShow extends React.Component {
                   <div className="event-description-wrapper">
                     <div className="event-description">
                       <h2 className="event-label">Description</h2>
-                      <p className="event-description-body">{this.state.description}</p>
+                      <p className="event-description-body">
+                        {this.state.description}
+                      </p>
                     </div>
 
-                    <div className="event-tags">
-                    </div>
+                    <div className="event-tags" />
                   </div>
                 </div>
 
@@ -156,8 +168,6 @@ class EventShow extends React.Component {
                     <div className="event-date">
                       <p>{this.createStartDate()}</p>
                     </div>
-
-
                   </div>
 
                   <div className="event-location">
@@ -165,7 +175,9 @@ class EventShow extends React.Component {
                     <div className="location">
                       <p>{this.state.venueName}</p>
                       <p>{this.state.address}</p>
-                      <p>{this.state.city}, {this.state.state} {this.state.zip}</p>
+                      <p>
+                        {this.state.city}, {this.state.state} {this.state.zip}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -180,19 +192,31 @@ class EventShow extends React.Component {
                   </div>
 
                   <div className="organizer-event-description">
-                    <p className="o-ev-desc">Organizer of {this.state.title}</p>
+                    <p className="o-ev-desc">
+                      Organizer of {this.state.title}
+                    </p>
                   </div>
 
                   <div className="organizer-desc">
-                    <p className="o-desc">{this.state.organizerDescription}</p>
+                    <p className="o-desc">
+                      {this.state.organizerDescription}
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    );
+
+        <div>
+          <div className="backdrop">
+            <div className="modal">
+              <button onClick={() => this.closeModal()}>X</button>
+              <CreateUserTicketFormContainer closeModal={this.closeModal} />
+            </div>
+          </div>
+        </div>
+      </div>;
   }
 }
 

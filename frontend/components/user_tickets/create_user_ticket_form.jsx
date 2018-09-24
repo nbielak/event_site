@@ -15,6 +15,7 @@ class CreateUserTicketForm extends React.Component {
         "3": 3
     }
     this.ticket = null;
+    this.closeModal = this.props.closeModal;
   }
 
   componentWillMount() {
@@ -38,15 +39,18 @@ class CreateUserTicketForm extends React.Component {
   handleSubmit(e) {
       e.preventDefault();
       const userTicket = Object.assign({}, this.state);
-      
+        // console.log("this.prop");
       for (let i = 0; i < this.quantity; i ++) {
           if (i === (this.quantity - 1)) {
-              return this.props.createUserTicket(userTicket).then(action =>
-                  this.props.history.push(`/events/${this.props.eventId}`)
-              );
+              return this.props.createUserTicket(userTicket).then(action =>{
+                  console.log("AHHHHH");
+                  this.props.closeModal();
+                //   return this.props.history.push(`/events/${this.props.eventId}`)
+              });
           }
           this.props.createUserTicket(userTicket);
       }
+    //   this.props.closeModal(e);
   }
 
   name() {
@@ -65,16 +69,8 @@ class CreateUserTicketForm extends React.Component {
       }
   }
 
-  openModal() {
-      this.setState({ isModalOpen: true })
-  }
-
-  closeModal() {
-      this.setState({ isModalOpen: false })
-  }
-
   render(){
-    // debugger;
+    debugger;
     return (
         <div>
             <form onSubmit={this.handleSubmit}>
