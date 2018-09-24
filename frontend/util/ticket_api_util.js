@@ -1,10 +1,17 @@
+export const fetchAllTickets = eventId => (
+    $.ajax({
+        method: 'GET',
+        url: `/api/events/${eventId}/tickets`
+    })
+);
+
 export const fetchTicket = (eventId, id) => (
     $.ajax ({
         method: 'GET',
         url: `/api/events/${eventId}/tickets/${id}`,
         data: { id }
     })
-)
+);
 
 export const createTicket = (eventId, ticket) => (
     $.ajax ({

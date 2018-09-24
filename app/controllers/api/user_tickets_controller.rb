@@ -47,6 +47,7 @@ class Api::UserTicketsController < ApplicationController
     end
 
     def set_ticket
+        debugger
         @ticket = Ticket.find(params[:user_ticket][:ticket_id])
     end
 end

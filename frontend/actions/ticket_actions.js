@@ -1,8 +1,14 @@
 import * as TicketApiUtil from '../util/ticket_api_util';
 
+export const RECEIVE_ALL_TICKETS = "RECEIVE_ALL_TICKETS"
 export const RECEIVE_TICKET = "RECEIVE_TICKET";
-export const RECEIVE_TICKET_ERRORS = "RECIEVE_TICKET_ERRORS"
+export const RECEIVE_TICKET_ERRORS = "RECEIVE_TICKET_ERRORS"
 export const REMOVE_TICKET = "REMOVE_TICKET";
+
+const receiveAllTickets = tickets => ({
+    type: RECEIVE_ALL_TICKETS,
+    tickets
+});
 
 const receiveTicket = ticket => ({
     type: RECEIVE_TICKET,
@@ -18,6 +24,12 @@ const receiveTicketErrors = errors => ({
     type: RECEIVE_TICKET_ERRORS,
     errors
 });
+
+export const fetchAllTickets = eventId => dispatch =>(
+  TicketApiUtil.fetchAllTickets(eventId).then(
+    tickets => dispatch(receiveAllTickets(tickets)),
+  )
+);
 
 export const fetchTicket = (eventId, ticketId) => dispatch => (
     TicketApiUtil.fetchTicket(eventId, ticketId).then(

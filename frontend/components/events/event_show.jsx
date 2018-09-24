@@ -7,6 +7,7 @@ class EventShow extends React.Component {
     this.createStartDate = this.createStartDate.bind(this);
     this.setMonth = this.setMonth.bind(this);
     this.setTime = this.setTime.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -19,6 +20,11 @@ class EventShow extends React.Component {
     let weekday = days[this.state.startDateObj.cwday];
     return `${weekday}, ${this.setMonth()} ${this.state.startDateObj.date}, ${this.state.startDateObj.year}, ${this.setTime()}`;
 
+  }
+
+  handleClick(e) {
+    e.preventDefault;
+    this.props.history.push(`/events/${this.state.id}/tickets`)
   }
 
   setMonth() {
@@ -105,7 +111,7 @@ class EventShow extends React.Component {
                 <div className="placeholder"></div>
 
                 <div className="bookmark-ticket-button-wrapper">
-                  <button className="bookmark-ticket-button">tickets</button>
+                  <button onClick={this.handleClick} className="bookmark-ticket-button">tickets</button>
                 </div>
               </div>
 

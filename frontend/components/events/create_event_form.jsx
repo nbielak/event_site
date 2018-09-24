@@ -11,12 +11,7 @@ class CreateEventForm extends React.Component {
     this.updateTicket = this.updateTicket.bind(this);
   }
 
-  // componentDidMount() {
-  //   this.setState({event: {}, ticket: {}});
-  // }
-
   updateEvent(field) {
-    // debugger;
     return e => {
       let event = this.state.event;
       event[field] = e.target.value;
@@ -75,15 +70,12 @@ class CreateEventForm extends React.Component {
   }
 
   render() {
-    return (
-      <div>
+    return <div>
         <div className="create-event-top">
           <h2 className="event-top">Create an Event</h2>
         </div>
 
-        <div className="create-event-edit-design">
-        </div>
-
+        <div className="create-event-edit-design" />
 
         <form className="create-event-form" onSubmit={this.handleSubmit}>
           <div className="border-creator">
@@ -97,174 +89,121 @@ class CreateEventForm extends React.Component {
                 </div>
 
                 <div className="event-detail-content">
-
                   <div className="error-list-wrapper">
                     <ErrorList errors={this.props.eventErrors && this.props.ticketErrors} />
                   </div>
 
                   <div className="event-title-wrapper">
                     <div className="event-info-label-wrapper">
-                      <label className="event-info-label">EVENT TITLE
+                      <label className="event-info-label">
+                        EVENT TITLE
                       </label>
                     </div>
 
                     <div className="event-title-input">
-                      <input className="event-title-input-val" value={this.state.event.title || ""}
-                        onChange={this.updateEvent('title')}
-                        type="text"
-                        placeholder="Give it a short, distinct name"/>
+                      <input className="event-title-input-val" value={this.state.event.title || ""} onChange={this.updateEvent("title")} type="text" placeholder="Give it a short, distinct name" />
                     </div>
-
                   </div>
                 </div>
 
                 <div className="event-location-wrapper">
                   <div className="event-info-label-wrapper">
-                    <label className="event-info-label">LOCATION
-                    </label>
+                    <label className="event-info-label">LOCATION</label>
                   </div>
-
 
                   <div className="event-location-input">
                     <div className="event-address-city">
-                      <input className="address-cell"
-                        onChange={this.updateEvent('venueName')}
-                        type="text"
-                        value={this.state.event.venueName || ""}
-                        placeholder="Venue Name"/>
-                      <input className="address-cell"
-                        onChange={this.updateEvent('address')}
-                        type="text"
-                        value={this.state.event.address || ""}
-                        placeholder="Address"/>
-                      <input className="address-cell"
-                        onChange={this.updateEvent('address2')}
-                        type="text"
-                        value={this.state.event.address2 || ""}
-                        placeholder="Address 2"/>
-                      <input className="address-cell"
-                        onChange={this.updateEvent('city')}
-                        type="text"
-                        value={this.state.event.city || ""}
-                        placeholder="City"/>
+                      <input className="address-cell" onChange={this.updateEvent("venueName")} type="text" value={this.state.event.venueName || ""} placeholder="Venue Name" />
+                      <input className="address-cell" onChange={this.updateEvent("address")} type="text" value={this.state.event.address || ""} placeholder="Address" />
+                      <input className="address-cell" onChange={this.updateEvent("address2")} type="text" value={this.state.event.address2 || ""} placeholder="Address 2" />
+                      <input className="address-cell" onChange={this.updateEvent("city")} type="text" value={this.state.event.city || ""} placeholder="City" />
                     </div>
 
                     <div className="event-state-zip-country">
                       <div className="state-zip-input">
-                        <input className="zip-cell"
-                          onChange={this.updateEvent('state')}
-                          type="text"
-                          value={this.state.event.state || ""}
-                          placeholder="State"/>
+                        <input className="zip-cell" onChange={this.updateEvent("state")} type="text" value={this.state.event.state || ""} placeholder="State" />
                       </div>
 
                       <div className="state-zip-input">
-                        <input className="zip-cell"
-                          onChange={this.updateEvent('zip')}
-                          type="number" value={this.state.event.zip || ""}
-                          placeholder="Zip/Postal"/>
+                        <input className="zip-cell" onChange={this.updateEvent("zip")} type="number" value={this.state.event.zip || ""} placeholder="Zip/Postal" />
                       </div>
 
                       <div className="country-select-wrapper">
-                        <select onChange={this.updateEvent('country')} className="country-select">
-                          <option selected disabled>Choose Country</option>
+                        <select onChange={this.updateEvent("country")} className="country-select">
+                          <option selected disabled>
+                            Choose Country
+                          </option>
                           <option value="US">United States</option>
                         </select>
                       </div>
                     </div>
                   </div>
 
-
                   <div className="event-date-wrapper">
                     <div className="event-date-input-wrapper">
                       <div className="event-info-label-wrapper">
-                        <label className="event-info-label">STARTS
-                        </label>
+                        <label className="event-info-label">STARTS</label>
                       </div>
 
-
                       <div className="date-time-inputs">
+                        <input value={this.state.event.startDate || ""} className="date-input" type="date" onChange={this.updateEvent("startDate")} />
 
-                        <input value={this.state.event.startDate || ""}
-                          className="date-input" type="date"
-                          onChange={this.updateEvent('startDate')}/>
-
-                        <input value={this.state.event.startTime || ""}
-                          className="time-input" type="time"
-                          onChange={this.updateEvent('startTime')}/>
-
+                        <input value={this.state.event.startTime || ""} className="time-input" type="time" onChange={this.updateEvent("startTime")} />
                       </div>
                     </div>
 
                     <div className="event-date-input-wrapper">
                       <div className="event-info-label-wrapper">
-                        <label className="event-info-label">ENDS
-                        </label>
+                        <label className="event-info-label">ENDS</label>
                       </div>
 
-
                       <div className="date-time-inputs">
+                        <input value={this.state.event.endDate || ""} className="date-input" type="date" onChange={this.updateEvent("endDate")} />
 
-                        <input value={this.state.event.endDate || ""}
-                          className="date-input" type="date"
-                          onChange={this.updateEvent('endDate')}/>
-
-                        <input value={this.state.event.endTime || ""}
-                          className="time-input" type="time"
-                          onChange={this.updateEvent('endTime')}/>
-
+                        <input value={this.state.event.endTime || ""} className="time-input" type="time" onChange={this.updateEvent("endTime")} />
                       </div>
                     </div>
                   </div>
 
                   <div className="event-image-wrapper">
                     <div className="event-info-label-wrapper">
-                      <label className="event-info-label">
-                      </label>
+                      <label className="event-info-label" />
                     </div>
 
-                    <div className="event-image-input-wrapper">
-                    </div>
-
+                    <div className="event-image-input-wrapper" />
                   </div>
 
                   <div className="event-description-wrapper">
                     <div className="event-info-label-wrapper">
-                      <label className="event-info-label">EVENT DESCRIPTION
+                      <label className="event-info-label">
+                        EVENT DESCRIPTION
                       </label>
                     </div>
 
                     <div className="event-description">
-                      <textarea value={this.state.event.description || ""}
-                        className="event-description-input"
-                        onChange={this.updateEvent('description')}>
-                      </textarea>
+                      <textarea value={this.state.event.description || ""} className="event-description-input" onChange={this.updateEvent("description")} />
                     </div>
                   </div>
 
                   <div className="event-organizer">
                     <div className="event-info-label-wrapper">
-                      <label className="event-info-label">ORGANIZER NAME
+                      <label className="event-info-label">
+                        ORGANIZER NAME
                       </label>
                     </div>
 
                     <div className="event-title-input">
-                      <input className="event-title-input-val"
-                        value={this.state.event.organizerName || ""}
-                        onChange={this.updateEvent('organizerName')}/>
+                      <input className="event-title-input-val" value={this.state.event.organizerName || ""} onChange={this.updateEvent("organizerName")} />
                     </div>
                   </div>
 
                   <div className="event-info-label-wrapper">
-                    <label className="event-info-label">ORGANIZER DESCRIPTION
+                    <label className="event-info-label">
+                      ORGANIZER DESCRIPTION
                     </label>
                   </div>
 
-                  <textarea value={this.state.event.organizerDescription || ""}
-                    className="org-desc-input"
-                    onChange={this.updateEvent('organizerDescription')}>
-                  </textarea>
-
+                  <textarea value={this.state.event.organizerDescription || ""} className="org-desc-input" onChange={this.updateEvent("organizerDescription")} />
                 </div>
               </div>
 
@@ -273,43 +212,33 @@ class CreateEventForm extends React.Component {
                   <h1>Tickets</h1>
 
                   <label>Name</label>
-                  <input value="General Admission" />
+                  <input onChange={this.updateTicket("name")} type="text" placeholder="General Admission" />
 
                   <label>Quantity</label>
-                  <input onChange={this.updateTicket("quantity")}
-                    type="number"
-                    min="1"
-                    placeholder="100" />
+                  <input onChange={this.updateTicket("quantity")} type="number" min="1" placeholder="100" />
 
                   <label>Price</label>
-                  <input onChange={this.updateTicket("price")}
-                    type="number"
-                    min="0"
-                    placeholder="15.00" />
-
+                  <input onChange={this.updateTicket("price")} type="number" min="0" placeholder="15.00" />
                 </div>
               </div>
 
-              <div className="add-categories-wrapper">
-              </div>
+              <div className="add-categories-wrapper" />
             </div>
           </div>
-
 
           <div className="form-footer">
             <div className="form-footer-text-wrapper">
-              <p className="form-footer-text">Nice job! You're almost done!</p>
+              <p className="form-footer-text">
+                Nice job! You're almost done!
+              </p>
             </div>
 
             <div className="create-form-submit-wrapper">
-              <input className="create-form-submit" type="submit" value="Make Your Event Live"/>
+              <input className="create-form-submit" type="submit" value="Make Your Event Live" />
             </div>
           </div>
-
         </form>
-
-      </div>
-    );
+      </div>;
   }
 }
 

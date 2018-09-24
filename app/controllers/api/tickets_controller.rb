@@ -1,6 +1,10 @@
 class Api::TicketsController < ApplicationController
     before_action :require_login
 
+    def index 
+        @tickets = Ticket.all
+        render 'api/tickets/index'
+    end
     def show
         @ticket = Ticket.find(params[:id])
         render 'api/tickets/show'
@@ -33,7 +37,7 @@ class Api::TicketsController < ApplicationController
     private
 
     def ticket_params
-        params.require(:ticket).permit(:event_id, :price, :quantity)
+        params.require(:ticket).permit(:name, :event_id, :price, :quantity)
     end
 
 end

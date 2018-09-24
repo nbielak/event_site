@@ -8,7 +8,7 @@ const UserTicketsReducer = (state={}, action) => {
     switch(action.type) {
         case RECEIVE_ALL_USER_TICKETS:
             return action.userTickets
-        case RECEVE_USER_TICKET:
+        case RECEIVE_USER_TICKET:
             let newUserTicket = {[action.userTicket.id]: action.userTicket}
             return merge({}, state, newUserTicket);
         case REMOVE_USER_TICKET:

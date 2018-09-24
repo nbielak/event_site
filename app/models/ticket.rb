@@ -8,10 +8,11 @@
 #  quantity   :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  name       :string
 #
 
 class Ticket < ApplicationRecord
-    validates :event_id, :price, :quantity, presence: true
+    validates :name, :event_id, :price, :quantity, presence: true
 
     belongs_to :event,
         foreign_key: :event_id
