@@ -10,6 +10,16 @@ class Api::EventsController < ApplicationController
     # ensure_local_time(@event)
   end
 
+  def user_events
+    @user = User.find(params[:user_id])
+    @events = @user.attending_events
+    if @events 
+      render 'api/events/index'
+    else 
+      render json: @events.errors.full_messages, status: 422
+    end
+  end
+
   def create
     @event = Event.new(event_params)
     @event.user_id = current_user.id
@@ -60,9 +70,4 @@ class Api::EventsController < ApplicationController
       :organizer_name,
       :organizer_description)
   end
-
-  # def ensure_local_time(event)
-  #   event.start_time = event.start_time.localtime
-  #   event.end_time = event.end_time.localtime if @event.end_time
-  # end
 end

@@ -4,57 +4,76 @@ import ErrorList from '../session_form/error_list';
 class CreateEventForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = { event: {}, ticket: {} };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.setTime = this.setTime.bind(this);
+    this.updateEvent = this.updateEvent.bind(this);
+    this.updateTicket = this.updateTicket.bind(this);
   }
 
-  update(field) {
+  updateEvent(field) {
     return e => {
-      this.setState({[field]: e.target.value})
+      let event = this.state.event;
+      event[field] = e.target.value;
+      this.setState({ event })
     }
+  }
+
+  updateTicket(field){
+    return e => {
+      let ticket = this.state.ticket;
+      ticket[field] = e.target.value;
+      this.setState({ ticket })
+    }
+  }
+
+  updateTicketEventId(id) {
+    let ticket = this.state.ticket;
+    ticket["eventId"] = id;
+    this.setState({ ticket });
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    const event = Object.assign({}, this.state)
-    this.props.createEvent(event).then(action => this.props.history.push(`/events/${action.event.id}`))
+    const event = Object.assign({}, this.state.event);
+    this.props.createEvent(event).then(action => {
+      this.updateTicketEventId(action.event.id);
+      const ticket = Object.assign({}, this.state.ticket);
+      return this.props.createTicket(ticket.eventId, ticket);
+    }).then(action => this.props.history.push(`/events/${action.ticket.eventId}`))
   }
 
   setTime() {
     let hour = ""
     let min = ""
     let meridian = ""
-    if (this.state.startTimeObj.hour > 12) {
-      hour = `${this.state.startTimeObj.hour - 12}`;
+    if (this.state.event.startTimeObj.hour > 12) {
+      hour = `${this.state.event.startTimeObj.hour - 12}`;
       meridian = "PM";
-    } else if (this.state.startTimeObj.hour === 0) {
+    } else if (this.state.event.startTimeObj.hour === 0) {
       hour = "12";
       meridian = "AM";
     } else {
-      hour = `${this.state.startTimeObj.hour}`;
+      hour = `${this.state.event.startTimeObj.hour}`;
       meridian = "AM";
     }
 
-    if (this.state.startTimeObj.minute < 10) {
-      min = `0${this.state.startTimeObj.minute}`;
+    if (this.state.event.startTimeObj.minute < 10) {
+      min = `0${this.state.event.startTimeObj.minute}`;
     } else {
-      min = `${this.state.startTimeObj.minute}`;
+      min = `${this.state.event.startTimeObj.minute}`;
     }
 
     return `${hour}:${min} ${meridian}`;
   }
 
   render() {
-    return (
-      <div>
+    return <div>
         <div className="create-event-top">
           <h2 className="event-top">Create an Event</h2>
         </div>
 
-        <div className="create-event-edit-design">
-        </div>
-
+        <div className="create-event-edit-design" />
 
         <form className="create-event-form" onSubmit={this.handleSubmit}>
           <div className="border-creator">
@@ -68,200 +87,170 @@ class CreateEventForm extends React.Component {
                 </div>
 
                 <div className="event-detail-content">
-
                   <div className="error-list-wrapper">
-                    <ErrorList errors={this.props.errors} />
+                    <ErrorList errors={this.props.eventErrors && this.props.ticketErrors} />
                   </div>
 
                   <div className="event-title-wrapper">
                     <div className="event-info-label-wrapper">
-                      <label className="event-info-label">EVENT TITLE
+                      <label className="event-info-label">
+                        EVENT TITLE
                       </label>
                     </div>
 
                     <div className="event-title-input">
-                      <input className="event-title-input-val" value={this.state.title || ""}
-                        onChange={this.update('title')}
-                        type="text"
-                        placeholder="Give it a short, distinct name"/>
+                      <input className="event-title-input-val" value={this.state.event.title || ""} onChange={this.updateEvent("title")} type="text" placeholder="Give it a short, distinct name" />
                     </div>
-
                   </div>
                 </div>
 
                 <div className="event-location-wrapper">
                   <div className="event-info-label-wrapper">
-                    <label className="event-info-label">LOCATION
-                    </label>
+                    <label className="event-info-label">LOCATION</label>
                   </div>
-
 
                   <div className="event-location-input">
                     <div className="event-address-city">
-                      <input className="address-cell"
-                        onChange={this.update('venueName')}
-                        type="text"
-                        value={this.state.venueName || ""}
-                        placeholder="Venue Name"/>
-                      <input className="address-cell"
-                        onChange={this.update('address')}
-                        type="text"
-                        value={this.state.address || ""}
-                        placeholder="Address"/>
-                      <input className="address-cell"
-                        onChange={this.update('address2')}
-                        type="text"
-                        value={this.state.address2 || ""}
-                        placeholder="Address 2"/>
-                      <input className="address-cell"
-                        onChange={this.update('city')}
-                        type="text"
-                        value={this.state.city || ""}
-                        placeholder="City"/>
+                      <input className="address-cell" onChange={this.updateEvent("venueName")} type="text" value={this.state.event.venueName || ""} placeholder="Venue Name" />
+                      <input className="address-cell" onChange={this.updateEvent("address")} type="text" value={this.state.event.address || ""} placeholder="Address" />
+                      <input className="address-cell" onChange={this.updateEvent("address2")} type="text" value={this.state.event.address2 || ""} placeholder="Address 2" />
+                      <input className="address-cell" onChange={this.updateEvent("city")} type="text" value={this.state.event.city || ""} placeholder="City" />
                     </div>
 
                     <div className="event-state-zip-country">
                       <div className="state-zip-input">
-                        <input className="zip-cell"
-                          onChange={this.update('state')}
-                          type="text"
-                          value={this.state.state || ""}
-                          placeholder="State"/>
+                        <input className="zip-cell" onChange={this.updateEvent("state")} type="text" value={this.state.event.state || ""} placeholder="State" />
                       </div>
 
                       <div className="state-zip-input">
-                        <input className="zip-cell"
-                          onChange={this.update('zip')}
-                          type="number" value={this.state.zip || ""}
-                          placeholder="Zip/Postal"/>
+                        <input className="zip-cell" onChange={this.updateEvent("zip")} type="number" value={this.state.event.zip || ""} placeholder="Zip/Postal" />
                       </div>
 
                       <div className="country-select-wrapper">
-                        <select onChange={this.update('country')} className="country-select">
-                          <option selected disabled>Choose Country</option>
+                        <select onChange={this.updateEvent("country")} className="country-select">
+                          <option selected disabled>
+                            Choose Country
+                          </option>
                           <option value="US">United States</option>
                         </select>
                       </div>
                     </div>
                   </div>
 
-
                   <div className="event-date-wrapper">
                     <div className="event-date-input-wrapper">
                       <div className="event-info-label-wrapper">
-                        <label className="event-info-label">STARTS
-                        </label>
+                        <label className="event-info-label">STARTS</label>
                       </div>
 
-
                       <div className="date-time-inputs">
+                        <input value={this.state.event.startDate || ""} className="date-input" type="date" onChange={this.updateEvent("startDate")} />
 
-                        <input value={this.state.startDate || ""}
-                          className="date-input" type="date"
-                          onChange={this.update('startDate')}/>
-
-                        <input value={this.state.startTime || ""}
-                          className="time-input" type="time"
-                          onChange={this.update('startTime')}/>
-
+                        <input value={this.state.event.startTime || ""} className="time-input" type="time" onChange={this.updateEvent("startTime")} />
                       </div>
                     </div>
 
                     <div className="event-date-input-wrapper">
                       <div className="event-info-label-wrapper">
-                        <label className="event-info-label">ENDS
-                        </label>
+                        <label className="event-info-label">ENDS</label>
                       </div>
 
-
                       <div className="date-time-inputs">
+                        <input value={this.state.event.endDate || ""} className="date-input" type="date" onChange={this.updateEvent("endDate")} />
 
-                        <input value={this.state.endDate || ""}
-                          className="date-input" type="date"
-                          onChange={this.update('endDate')}/>
-
-                        <input value={this.state.endTime || ""}
-                          className="time-input" type="time"
-                          onChange={this.update('endTime')}/>
-
+                        <input value={this.state.event.endTime || ""} className="time-input" type="time" onChange={this.updateEvent("endTime")} />
                       </div>
                     </div>
                   </div>
 
                   <div className="event-image-wrapper">
                     <div className="event-info-label-wrapper">
-                      <label className="event-info-label">
-                      </label>
+                      <label className="event-info-label" />
                     </div>
 
-                    <div className="event-image-input-wrapper">
-                    </div>
-
+                    <div className="event-image-input-wrapper" />
                   </div>
 
                   <div className="event-description-wrapper">
                     <div className="event-info-label-wrapper">
-                      <label className="event-info-label">EVENT DESCRIPTION
+                      <label className="event-info-label">
+                        EVENT DESCRIPTION
                       </label>
                     </div>
 
                     <div className="event-description">
-                      <textarea value={this.state.description || ""}
-                        className="event-description-input"
-                        onChange={this.update('description')}>
-                      </textarea>
+                      <textarea value={this.state.event.description || ""} className="event-description-input" onChange={this.updateEvent("description")} />
                     </div>
                   </div>
 
                   <div className="event-organizer">
                     <div className="event-info-label-wrapper">
-                      <label className="event-info-label">ORGANIZER NAME
+                      <label className="event-info-label">
+                        ORGANIZER NAME
                       </label>
                     </div>
 
                     <div className="event-title-input">
-                      <input className="event-title-input-val"
-                        value={this.state.organizerName || ""}
-                        onChange={this.update('organizerName')}/>
+                      <input className="event-title-input-val" value={this.state.event.organizerName || ""} onChange={this.updateEvent("organizerName")} />
                     </div>
                   </div>
 
                   <div className="event-info-label-wrapper">
-                    <label className="event-info-label">ORGANIZER DESCRIPTION
+                    <label className="event-info-label">
+                      ORGANIZER DESCRIPTION
                     </label>
                   </div>
 
-                  <textarea value={this.state.organizerDescription || ""}
-                    className="org-desc-input"
-                    onChange={this.update('organizerDescription')}>
-                  </textarea>
-
+                  <textarea value={this.state.event.organizerDescription || ""} className="org-desc-input" onChange={this.updateEvent("organizerDescription")} />
                 </div>
               </div>
 
               <div className="create-tickets-wrapper">
+                <div className="create-event-form-content">
+                  <div className="form-header-info-wrapper">
+                    <div className="form-header-info">
+                      <span className="detail-block">2</span>
+                      <h2 className="form-headers">Create Tickets</h2>
+                    </div>
+                  </div>
+
+                  <div className="event-location-input">
+                    <div className="event-info-label-wrapper">
+                      <label className="event-info-label">NAME</label>
+                    </div>
+                    
+                    <input className="address-cell" onChange={this.updateTicket("name")} type="text" placeholder="General Admission" />
+                    <div className="event-info-label-wrapper">
+                      <label className="event-info-label">QUANTITY</label>
+                    </div>
+                    
+                    <input className="address-cell" onChange={this.updateTicket("quantity")} type="number" min="1" placeholder="100" />
+
+                    <div className="event-info-label-wrapper">
+                      <label className="event-info-label">PRICE</label>
+                    </div>
+                    <input className="address-cell" onChange={this.updateTicket("price")} type="number" min="0" placeholder="15.00" />
+                  </div>
+                </div>
               </div>
 
-              <div className="add-categories-wrapper">
-              </div>
+              <div className="add-categories-wrapper" />
             </div>
           </div>
-
 
           <div className="form-footer">
             <div className="form-footer-text-wrapper">
-              <p className="form-footer-text">Nice job! You're almost done!</p>
+              <p className="form-footer-text">
+                Nice job! You're almost done!
+              </p>
             </div>
 
             <div className="create-form-submit-wrapper">
-              <input className="create-form-submit" type="submit" value="Make Your Event Live"/>
+              <input className="create-form-submit" type="submit" value="Make Your Event Live" />
             </div>
           </div>
-
         </form>
-
-      </div>
-    );
+      </div>;
   }
 }
 

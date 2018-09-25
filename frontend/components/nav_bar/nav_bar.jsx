@@ -8,20 +8,17 @@ const NavBar = ({currentUser, logout}) => {
       <Link className="nav-bar-link" to="/">browse events</Link>
       <div className="nav-bar-link" to="/">{currentUser.firstName}
         <ul className="nav-bar-drop-down">
-          <a href="/">
-            <li className="nav-bar-drop-down-list-item">
-              Browse Events
-            </li>
-          </a>
-          
           <li className="nav-bar-drop-down-list-item">
-            <Link className="link" to='/'>Tickets</Link>
+            <Link className="link" to="/">Browse Events</Link>
           </li>
           <li className="nav-bar-drop-down-list-item">
-            <Link className="link" to='/'>Saved</Link>
+            <Link className="link" to={`/users/${currentUser.id}/profile`}>Tickets</Link>
           </li>
           <li className="nav-bar-drop-down-list-item">
-            <Link className="link" to='/'>Following</Link>
+            <Link className="link" to={`/users/${currentUser.id}/profile`}>Saved</Link>
+          </li>
+          <li className="nav-bar-drop-down-list-item">
+            <Link className="link" to={`/users/${currentUser.id}/profile`}>Following</Link>
           </li>
           <li className="nav-bar-drop-down-list-item">
             <Link className="link" to='/myevents'>Manage Events</Link>

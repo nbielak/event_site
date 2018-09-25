@@ -91,6 +91,7 @@ class EventIndexItem extends React.Component {
           </div>
           <div className="event-footer">
             <div className="event-footer-tags">
+              #category
             </div>
 
             <div className="event-footer-actions">

@@ -12,6 +12,13 @@ export const fetchEvent = id => (
   })
 );
 
+export const fetchUserEvents = userId => (
+  $.ajax({
+    method: 'GET',
+    url: `/api/events/user/${userId}`,
+  })
+);
+
 export const createEvent = event => (
   $.ajax ({
     method: 'POST',

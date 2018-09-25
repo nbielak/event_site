@@ -18,3 +18,13 @@ export const getUserEvents = ({events, currentUserId}) => {
 
   return result;
 };
+
+export const getEventTickets = ({ tickets, eventId }) => {
+  const ticketIds = Object.keys(tickets);
+  for (let i = 0; i < ticketIds.length; i++) {
+    let currTicket = ticketIds[i];
+    if (tickets[currTicket].eventId === eventId) {
+      return ticketIds[currTicket];
+    }
+  }
+} 
