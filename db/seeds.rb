@@ -8,6 +8,7 @@
 
 Event.delete_all
 User.delete_all
+Ticket.delete_all
 #USERS
 
 
@@ -262,3 +263,14 @@ Event.create!(
   organizer_description: "I love Lucy.",
   user_id: sahar[:id]
 )
+
+#Tickets
+
+Event.all.each do |event|
+  Ticket.create!(
+    event_id: event.id,
+    price: 10,
+    quantity: 1000,
+    name: "General Admission"
+  )
+end
