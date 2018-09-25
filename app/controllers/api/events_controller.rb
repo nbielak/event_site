@@ -10,6 +10,17 @@ class Api::EventsController < ApplicationController
     # ensure_local_time(@event)
   end
 
+  def user_events
+    @user = User.find(params[:user_id])
+    @events = @user.attending_events
+    if @events 
+      # debugger;
+      render 'api/events/index'
+    else 
+      render json: @events.errors.full_messages, status: 422
+    end
+  end
+
   def create
     @event = Event.new(event_params)
     @event.user_id = current_user.id

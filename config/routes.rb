@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :events do 
       resources :tickets
     end
+    get 'events/user/:user_id/', to: 'events#user_events', as: 'user_events'
     resources :user_tickets, only: [:index, :show, :create, :destroy]
   end
 end
