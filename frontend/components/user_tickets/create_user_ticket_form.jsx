@@ -18,12 +18,12 @@ class CreateUserTicketForm extends React.Component {
     this.closeModal = this.props.closeModal;
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.fetchAllTickets(this.props.eventId).then(res=>{
         // debugger;
         let ticket = Object.values(res.tickets)[0];
         this.setState({ ticketId: ticket.id });
-        this.ticket = ticket;
+        this.setState({ ticket });
     });
     
     // debugger;
@@ -49,56 +49,44 @@ class CreateUserTicketForm extends React.Component {
       }
   }
 
-  name() {
-      if (this.ticket){
-          return this.ticket.name
-      } else {
-          return "name"
-      }
-  }
-
-  price() {
-      if (this.ticket){
-          return this.ticket.price;
-      } else {
-          return "price";
-      }
-  }
-
   render(){
-    //   debugger;
-    return <div className="user-ticket-form-wrapper">
-        <div className="user-ticket-header">
-          <div className="ticket-label-wrapper">
-            <label>Select Ticket</label>
-          </div>
-
-          <div className="close-modal-button-wrapper">
-            <button onClick={() => this.closeModal()}>X</button>
-          </div>
-        </div>
-        <form onSubmit={this.handleSubmit}>
-          <div className="form-body">
-            <div className="ticket-body">
-                <div className="ticket-info">
-                    <label>{this.name()}</label>
-                    <label>{this.price()}</label>
+    if (!this.state.ticket) {
+        return null;
+    }
+    return (
+        <div className="user-ticket-form-wrapper">
+            <div className="user-ticket-header">
+                <div className="ticket-label-wrapper">
+                    <label>Select Ticket</label>
                 </div>
 
-                <select onChange={this.updateQuantity()} size="3">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                </select>
+                <div className="close-modal-button-wrapper">
+                    <button onClick={() => this.closeModal()}>X</button>
+                </div>
             </div>
-            
-          </div>
+            <form onSubmit={this.handleSubmit}>
+                <div className="form-body">
+                    <div className="ticket-body">
+                        <div className="ticket-info">
+                            <label>{this.state.ticket.name}</label>
+                            <label>{this.state.ticket.price}</label>
+                        </div>
 
-          <div id="user-ticket-footer" className="user-ticket-header">
-            <input type="submit" value="Register" />
-          </div>
-        </form>
-      </div>;
+                        <select onChange={this.updateQuantity()} >
+                            <option selected value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <div id="user-ticket-footer" className="user-ticket-header">
+                    <input type="submit" value="Register" />
+                </div>
+            </form>
+        </div>
+    );
   }
 }
 

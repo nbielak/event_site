@@ -21,6 +21,7 @@
     background: lightgrey;
     border-radius: 5px;
     border: 1px solid lightslategray;
+    
   }
 
 .user-ticket-form-wrapper {
@@ -31,20 +32,13 @@
 }
 
 .user-ticket-header {
+    border-radius: 5px;
     height: 30px;
     padding: 10px;
-    border-bottom: 1px solid lightslategray;
     display: flex;
     justify-content: flex-end;
     align-content: center;
     background: lightgrey;
-
-   
-}
-
-#user-ticket-footer {
-    border-bottom: none;
-    border-top: 1px solid lightslategray;
 }
 
 .ticket-label-wrapper {
@@ -63,7 +57,9 @@
 }
 
 .form-body {
-    height: 370px;
+    height: 390px;
+    border-top: 1px solid lightslategray;
+    border-bottom: 1px solid lightslategray;
 }
 
 .ticket-body {
