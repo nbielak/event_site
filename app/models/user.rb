@@ -26,7 +26,11 @@ class User < ApplicationRecord
 
   has_many :event_tickets,
     through: :user_tickets,
-    source: :ticket_id
+    source: :ticket
+
+  has_many :attending_events,
+    through: :event_tickets,
+    source: :event
 
   has_many :created_tickets,
     through: :events,
