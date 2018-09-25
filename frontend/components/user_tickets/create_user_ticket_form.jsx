@@ -66,29 +66,39 @@ class CreateUserTicketForm extends React.Component {
   }
 
   render(){
-      debugger;
-    return (
-        <div >
-            <div>
-                <button onClick={() => this.closeModal()}>X</button>
-            </div>
-            <form onSubmit={this.handleSubmit}>
-                <div>
+    //   debugger;
+    return <div className="user-ticket-form-wrapper">
+        <div className="user-ticket-header">
+          <div className="ticket-label-wrapper">
+            <label>Select Ticket</label>
+          </div>
+
+          <div className="close-modal-button-wrapper">
+            <button onClick={() => this.closeModal()}>X</button>
+          </div>
+        </div>
+        <form onSubmit={this.handleSubmit}>
+          <div className="form-body">
+            <div className="ticket-body">
+                <div className="ticket-info">
                     <label>{this.name()}</label>
                     <label>{this.price()}</label>
-                    <select onChange={this.updateQuantity()} size="3" required>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                    </select>
                 </div>
-                
-                <div>   
-                    <input type="submit" value="Register" />
-                </div>  
-            </form>
-        </div>
-    );
+
+                <select onChange={this.updateQuantity()} size="3">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+            
+          </div>
+
+          <div id="user-ticket-footer" className="user-ticket-header">
+            <input type="submit" value="Register" />
+          </div>
+        </form>
+      </div>;
   }
 }
 

@@ -208,7 +208,7 @@ class EventShow extends React.Component {
           </div>
         </div>
 
-      <div className="user-ticket-form-wrapper">
+      <div>
           <div className="backdrop">
             <div className="modal">
               <CreateUserTicketFormContainer closeModal={this.closeModal} />

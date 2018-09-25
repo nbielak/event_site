@@ -1,12 +1,4 @@
-
-.user-ticket-form-wrapper {
-    // height: 84%;
-    // margin-left: auto;
-    // margin-right: auto;
-    // position: relative;
-    border-radius: 5px;
-    
-    .backdrop {
+.backdrop {
     display: none;
     position: absolute;
     top: 0px;
@@ -17,19 +9,80 @@
     background: rgba(0, 0, 0, 0.3);
 }
 
-
-}
-
-
-
 .modal {
     width: 500px;
     height: 500px;;
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 25%;
+    left: 45%;
     margin-top: -150px;
     margin-left: -150px;
     z-index: 9999;
-    background: yellow;
+    background: lightgrey;
+    border-radius: 5px;
+    border: 1px solid lightslategray;
   }
+
+.user-ticket-form-wrapper {
+    height: 84%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+}
+
+.user-ticket-header {
+    height: 30px;
+    padding: 10px;
+    border-bottom: 1px solid lightslategray;
+    display: flex;
+    justify-content: flex-end;
+    align-content: center;
+    background: lightgrey;
+
+   
+}
+
+#user-ticket-footer {
+    border-bottom: none;
+    border-top: 1px solid lightslategray;
+}
+
+.ticket-label-wrapper {
+    margin: auto;
+    vertical-align: center;
+
+    label {
+        font-size: 20px;
+        color: black;
+        font-weight: 400;
+    }
+}
+
+.close-modal-button {
+    cursor: pointer
+}
+
+.form-body {
+    height: 370px;
+}
+
+.ticket-body {
+    display: flex;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    padding: 10px;
+    height: auto;
+    background: white;
+    margin-top: 30px;
+}
+
+.ticket-info {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
