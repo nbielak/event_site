@@ -2,8 +2,8 @@ class Api::TicketsController < ApplicationController
     before_action :require_login
 
     def index 
-        @tickets = Ticket.all
-        render 'api/tickets/index'
+        @ticket = Ticket.find_by(event_id: params[:event_id])
+        render 'api/tickets/show'
     end
     def show
         @ticket = Ticket.find(params[:id])

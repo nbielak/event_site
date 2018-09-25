@@ -27,7 +27,7 @@ const receiveTicketErrors = errors => ({
 
 export const fetchAllTickets = eventId => dispatch =>(
   TicketApiUtil.fetchAllTickets(eventId).then(
-    tickets => dispatch(receiveAllTickets(tickets)),
+    ticket => dispatch(receiveTicket(ticket)),
   )
 );
 

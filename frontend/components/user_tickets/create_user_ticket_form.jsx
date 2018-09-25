@@ -20,14 +20,7 @@ class CreateUserTicketForm extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchAllTickets(this.props.eventId).then(res=>{
-        // debugger;
-        let ticket = Object.values(res.tickets)[0];
-        this.setState({ ticketId: ticket.id });
-        this.setState({ ticket });
-    });
-    
-    // debugger;
+    this.props.fetchAllTickets(this.props.eventId)
   }
 
   updateQuantity() {
@@ -50,10 +43,15 @@ class CreateUserTicketForm extends React.Component {
       }
   }
 
+  setTicketId() {
+    this.setState({ ticketId: this.props.tickets.id})
+  }
+
   render(){
-    if (!this.state.ticket) {
-        return null;
+    if (!this.props.tickets) {
+      return null;
     }
+    // this.setTicketId()
     return <div className="user-ticket-form-wrapper">
         <div className="user-ticket-header">
           <div className="ticket-label-wrapper">
@@ -69,10 +67,10 @@ class CreateUserTicketForm extends React.Component {
             <div className="ticket-body">
               <div className="ticket-info">
                 <label className="ticket-name">
-                  {this.state.ticket.name}
+                  {this.props.tickets.name}
                 </label>
                 <label className="ticket-price">
-                  ${this.state.ticket.price}
+                  ${this.props.tickets.price}
                 </label>
               </div>
 
