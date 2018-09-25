@@ -20,7 +20,6 @@ class CreateEventForm extends React.Component {
   }
 
   updateTicket(field){
-    // debugger;
     return e => {
       let ticket = this.state.ticket;
       ticket[field] = e.target.value;
@@ -35,10 +34,8 @@ class CreateEventForm extends React.Component {
   }
 
   handleSubmit(e) {
-    // debugger;
     e.preventDefault();
     const event = Object.assign({}, this.state.event);
-    debugger;
     this.props.createEvent(event).then(action => {
       this.updateTicketEventId(action.event.id);
       const ticket = Object.assign({}, this.state.ticket);

@@ -2,7 +2,6 @@ import {RECEIVE_TICKET, RECEIVE_TICKET_ERRORS} from '../actions/ticket_actions';
 
 const TicketErrorsReducer = (state=[], action) => {
     Object.freeze(state);
-    // debugger;
     switch(action.type) {
         case RECEIVE_TICKET_ERRORS:
             return action.errors;

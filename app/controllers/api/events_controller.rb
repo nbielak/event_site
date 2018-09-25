@@ -14,7 +14,6 @@ class Api::EventsController < ApplicationController
     @user = User.find(params[:user_id])
     @events = @user.attending_events
     if @events 
-      # debugger;
       render 'api/events/index'
     else 
       render json: @events.errors.full_messages, status: 422

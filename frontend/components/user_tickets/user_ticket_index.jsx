@@ -9,7 +9,6 @@ class UserTicketIndex extends React.Component {
     }
 
     componentDidMount() {
-        // debugger;
         this.props.fetchUserEvents(this.props.user.id).then(
             action => {
                 return this.setState({ events: action.events });

@@ -6,11 +6,10 @@ import { withRouter } from 'react-router';
 import {getEventTickets} from '../../reducers/selectors';
 
 const mapStateToProps = (state, ownProps) => {
-    // debugger;
     return {
         userId: state.entities.users[state.session.currentUser].id,
         eventId: ownProps.match.params.eventId,
-        tickets: getEventTickets({tickets: state.entities.tickets, eventId: ownProps.match.params.eventId})
+        tickets: ownProps.tickets
     };
 }
 

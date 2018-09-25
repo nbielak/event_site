@@ -5,7 +5,7 @@ class CreateUserTicketForm extends React.Component {
     super(props);
     this.state = {
         userId: this.props.userId,
-        ticketId: null
+        ticketId: this.props.ticketId
     };
     this.quantity = 0;
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -14,14 +14,13 @@ class CreateUserTicketForm extends React.Component {
         "2": 2,
         "3": 3
     }
-    this.ticket = null;
     this.closeModal = this.props.closeModal;
     this.updateQuantity = this.updateQuantity.bind(this);
   }
 
-  componentDidMount() {
-    this.props.fetchAllTickets(this.props.eventId)
-  }
+  // componentDidMount() {
+  //   this.props.fetchAllTickets(this.props.eventId)
+  // }
 
   updateQuantity() {
       return e => {
@@ -43,15 +42,10 @@ class CreateUserTicketForm extends React.Component {
       }
   }
 
-  setTicketId() {
-    this.setState({ ticketId: this.props.tickets.id})
-  }
-
   render(){
-    if (!this.props.tickets) {
+    if (this.props.tickets === undefined) {
       return null;
     }
-    // this.setTicketId()
     return <div className="user-ticket-form-wrapper">
         <div className="user-ticket-header">
           <div className="ticket-label-wrapper">
@@ -86,9 +80,9 @@ class CreateUserTicketForm extends React.Component {
 
           <div id="user-ticket-footer" className="user-ticket-header">
             <div>
-                <label className="quantity-footer"></label>
+              <label className="quantity-footer" />
             </div>
-    
+
             <input className="register-button" type="submit" align="center" value="CHECKOUT" />
           </div>
         </form>

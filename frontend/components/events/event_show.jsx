@@ -13,6 +13,7 @@ class EventShow extends React.Component {
 
   componentDidMount() {
     this.props.fetchEvent(this.props.match.params.eventId)
+      .then(action => this.props.fetchAllTickets(action.event.id))
   }
 
   createStartDate() {
@@ -81,11 +82,9 @@ class EventShow extends React.Component {
   }
 
   render() {
-    // console.log(this.props.event);
-    if (this.props.event === undefined) {
+    if (this.props.event === undefined || this.props.tickets === undefined) {
       return null;
     }
-    // debugger;
     return <div className="event-listing-background">
         <div className="event-listing-grid">
           <div className="event-listing-body">
@@ -187,7 +186,7 @@ class EventShow extends React.Component {
       <div>
           <div className="backdrop">
             <div className="modal">
-              <CreateUserTicketFormContainer />
+              <CreateUserTicketFormContainer tickets={this.props.tickets} ticketId={Object.keys(this.props.tickets)[0]}/>
             </div>
           </div>
         </div>

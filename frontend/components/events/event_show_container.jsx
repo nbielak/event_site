@@ -1,4 +1,3 @@
-import React from 'react';
 import { connect } from 'react-redux';
 import EventShow from './event_show';
 import { fetchEvent } from '../../actions/event_actions';
@@ -8,7 +7,7 @@ import { getEventTickets } from '../../reducers/selectors';
 
 const mapStateToProps = (state, ownProps) => ({
   event: state.entities.events[ownProps.match.params.eventId],
-  tickets: getEventTickets({ tickets: state.entities.tickets, eventId: ownProps.match.params.eventId })
+  tickets: state.entities.tickets
 });
 
 const mapDispatchToProps = dispatch => ({
