@@ -6,7 +6,7 @@
     width: 100%;
     height: 100%;
     z-index: 9998;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.4);
 }
 
 .modal {
@@ -14,13 +14,12 @@
     height: 500px;;
     position: absolute;
     top: 25%;
-    left: 45%;
+    left: 42.5%;
     margin-top: -150px;
     margin-left: -150px;
     z-index: 9999;
     background: lightgrey;
     border-radius: 5px;
-    border: 1px solid lightslategray;
     
   }
 
@@ -38,7 +37,8 @@
     display: flex;
     justify-content: flex-end;
     align-content: center;
-    background: lightgrey;
+    background: #eeedf2;
+
 }
 
 .ticket-label-wrapper {
@@ -46,20 +46,30 @@
     vertical-align: center;
 
     label {
-        font-size: 20px;
-        color: black;
-        font-weight: 400;
+        font-size: 16px;
+        color: #180a35;
+        font-weight: 600;
+        letter-spacing: 0.5px;
     }
 }
 
-.close-modal-button {
-    cursor: pointer
+.close-modal-button-wrapper {
+    padding-right: 5px;
+    button {
+        margin-top: 5px;
+        cursor: pointer;
+        background: #eeedf2;
+        font-size: 16;
+        font-weight: 200;
+        color: #8d8f9f;
+    }
 }
 
 .form-body {
-    height: 390px;
-    border-top: 1px solid lightslategray;
-    border-bottom: 1px solid lightslategray;
+    height: 400px;
+    background: #f8f7fa;
+    border-top: 1px solid #dfdde5;
+    border-bottom: 1px solid #dfdde5;
 }
 
 .ticket-body {
@@ -72,6 +82,7 @@
     height: auto;
     background: white;
     margin-top: 30px;
+    box-shadow: 0 1px #dfdee1;
 }
 
 .ticket-info {
@@ -79,6 +90,55 @@
     flex-direction: column;
 }
 
+.ticket-name {
+    color: #1b0c39;
+    font-size: 18px;
+    font-weight: 400;
+    padding-bottom: 5px;
+}
 
+.ticket-price {
+    color: #4b4d61;
+    font-size: 16px;
+    font-weight: 400;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.quantity-selector {
+    width: 80px;
+    height: 45px;
+    border-radius: 3px;
+    font-size: 16px;
+    font-weight: 400;
+    border-color: #dbdae2;
+    color: #1b0c39;
+    cursor: pointer;
+}
+
+#user-ticket-footer {
+    display: flex;
+    justify-content: space-between;
+    height: 45px;
+    background: #ffffff;
+}
+
+.register-button {
+        background-color: #00ab44;
+        color: white;
+        border: none;
+        width: 115px;
+        height: 45px;
+        font-size: 16px;
+        font-weight: 600;
+        align-content: center;
+        text-align: center;
+        cursor: pointer;
+        border-radius: 3px;
+
+        &:hover {
+            background: #00451b;
+        }
+    }
 
 
