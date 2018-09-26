@@ -1,0 +1,17 @@
+.profile-wrapper {
+    width: 90%;
+    background: lightgrey;
+    margin: auto;
+    min-height: 1080px;
+    background-image: linear-gradient(to bottom left, #f6f6f6, #ffffff);
+    box-shadow: 1px 0 3px #f4f4f4, -1px 0 3px #f4f4f4;
+}
+
+.scrollmenu {
+    overflow: auto;
+    white-space: nowrap;
+
+    li {
+    display: inline-block;
+    }
+}

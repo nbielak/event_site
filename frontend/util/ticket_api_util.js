@@ -5,6 +5,13 @@ export const fetchAllTickets = eventId => (
     })
 );
 
+export const fetchUserProfileTickets = userId => (
+    $.ajax({
+        method: 'GET',
+        url: `/api/users/${userId}/tickets`
+    })
+)
+
 export const fetchTicket = (eventId, id) => (
     $.ajax ({
         method: 'GET',
