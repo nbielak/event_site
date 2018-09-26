@@ -186,7 +186,7 @@ class EventShow extends React.Component {
       <div>
           <div className="backdrop">
             <div className="modal">
-              <CreateUserTicketFormContainer tickets={this.props.tickets} ticketId={Object.keys(this.props.tickets)[0]}/>
+              <CreateUserTicketFormContainer tickets={this.props.tickets} ticketId={Object.keys(this.props.tickets)[0]} closeModal={this.closeModal}/>
             </div>
           </div>
         </div>

@@ -3,7 +3,7 @@ import React from 'react';
 class CreateUserTicketForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
+    this.user_ticket = {
         userId: this.props.userId,
         ticketId: this.props.ticketId
     };
@@ -31,11 +31,11 @@ class CreateUserTicketForm extends React.Component {
 
   handleSubmit(e) {
       e.preventDefault();
-      const userTicket = Object.assign({}, this.state);
+      const userTicket = Object.assign({}, {userId: this.props.userId, ticketId: this.props.ticketId});
       for (let i = 0; i < this.quantity; i ++) {
           if (i === (this.quantity - 1)) {
               return this.props.createUserTicket(userTicket).then(action =>{
-                  this.props.closeModal();
+                  this.closeModal();
               });
           }
           this.props.createUserTicket(userTicket);
