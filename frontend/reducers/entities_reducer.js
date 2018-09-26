@@ -8,7 +8,7 @@ const entitiesReducer = combineReducers({
   users: usersReducer,
   events: EventsReducer,
   tickets: TicketsReducer,
-  user_tickets: UserTicketsReducer
+  userTickets: UserTicketsReducer
 });
 
 export default entitiesReducer;

@@ -26,7 +26,7 @@ class Api::UserTicketsController < ApplicationController
     def attending_count
         @count = UserTicket.where("user_id = ? AND ticket_id = ?", params[:user_id], params[:ticket_id]).count
         @event_id = Ticket.find(params[:ticket_id]).event_id
-        @count_obj = {count: @count}
+        @count_obj = {count: @count, event_id: @event_id}
         if @count_obj
             render 'api/user_tickets/attending_count'
         else 

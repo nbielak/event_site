@@ -4,8 +4,7 @@ import EventIndexItem from '../events/event_index_item';
 class UserTicketIndex extends React.Component {
     constructor(props) {
         super(props);
-        this.state = this.props.events;
-
+        this.ticketTotal = 0;
     }
 
     componentDidMount() {
@@ -17,15 +16,42 @@ class UserTicketIndex extends React.Component {
         )
         .then(
             res => this.props.fetchUserProfileTickets(this.props.user.id)
-        ).then(
-            action => this.setState({user_tickets: action.user_tickets })
+        )
+        .then(
+            action => {
+                let tickets = Object.keys(action.tickets);
+                for (let i = 0; i < tickets.length; i ++) {
+                    // debugger;
+                    let ticketId = tickets[i];
+                    this.props.fetchUserTicketCount(this.props.user.id, ticketId)
+
+                        .then(action => {
+                            this.ticketTotal += action.count.count;
+                        })
+                }
+            }
         );
     }
 
+    // totalTickets() {
+    //     // debugger;
+    //     let total = 0;
+    //     if (!this.props.userTickets) {
+    //         return total;
+    //     }
+    //     let keys = Object.keys(this.props.userTickets);
+    //     for (let i = 0; i < keys.length; i++) {
+    //         let key = keys[i];
+    //         total += this.props.userTickets[key].count;
+    //     }
+    //     return total;
+    // }
+
     render() {
-        if (!this.state) {
-            return null;
+        if (!this.props || !this.props.events) {
+          return null;
         }
+        // debugger;
         return <div>
             <div className="profile-wrapper">
               <div className="profile-info">
@@ -39,6 +65,7 @@ class UserTicketIndex extends React.Component {
                     <ul>
                         <li>
                             <label>tickets</label>
+                            <label>{this.ticketTotal}</label>
                         </li>
                         <li>
                             <label>like</label>
@@ -56,9 +83,9 @@ class UserTicketIndex extends React.Component {
 
                 <div className="scrollmenu">
                   <ul>
-                    {Object.keys(this.state.events).map(eventId => {
-                      let event = this.state.events[eventId];
-                      return <EventIndexItem key={event.id} event={event} userTickets={1}/>;
+                    {Object.keys(this.props.events).map(eventId => {
+                      let event = this.props.events[eventId];
+                      return <EventIndexItem key={event.id} event={event} userTickets={this.props.userTickets}/>;
                     })}
                   </ul>
                 </div>

@@ -13,6 +13,13 @@ export const fetchUserTicket = userTicketId => (
     })
 );
 
+export const fetchUserTicketCount = (userId, ticketId) => (
+    $.ajax ({
+        method: 'GET',
+        url: `/api/users/${userId}/user_tickets/${ticketId}`
+    })
+)
+
 export const createUserTicket = userTicket => (
     $.ajax ({
         method: 'POST',

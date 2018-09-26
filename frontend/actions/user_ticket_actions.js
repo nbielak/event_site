@@ -2,6 +2,7 @@ import * as UserTicketApiUtil from '../util/user_ticket_api_util';
 
 export const RECEIVE_ALL_USER_TICKETS = "RECEIVE_ALL_USER_TICKETS";
 export const RECEIVE_USER_TICKET = "RECEIVE_USER_TICKET";
+export const RECEIVE_USER_TICKET_COUNT = "RECEIVE_USER_TICKET_COUNT";
 export const REMOVE_USER_TICKET = "REMOVE_USER_TICKET";
 export const RECEIVE_USER_TICKET_ERRORS = "RECEIVE_USER_TICKET_ERRORS";
 
@@ -14,6 +15,11 @@ const receiveUserTicket = userTicket => ({
     type: RECEIVE_USER_TICKET,
     userTicket
 });
+
+const receiveUserTicketCount = count => ({
+    type: RECEIVE_USER_TICKET_COUNT,
+    count
+})
 
 const removeUserTicket = userTicketId => ({
     type: REMOVE_USER_TICKET,
@@ -35,6 +41,13 @@ export const fetchAllUserTickets = () => dispatch => (
 export const fetchUserTicket = userTicketId => dispatch => (
     UserTicketApiUtil.fetchUserTicket(userTicketId).then(
         userTicket => dispatch(receiveUserTicket(userTicket)),
+        errors => dispatch(receiveUserTicketErrors(errors.responseJSON))
+    )
+);
+
+export const fetchUserTicketCount = (userId, ticketId) => dispatch => (
+    UserTicketApiUtil.fetchUserTicketCount(userId, ticketId).then(
+        count => dispatch(receiveUserTicketCount(count)),
         errors => dispatch(receiveUserTicketErrors(errors.responseJSON))
     )
 );

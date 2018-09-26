@@ -1,1 +1,1 @@
-json.extract! @count_obj, :count
+json.extract! @count_obj, :count, :event_id
