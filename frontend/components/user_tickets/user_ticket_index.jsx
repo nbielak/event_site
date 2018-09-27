@@ -1,6 +1,5 @@
 import React from 'react';
 import UserTicketIndexItem from './user_ticket_index_item';
-// import { withRouter } from 'react-router-dom'
 
 class UserTicketIndex extends React.Component {
     constructor(props) {
@@ -21,10 +20,11 @@ class UserTicketIndex extends React.Component {
         )
         .then(
             action => {
+                
                 let tickets = Object.keys(action.tickets);
-                this.setState(tickets);
+                this.setState({tickets});
+                this.setTicketSection(action.tickets);
                 for (let i = 0; i < tickets.length; i ++) {
-                    // debugger;
                     let ticketId = tickets[i];
                     this.props.fetchUserTicketCount(this.props.user.id, ticketId)
 
@@ -37,11 +37,19 @@ class UserTicketIndex extends React.Component {
         );
     }
 
+    setTicketSection(tickets) {
+        let scroll = document.getElementsByClassName("scrollmenu")[0];
+        let notix = document.getElementsByClassName("no-tickets")[0];
+        if (Object.keys(tickets).length === 0 && tickets.constructor === Object) {
+          scroll.style.display = "none";
+          notix.style.display = "block";
+        } 
+    }
+
     render() {
         if (!this.props || !this.props.userTickets) {
           return null;
         }
-        // debugger;
         return <div>
             <div className="profile-wrapper">
               <div className="profile-info">
@@ -82,6 +90,9 @@ class UserTicketIndex extends React.Component {
                                 }
                             })}
                         </ul>
+                    </div>
+                    <div className="no-tickets">
+                            No Tickets
                     </div>
               </div>
                 

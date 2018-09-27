@@ -18,10 +18,6 @@ class CreateUserTicketForm extends React.Component {
     this.updateQuantity = this.updateQuantity.bind(this);
   }
 
-  // componentDidMount() {
-  //   this.props.fetchAllTickets(this.props.eventId)
-  // }
-
   updateQuantity() {
       return e => {
           this.quantity = this.numbers[e.target.value];

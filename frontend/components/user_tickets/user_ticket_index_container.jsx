@@ -4,8 +4,6 @@ import {fetchUserEvents} from '../../actions/event_actions';
 import { fetchUserProfileTickets } from '../../actions/ticket_actions';
 import { fetchUserTicketCount } from '../../actions/user_ticket_actions';
 
-//fetchUserTickets or backend routing?
-
 const mapStateToProps = state => ({
   user: state.entities.users[state.session.currentUser],
   events: state.entities.events,

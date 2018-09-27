@@ -28,6 +28,7 @@
         font-weight: 500;
         font-family: Neue Plak,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Helvetica,Tahoma,Arial,sans-serif;
         color: #39364f;
+        text-transform: capitalize;
     }
 }
 
@@ -81,4 +82,9 @@
     &:first-of-type {
         padding-left: 0px;
     }
+}
+
+.no-tickets {
+    z-index: 20;
+    display: none;
 }

@@ -68,10 +68,8 @@ class UserTicketIndexItem extends React.Component {
   render () {
     console.log(this.props);
     if (!this.props || Object.keys(this.props.userTickets).length === 0) {
-      // debugger;
       return null;
     }
-    // debugger;
     return (
       <div id="user-ticket-index-item" className="event-index-item">
         <div className="index-item-content-wrapper">
