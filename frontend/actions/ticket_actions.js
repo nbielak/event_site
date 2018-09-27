@@ -31,6 +31,12 @@ export const fetchAllTickets = eventId => dispatch =>(
   )
 );
 
+export const fetchUserProfileTickets = userId => dispatch =>
+  TicketApiUtil.fetchUserProfileTickets(userId).then(
+    tickets => dispatch(receiveAllTickets(tickets)),
+    errors => dispatch(receiveTicketErrors(errors.responseJSON))
+  );
+
 export const fetchTicket = (eventId, ticketId) => dispatch => (
     TicketApiUtil.fetchTicket(eventId, ticketId).then(
         ticket => dispatch(receiveTicket(ticket)),

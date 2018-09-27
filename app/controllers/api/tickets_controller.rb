@@ -19,6 +19,16 @@ class Api::TicketsController < ApplicationController
         end
     end
 
+    def attending
+        @user = User.find(params[:user_id]);
+        @tickets = @user.event_tickets 
+        if @tickets
+            render 'api/tickets/index'
+        else
+            render json: @tickets.errors.full_messages, status: 401
+        end
+    end
+
     def update
         @ticket = Tickets.find_by(event_id: params[:event_id])
 

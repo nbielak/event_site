@@ -1,5 +1,6 @@
 class Api::UserTicketsController < ApplicationController
-    before_action :set_ticket, :logged_in?
+    before_action :logged_in? 
+    before_action :set_ticket, except: [:attending_count]
     before_action :check_ticket_quantity, only: [:create]
 
     def index
@@ -19,6 +20,17 @@ class Api::UserTicketsController < ApplicationController
             render 'api/user_tickets/show'
         else
             render json: @user_ticket.errors.full_messages, status: 401
+        end
+    end
+
+    def attending_count
+        @count = UserTicket.where("user_id = ? AND ticket_id = ?", params[:user_id], params[:ticket_id]).count
+        @event_id = Ticket.find(params[:ticket_id]).event_id
+        @count_obj = {count: @count, event_id: @event_id}
+        if @count_obj
+            render 'api/user_tickets/attending_count'
+        else 
+            render json: "Count failure", status: 401
         end
     end
 

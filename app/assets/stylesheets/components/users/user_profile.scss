@@ -1,0 +1,90 @@
+.profile-wrapper {
+    width: 90%;
+    background: lightgrey;
+    margin: auto;
+    min-height: 1080px;
+    background-image: linear-gradient(to bottom left, #f6f6f6, #ffffff);
+    box-shadow: 1px 0 3px #f4f4f4, -1px 0 3px #f4f4f4;
+}
+
+.profile-info {
+    display: block;
+    width: 90%;
+    padding-top: 4%;
+    padding-bottom: 4%;
+    margin: auto;
+}
+
+.profile-info-words {
+    min-height: 122px;
+    display: flex;
+    flex-direction: column;
+}
+
+.name-wrapper {
+    padding-bottom: 12px;
+    h1 {
+        font-size: 35px;
+        font-weight: 500;
+        font-family: Neue Plak,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Helvetica,Tahoma,Arial,sans-serif;
+        color: #39364f;
+        text-transform: capitalize;
+    }
+}
+
+.info-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    .info-list-item {
+        display: flex;
+        flex-direction: row;
+    }
+
+    
+}
+
+.info-list-item {
+        
+        margin-right: 20px;
+        text-decoration: none;
+        color: #4b4d63;
+}
+
+.profile-section {
+   width: 90%;
+   margin: auto;
+}
+
+.info-title-wrapper {
+    padding-bottom: 32px;
+}
+
+.info-title {
+    color: #6f7287;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.scrollmenu {
+    overflow: auto;
+    white-space: nowrap;
+    
+
+    li {
+    display: inline-block;
+    }
+}
+
+#user-ticket-index-item {
+    width: 350px;
+    overflow: ellipse;
+
+    &:first-of-type {
+        padding-left: 0px;
+    }
+}
+
+.no-tickets {
+    z-index: 20;
+    display: none;
+}

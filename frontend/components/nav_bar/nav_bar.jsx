@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const NavBar = ({currentUser, logout}) => {
   const loggedInNavBar = () => (
-    <nav className = "nav-bar">
+    <nav id="nav-bar" className = "nav-bar">
       <Link className="nav-bar-link" to="/">browse events</Link>
       <div className="nav-bar-link" to="/">{currentUser.firstName}
         <ul className="nav-bar-drop-down">
