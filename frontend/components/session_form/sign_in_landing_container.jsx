@@ -11,8 +11,6 @@ class SignInLanding extends React.Component {
     this.form = this.form.bind(this);
   }
 
-// redirect to route
-
   render() {
     return (
       <div>

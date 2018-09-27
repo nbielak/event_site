@@ -3,7 +3,7 @@ import React from 'react';
 class CreateUserTicketForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
+    this.user_ticket = {
         userId: this.props.userId,
         ticketId: this.props.ticketId
     };
@@ -18,10 +18,6 @@ class CreateUserTicketForm extends React.Component {
     this.updateQuantity = this.updateQuantity.bind(this);
   }
 
-  // componentDidMount() {
-  //   this.props.fetchAllTickets(this.props.eventId)
-  // }
-
   updateQuantity() {
       return e => {
           this.quantity = this.numbers[e.target.value];
@@ -31,11 +27,11 @@ class CreateUserTicketForm extends React.Component {
 
   handleSubmit(e) {
       e.preventDefault();
-      const userTicket = Object.assign({}, this.state);
+      const userTicket = Object.assign({}, {userId: this.props.userId, ticketId: this.props.ticketId});
       for (let i = 0; i < this.quantity; i ++) {
           if (i === (this.quantity - 1)) {
               return this.props.createUserTicket(userTicket).then(action =>{
-                  this.props.closeModal();
+                  this.closeModal();
               });
           }
           this.props.createUserTicket(userTicket);
@@ -43,7 +39,7 @@ class CreateUserTicketForm extends React.Component {
   }
 
   render(){
-    if (this.props.tickets === undefined) {
+    if (!this.props.tickets || !this.props.ticketId) {
       return null;
     }
     return <div className="user-ticket-form-wrapper">
@@ -61,10 +57,10 @@ class CreateUserTicketForm extends React.Component {
             <div className="ticket-body">
               <div className="ticket-info">
                 <label className="ticket-name">
-                  {this.props.tickets.name}
+                  {this.props.tickets[this.props.ticketId].name}
                 </label>
                 <label className="ticket-price">
-                  ${this.props.tickets.price}
+                  ${this.props.tickets[this.props.ticketId].price}
                 </label>
               </div>
 

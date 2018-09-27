@@ -9,7 +9,8 @@ const mapStateToProps = (state, ownProps) => {
     return {
         userId: state.entities.users[state.session.currentUser].id,
         eventId: ownProps.match.params.eventId,
-        tickets: ownProps.tickets
+        tickets: ownProps.tickets,
+        ticketId: ownProps.ticketId
     };
 }
 

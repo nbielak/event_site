@@ -9,6 +9,7 @@ class EventShow extends React.Component {
     this.setTime = this.setTime.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.modal = null;
+    this.findTicketId = this.findTicketId.bind(this);
   }
 
   componentDidMount() {
@@ -79,6 +80,16 @@ class EventShow extends React.Component {
     }
 
     return `${hour}:${min} ${meridian}`;
+  }
+
+  findTicketId() {
+    let tickets = Object.keys(this.props.tickets);
+    for (let i = 0; i < tickets.length; i++) {
+      let ticket = this.props.tickets[tickets[i]];
+      if (ticket.eventId === this.props.event.id ) {
+        return ticket.id;
+      }
+    }
   }
 
   render() {
@@ -186,7 +197,7 @@ class EventShow extends React.Component {
       <div>
           <div className="backdrop">
             <div className="modal">
-              <CreateUserTicketFormContainer tickets={this.props.tickets} ticketId={Object.keys(this.props.tickets)[0]}/>
+              <CreateUserTicketFormContainer tickets={this.props.tickets} ticketId={this.findTicketId()} closeModal={this.closeModal}/>
             </div>
           </div>
         </div>
