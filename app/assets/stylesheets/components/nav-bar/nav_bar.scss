@@ -23,6 +23,7 @@ header {
 
       .nav-bar-drop-down {
         display: none;
+        flex-direction: column;
         position: absolute;
         width: 250px;
         height: 350px;
@@ -36,41 +37,6 @@ header {
         overflow: hidden;
         background: #fff;
         cursor: pointer;
-
-        .nav-bar-drop-down-list-item {
-          border-top: 1px solid #EFF2F5;
-          width: 100%;
-          position: relative;
-          text-align: left;
-          box-sizing: border-box;
-          cursor: pointer;
-          height: 14.2857142857%;
-          padding-top: 15px;
-          padding-left: 15px;
-          text-decoration: none;
-
-          .logout-button {
-            text-align: left;
-            text-decoration: none;
-            color: #45494E;
-            font-size: 12px;
-            font-weight: 400px;
-            line-height: 19px;
-            letter-spacing: 0.5px;
-            width: 100%;
-            cursor: pointer;
-            background-color: transparent;
-            text-transform: uppercase;
-
-            &:hover {
-              background-color: #EFF2F5;
-            }
-
-          }
-          &:hover {
-            background-color: #EFF2F5;
-          }
-        }
       }
 
 
@@ -78,7 +44,7 @@ header {
         background-color: #EFF2F5;
 
         .nav-bar-drop-down {
-          display: block;
+          display: flex;
         }
 
       }
@@ -110,3 +76,43 @@ header {
 #nav-bar {
   margin-right: 0;
 }
+
+.nav-bar-drop-down-list-item {
+  border-top: 1px solid #EFF2F5;
+  width: 100%;
+  position: relative;
+  text-align: left;
+  box-sizing: border-box;
+  cursor: pointer;
+  height: 14.2857142857%;
+  padding-top: 15px;
+  padding-left: 15px;
+  text-decoration: none;
+  color: #45494E;
+  height: 14.2857142857%;
+
+  
+  &:hover {
+    background-color: #EFF2F5;
+  }
+}
+
+#logout-button {
+    text-align: left;
+    text-decoration: none;
+    color: #45494E;
+    font-size: 12px;
+    font-weight: 400px;
+    line-height: 19px;
+    letter-spacing: 0.5px;
+    width: 100%;
+    cursor: pointer;
+    background-color: transparent;
+    text-transform: uppercase;
+    padding-bottom: 15px;
+
+    &:hover {
+      background-color: #EFF2F5;
+    }
+
+  }

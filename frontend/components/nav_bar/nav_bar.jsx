@@ -3,38 +3,40 @@ import { Link } from 'react-router-dom';
 
 
 const NavBar = ({currentUser, logout}) => {
-  const loggedInNavBar = () => (
-    <nav id="nav-bar" className = "nav-bar">
-      <Link className="nav-bar-link" to="/">browse events</Link>
-      <div className="nav-bar-link" to="/">{currentUser.firstName}
-        <ul className="nav-bar-drop-down">
-          <li className="nav-bar-drop-down-list-item">
-            <Link className="link" to="/">Browse Events</Link>
-          </li>
-          <li className="nav-bar-drop-down-list-item">
-            <Link className="link" to={`/users/${currentUser.id}/profile`}>Tickets</Link>
-          </li>
-          <li className="nav-bar-drop-down-list-item">
-            <Link className="link" to={`/users/${currentUser.id}/profile`}>Saved</Link>
-          </li>
-          <li className="nav-bar-drop-down-list-item">
-            <Link className="link" to={`/users/${currentUser.id}/profile`}>Following</Link>
-          </li>
-          <li className="nav-bar-drop-down-list-item">
-            <Link className="link" to='/myevents'>Manage Events</Link>
-          </li>
-          <li className="nav-bar-drop-down-list-item">
-            <Link className="link" to='/'>Account Settings</Link>
-          </li>
-          <li className="nav-bar-drop-down-list-item">
-            <button className="logout-button link" onClick={() => logout()}>Log Out</button>
-          </li>
-        </ul>
+  const loggedInNavBar = () => <nav id="nav-bar" className="nav-bar">
+      <Link className="nav-bar-link" to="/">
+        browse events
+      </Link>
+      <div className="nav-bar-link" to="/">
+        {currentUser.firstName}
+        <div className="nav-bar-drop-down">
+          <a className="nav-bar-drop-down-list-item" href="/">
+            Browse Events
+          </a>
+          <a className="nav-bar-drop-down-list-item" href={`/#/users/${currentUser.id}/profile`}>
+            Tickets
+          </a>
+          <a className="nav-bar-drop-down-list-item" href={`/#/users/${currentUser.id}/profile`}>
+            Saved
+          </a>
+          <a className="nav-bar-drop-down-list-item" href={`/#/users/${currentUser.id}/profile`}>
+            Following
+          </a>
+          <a className="nav-bar-drop-down-list-item" href="/#/myevents">
+            Manage Events
+          </a>
+          <a className="nav-bar-drop-down-list-item" href="/#/">
+            Account Settings
+          </a>
+        <button id="logout-button" className="nav-bar-drop-down-list-item" onClick={() => logout()}>
+            Log Out
+          </button>
+        </div>
       </div>
-      <Link className="nav-bar-link" to="/create">create event</Link>
-
-    </nav>
-  );
+      <Link className="nav-bar-link" to="/create">
+        create event
+      </Link>
+    </nav>;
 
   const loggedOutNavBar = () => (
     <nav className = "nav-bar">
