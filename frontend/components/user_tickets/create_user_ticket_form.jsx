@@ -43,7 +43,7 @@ class CreateUserTicketForm extends React.Component {
   }
 
   render(){
-    if (this.props.tickets === undefined) {
+    if (!this.props.tickets || !this.props.ticketId) {
       return null;
     }
     return <div className="user-ticket-form-wrapper">
@@ -61,10 +61,10 @@ class CreateUserTicketForm extends React.Component {
             <div className="ticket-body">
               <div className="ticket-info">
                 <label className="ticket-name">
-                  {this.props.tickets.name}
+                  {this.props.tickets[this.props.ticketId].name}
                 </label>
                 <label className="ticket-price">
-                  ${this.props.tickets.price}
+                  ${this.props.tickets[this.props.ticketId].price}
                 </label>
               </div>
 

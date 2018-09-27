@@ -38,49 +38,53 @@ class UserTicketIndex extends React.Component {
     }
 
     render() {
-        if (!this.props || this.props.userTickets === {}) {
+        if (!this.props || !this.props.userTickets) {
           return null;
         }
         // debugger;
         return <div>
             <div className="profile-wrapper">
               <div className="profile-info">
-                <div>
-                  <h1>
-                    {this.props.user.firstName} {this.props.user.lastName}
-                  </h1>
-                </div>
+                <div className="profile-info-words">
+                    <div className="name-wrapper">
+                        <h1>
+                            {this.props.user.firstName} {this.props.user.lastName}
+                        </h1>
+                    </div>
 
-                <div>
-                    <ul>
-                        <li>
-                            <label>tickets</label>
-                            <label>{this.ticketTotal}</label>
-                        </li>
-                        <li>
-                            <label>like</label>
-                        </li>
-                        <li>
-                            <label>following</label>
-                        </li>
-                    </ul>
+                    <div className="info-wapper">
+                            <a className="info-list-item">
+                            {this.ticketTotal} tickets
+                        </a>
+                        <span></span>
+                        <a className="info-list-item">
+                            0 likes
+                        </a>
+                        <a className="info-list-item">
+                            0 following
+                        </a>
+                    </div>
+
                 </div>
               </div>
               <div className="profile-section">
-                <div>
-                  <label>Tickets</label>
-                </div>
+              <div id="tickets-section">
+                    <div className="info-title-wrapper">
+                        <label className="info-title">Tickets</label>
+                    </div>
 
-                <div className="scrollmenu">
-                  <ul>
-                    {Object.keys(this.props.events).map(eventId => {
-                      let event = this.props.events[eventId];
-                        if (Object.keys(this.props.userTickets).includes(eventId)) {
-                            return <UserTicketIndexItem key={event.id} event={event} userTickets={this.props.userTickets} />;
-                        }
-                    })}
-                  </ul>
-                </div>
+                    <div className="scrollmenu">
+                        <ul>
+                            {Object.keys(this.props.events).map(eventId => {
+                                let event = this.props.events[eventId];
+                                if (Object.keys(this.props.userTickets).includes(eventId)) {
+                                    return <UserTicketIndexItem key={event.id} event={event} userTickets={this.props.userTickets} />;
+                                }
+                            })}
+                        </ul>
+                    </div>
+              </div>
+                
               </div>
             </div>
           </div>;

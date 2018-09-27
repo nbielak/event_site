@@ -73,7 +73,7 @@ class UserTicketIndexItem extends React.Component {
     }
     // debugger;
     return (
-      <div className="event-index-item">
+      <div id="user-ticket-index-item" className="event-index-item">
         <div className="index-item-content-wrapper">
           <div className="for-click-and-shadow" onClick={this.handleClick}>
             <div className="event-image-wrapper">
