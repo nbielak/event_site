@@ -4,7 +4,6 @@ import { withRouter } from 'react-router-dom';
 class UserTicketIndexItem extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.props.event
     this.handleClick = this.handleClick.bind(this);
     this.createStartDate = this.createStartDate.bind(this);
     this.setMonth = this.setMonth.bind(this);
@@ -18,8 +17,8 @@ class UserTicketIndexItem extends React.Component {
   createStartDate() {
     const days =["", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat", "Sun"];
 
-    let weekday = days[this.state.startDateObj.cwday];
-    return `${weekday}, ${this.setMonth()} ${this.state.startDateObj.date}, ${this.setTime()}`;
+    let weekday = days[this.props.event.startDateObj.cwday];
+    return `${weekday}, ${this.setMonth()} ${this.props.event.startDateObj.date}, ${this.setTime()}`;
 
   }
 
@@ -38,28 +37,28 @@ class UserTicketIndexItem extends React.Component {
       11: 'Nov',
       12: 'Dec'
     }
-    return months[this.state.startDateObj.month]
+    return months[this.props.event.startDateObj.month]
   }
 
   setTime() {
     let hour = ""
     let min = ""
     let meridian = ""
-    if (this.state.startTimeObj.hour > 12) {
-      hour = `${this.state.startTimeObj.hour - 12}`;
+    if (this.props.event.startTimeObj.hour > 12) {
+      hour = `${this.props.event.startTimeObj.hour - 12}`;
       meridian = "PM";
-    } else if (this.state.startTimeObj.hour === 0) {
+    } else if (this.props.event.startTimeObj.hour === 0) {
       hour = "12";
       meridian = "AM";
     } else {
-      hour = `${this.state.startTimeObj.hour}`;
+      hour = `${this.props.event.startTimeObj.hour}`;
       meridian = "AM";
     }
 
-    if (this.state.startTimeObj.minute < 10) {
-      min = `0${this.state.startTimeObj.minute}`;
+    if (this.props.event.startTimeObj.minute < 10) {
+      min = `0${this.props.event.startTimeObj.minute}`;
     } else {
-      min = `${this.state.startTimeObj.minute}`;
+      min = `${this.props.event.startTimeObj.minute}`;
     }
 
     return `${hour}:${min} ${meridian}`;
@@ -67,6 +66,12 @@ class UserTicketIndexItem extends React.Component {
 
 
   render () {
+    console.log(this.props);
+    if (!this.props || Object.keys(this.props.userTickets).length === 0) {
+      // debugger;
+      return null;
+    }
+    // debugger;
     return (
       <div className="event-index-item">
         <div className="index-item-content-wrapper">
@@ -91,12 +96,9 @@ class UserTicketIndexItem extends React.Component {
           </div>
           <div className="event-footer">
             <div className="event-footer-tags">
-              #category
-            </div>
-
-            <div className="event-footer-actions">
-              <button id="event-footer-button" className="event-footer-button"></button>
-              <button id="event-footer-button" className="event-footer-button"></button>
+              <label>
+                Tickets: {this.props.userTickets[this.props.event.id].count}
+              </label>
             </div>
           </div>
         </div>

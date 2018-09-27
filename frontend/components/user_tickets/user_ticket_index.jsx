@@ -1,5 +1,6 @@
 import React from 'react';
-import EventIndexItem from '../events/event_index_item';
+import UserTicketIndexItem from './user_ticket_index_item';
+// import { withRouter } from 'react-router-dom'
 
 class UserTicketIndex extends React.Component {
     constructor(props) {
@@ -16,10 +17,12 @@ class UserTicketIndex extends React.Component {
         )
         .then(
             res => this.props.fetchUserProfileTickets(this.props.user.id)
+            
         )
         .then(
             action => {
                 let tickets = Object.keys(action.tickets);
+                this.setState(tickets);
                 for (let i = 0; i < tickets.length; i ++) {
                     // debugger;
                     let ticketId = tickets[i];
@@ -27,28 +30,15 @@ class UserTicketIndex extends React.Component {
 
                         .then(action => {
                             this.ticketTotal += action.count.count;
+                            this.setState({ userTickets: action.count })
                         })
                 }
             }
         );
     }
 
-    // totalTickets() {
-    //     // debugger;
-    //     let total = 0;
-    //     if (!this.props.userTickets) {
-    //         return total;
-    //     }
-    //     let keys = Object.keys(this.props.userTickets);
-    //     for (let i = 0; i < keys.length; i++) {
-    //         let key = keys[i];
-    //         total += this.props.userTickets[key].count;
-    //     }
-    //     return total;
-    // }
-
     render() {
-        if (!this.props || !this.props.events) {
+        if (!this.props || this.props.userTickets === {}) {
           return null;
         }
         // debugger;
@@ -85,7 +75,9 @@ class UserTicketIndex extends React.Component {
                   <ul>
                     {Object.keys(this.props.events).map(eventId => {
                       let event = this.props.events[eventId];
-                      return <EventIndexItem key={event.id} event={event} userTickets={this.props.userTickets}/>;
+                        if (Object.keys(this.props.userTickets).includes(eventId)) {
+                            return <UserTicketIndexItem key={event.id} event={event} userTickets={this.props.userTickets} />;
+                        }
                     })}
                   </ul>
                 </div>
