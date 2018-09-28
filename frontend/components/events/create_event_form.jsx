@@ -4,11 +4,17 @@ import ErrorList from '../session_form/error_list';
 class CreateEventForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { event: {}, ticket: {} };
+    this.state = { 
+      event: {
+        photoFile: null
+      }, 
+      ticket: {},
+    };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.setTime = this.setTime.bind(this);
     this.updateEvent = this.updateEvent.bind(this);
     this.updateTicket = this.updateTicket.bind(this);
+    this.handleFile = this.handleFile.bind(this);
   }
 
   updateEvent(field) {
@@ -35,13 +41,35 @@ class CreateEventForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const event = Object.assign({}, this.state.event);
-    this.props.createEvent(event).then(action => {
+    const formData = new FormData();
+    let event = this.state.event;
+
+    formData.append("event[title]", event.title);
+    formData.append("event[photo]", event.photoFile);
+    formData.append("event[description]", event.description);
+    formData.append("event[venueName]", event.venueName);
+    formData.append("event[address]", event.address);
+    formData.append("event[address2]", event.address2);
+    formData.append("event[city]", event.city);
+    formData.append("event[state]", event.state);
+    formData.append("event[country]", event.country);
+    formData.append("event[zip]", event.zip);
+    formData.append("event[startDate]", event.startDate);
+    formData.append("event[endDate]", event.endDate);
+    formData.append("event[startTime]", event.startTime);
+    formData.append("event[endTime]", event.endTime);
+    formData.append("event[userId]", this.props.user.id);
+    formData.append("event[organizerName]", event.organizerName);
+    formData.append("event[organizerDescription]", event.organizerDescription);
+  
+    // const event = Object.assign({}, this.state.event);
+    this.props.createEvent(formData).then(action => {
       this.updateTicketEventId(action.event.id);
       const ticket = Object.assign({}, this.state.ticket);
       return this.props.createTicket(ticket.eventId, ticket);
     }).then(action => this.props.history.push(`/events/${action.ticket.eventId}`))
   }
+
 
   setTime() {
     let hour = ""
@@ -65,6 +93,12 @@ class CreateEventForm extends React.Component {
     }
 
     return `${hour}:${min} ${meridian}`;
+  }
+
+  handleFile(e) {
+    let event = this.state.event;
+    event["photoFile"] = e.currentTarget.files[0];
+    this.setState({ event });
   }
 
   render() {
@@ -169,6 +203,10 @@ class CreateEventForm extends React.Component {
                     </div>
 
                     <div className="event-image-input-wrapper" />
+                  </div>
+
+                  <div>
+                    <input type="file" onChange={this.handleFile}/>
                   </div>
 
                   <div className="event-description-wrapper">

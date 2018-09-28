@@ -21,10 +21,10 @@ class Api::EventsController < ApplicationController
   end
 
   def create
+    debugger
     @event = Event.new(event_params)
     @event.user_id = current_user.id
     # ensure_local_time(@event)
-
     if @event.save
       render 'api/events/show'
     else
@@ -53,7 +53,8 @@ class Api::EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:title,
+    params.require(:event).permit(
+      :title,
       :description,
       :venue_name,
       :address,
@@ -68,6 +69,8 @@ class Api::EventsController < ApplicationController
       :end_time,
       :user_id,
       :organizer_name,
-      :organizer_description)
+      :organizer_description,
+      :photo
+    )
   end
 end

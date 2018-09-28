@@ -28,3 +28,5 @@ json.start_date_obj do
   json.date event.start_date.day
   json.cwday event.start_date.cwday
 end
+
+json.photoUrl url_for(event.photo)
