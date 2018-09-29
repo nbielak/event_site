@@ -29,4 +29,4 @@ json.start_date_obj do
   json.cwday event.start_date.cwday
 end
 
-json.photoUrl url_for(event.photo)
+json.photoUrl url_for(event.photo) if event.photo.attached?

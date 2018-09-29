@@ -21,7 +21,6 @@ class Api::EventsController < ApplicationController
   end
 
   def create
-    debugger
     @event = Event.new(event_params)
     @event.user_id = current_user.id
     # ensure_local_time(@event)
