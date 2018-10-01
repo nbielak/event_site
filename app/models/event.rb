@@ -37,6 +37,8 @@ class Event < ApplicationRecord
     :organizer_name,
     :organizer_description,
     presence: true
+  
+  validate :ensure_photo
 
   belongs_to :organizer,
     foreign_key: :user_id,
@@ -46,5 +48,11 @@ class Event < ApplicationRecord
     dependent: :destroy
 
   has_one_attached :photo
+
+  def ensure_photo
+    unless self.photo.attached?
+      errors[:photo] << "must be attached"
+    end
+  end
 
 end

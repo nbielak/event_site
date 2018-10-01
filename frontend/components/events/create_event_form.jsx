@@ -45,7 +45,9 @@ class CreateEventForm extends React.Component {
     let event = this.state.event;
 
     formData.append("event[title]", event.title);
-    formData.append("event[photo]", event.photoFile);
+    if (event.photoFile) {
+      formData.append("event[photo]", event.photoFile);
+    }
     formData.append("event[description]", event.description);
     formData.append("event[venueName]", event.venueName);
     formData.append("event[address]", event.address);
@@ -97,11 +99,21 @@ class CreateEventForm extends React.Component {
 
   handleFile(e) {
     let event = this.state.event;
-    event["photoFile"] = e.currentTarget.files[0];
-    this.setState({ event });
+    const file = e.currentTarget.files[0];
+    const fileReader = new FileReader();
+    fileReader.onloadend = () => {
+
+      event["photoFile"] = file;
+      event["photoUrl"] = fileReader.result;
+      this.setState({ event });
+    }
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
   }
 
   render() {
+    const preview = this.state.event.photoUrl ? <img src={this.state.event.photoUrl}/> : null;
     return <div>
         <div className="create-event-top">
           <h2 className="event-top">Create an Event</h2>
@@ -199,14 +211,17 @@ class CreateEventForm extends React.Component {
 
                   <div className="event-image-wrapper">
                     <div className="event-info-label-wrapper">
-                      <label className="event-info-label" />
+                      <label className="event-info-label" >Event Image</label>
                     </div>
 
-                    <div className="event-image-input-wrapper" />
-                  </div>
+                    <div className="event-image-input-wrapper">
+                      <input type="file" onChange={this.handleFile} />
+                    </div>
 
-                  <div>
-                    <input type="file" onChange={this.handleFile}/>
+                    <div className="preview-wrapper">
+                      {preview}
+                    </div>
+                      
                   </div>
 
                   <div className="event-description-wrapper">
