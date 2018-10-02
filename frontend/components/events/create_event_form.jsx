@@ -113,7 +113,6 @@ class CreateEventForm extends React.Component {
   }
 
   render() {
-    const preview = this.state.event.photoUrl ? <img src={this.state.event.photoUrl}/> : null;
     return <div>
         <div className="create-event-top">
           <h2 className="event-top">Create an Event</h2>
@@ -218,9 +217,7 @@ class CreateEventForm extends React.Component {
                       <input type="file" onChange={this.handleFile} />
                     </div>
 
-                    <div className="preview-wrapper">
-                      {preview}
-                    </div>
+                    
                       
                   </div>
 
