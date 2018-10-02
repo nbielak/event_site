@@ -11,9 +11,10 @@ class EditEventForm extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchEvent(this.props.match.params.eventId).then( (action) => (
-      this.setState(this.props.event)
-    ))
+    this.props.fetchEvent(this.props.match.params.eventId).then( (action) => {
+      let event = action.event
+      this.setState(event)
+    })
   }
 
   update(field) {
@@ -40,8 +41,9 @@ class EditEventForm extends React.Component {
     if (!this.state) {
       return null;
     } else if (this.state.userId !== this.props.currentUser) {
+      debugger;
       return (<Redirect to="/" />)
-    } else {
+    }
       return (
         <div>
           <div className="create-event-top">
@@ -186,13 +188,12 @@ class EditEventForm extends React.Component {
 
                     <div className="event-image-wrapper">
                       <div className="event-info-label-wrapper">
-                        <label className="event-info-label">
-                        </label>
+                        <label className="event-info-label" >Event Image</label>
                       </div>
 
                       <div className="event-image-input-wrapper">
+                        <input type="file" onChange={this.handleFile}/>
                       </div>
-
                     </div>
 
                     <div className="event-description-wrapper">
@@ -258,7 +259,7 @@ class EditEventForm extends React.Component {
 
         </div>
       );
-    }
+
   }
 }
 

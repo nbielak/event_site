@@ -215,9 +215,6 @@ class CreateEventForm extends React.Component {
                     <div className="event-image-input-wrapper">
                       <input type="file" onChange={this.handleFile} />
                     </div>
-
-                    
-                      
                   </div>
 
                   <div className="event-description-wrapper">
