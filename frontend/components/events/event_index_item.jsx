@@ -76,7 +76,7 @@ class EventIndexItem extends React.Component {
         <div className="index-item-content-wrapper">
           <div className="for-click-and-shadow" onClick={this.handleClick}>
             <div className="event-image-wrapper">
-              <div className="event-image" style={{backgroundImage: `url(${this.state.photoUrl})`, backgroundSize: "cover"}}>
+              <div className="event-image" style={{backgroundImage: `url(${this.state.photoUrl})`}}>
               </div>
             </div>
             <div className="event-info">

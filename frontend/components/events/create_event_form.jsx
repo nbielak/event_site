@@ -64,7 +64,6 @@ class CreateEventForm extends React.Component {
     formData.append("event[organizerName]", event.organizerName);
     formData.append("event[organizerDescription]", event.organizerDescription);
   
-    // const event = Object.assign({}, this.state.event);
     this.props.createEvent(formData).then(action => {
       this.updateTicketEventId(action.event.id);
       const ticket = Object.assign({}, this.state.ticket);

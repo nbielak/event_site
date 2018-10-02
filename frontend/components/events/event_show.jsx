@@ -101,7 +101,7 @@ class EventShow extends React.Component {
           <div className="event-listing-body">
             <div className="event-listing-header-info">
               <div className="event-listing-header-image"
-              style={{ backgroundImage: `url(${this.props.event.photoUrl})`, backgroundSize: "cover"}}>
+              style={{ backgroundImage: `url(${this.props.event.photoUrl})`}}>
                 
               </div>
               <div className="event-header-info-block">

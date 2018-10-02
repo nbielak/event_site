@@ -1,5 +1,31 @@
+
+
+@keyframes cf3FadeInOut {
+
+  50% {
+    background-image: image_url('crowd.jpg');
+  }
+  100% {
+    background-image: image_url('fireworks.jpg');
+  }
+}
+
 .splash-banner {
   height: 430px;
   width: 100%;
-  background: grey;
+  background-image: image_url('birthday-cake.jpg');
+  background-size: cover;
+  background-position: center center;
+  overflow: hidden;
+  -webkit-transition: opacity 1s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out;
+  -o-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
+
+  animation-name: cf3FadeInOut;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-duration: 10s;
+  animation-direction: alternate;
+
 }

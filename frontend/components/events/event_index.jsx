@@ -15,7 +15,6 @@ class EventIndex extends React.Component {
     return (
       <div className="splash-page">
         <section className="splash-banner">
-          <img className="splash-image"src="https://yropenmic.com/wp-content/uploads/2017/07/cropped-openmic_background-1.jpeg"/>
         </section>
         <div className="splash-page-content">
           <div className="splash-overflow-search">
