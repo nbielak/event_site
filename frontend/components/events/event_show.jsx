@@ -100,8 +100,9 @@ class EventShow extends React.Component {
         <div className="event-listing-grid">
           <div className="event-listing-body">
             <div className="event-listing-header-info">
-              <div className="event-listing-header-image">
-                <img className="show-default-image" src="http://www.so-events.at/SYSTEM/image_background/standard/background_02.jpg" />
+              <div className="event-listing-header-image"
+              style={{ backgroundImage: `url(${this.props.event.photoUrl})`, backgroundSize: "cover"}}>
+                
               </div>
               <div className="event-header-info-block">
                 <div className="info-block-wrapper">
