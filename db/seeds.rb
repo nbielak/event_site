@@ -50,8 +50,7 @@ sahar = User.create!(
 
 #EVENTS
 
-
-Event.create!(
+a = Event.new(
   title: "It's Sahar's Birthday",
   description: "Come to Memorial Glade this Tuesday for an event you aren't likely to forget!  Once a year, we get a chance to celebrate Sahar and all that she has accomplished, and the time has finally come.
   There will be Cheeseboard pizza provided, but come early because we will run out",
@@ -68,7 +67,7 @@ Event.create!(
   user_id: nick[:id]
 )
 
-Event.create!(
+b = Event.new(
   title: "San Francisco Pirate Party",
   description: "Yo Ho Ho! While the 1700s were by far one of the best centuries of our existence. The sea-faring fashion was uhh-mayy-zing. The lingo was super dope, savvy? And the shanty's were better than watching a landlubber get hornswaggled. So don't be an old Sea Dog, flying the yellow jack! Stike ye colors, splice the mainbrace, and grab a pint o' grog! Even the old salts will be three sheets to the wind, ye scallywag!
 
@@ -83,10 +82,11 @@ Event.create!(
   start_date: Date.parse("September 30"),
   organizer_name: "Jolly Roger Industries",
   organizer_description: "Helping worthless maggots go on account since 1646!",
-  user_id: nick[:id]
+  user_id: nick[:id],
+  photo: "https://s3-us-west-1.amazonaws.com/eventsite-dev/adventure-2528477_1920.jpg"
 )
 
-Event.create!(
+c = Event.new(
   title: "Kitten Parade",
   description: "All of the Kittens in San Francisco will be parading through the city this Sunday.  The parade will start on the golden gate bridge, and from there, they will disperse in any direction they choose!  This year, we will be providing laser pointers to all attendees in an effort to keep the parade more cohesive!",
   venue_name: "The Golden Gate Bridge",
@@ -102,7 +102,7 @@ Event.create!(
   user_id: jane[:id]
 )
 
-Event.create!(
+d = Event.new(
   title: "Dance Party",
   description: "Dance the night away!",
   venue_name: "Church of 8 Wheels",
@@ -118,7 +118,7 @@ Event.create!(
   user_id: jane[:id]
 )
 
-Event.create!(
+e = Event.new(
   title: "Pizza Networking Social",
   description: "Pizza is the future! Come find your way into this budding marker and talk with industry greats!",
   venue_name: "Golden Boy Pizza",
@@ -134,7 +134,7 @@ Event.create!(
   user_id: demo[:id]
 )
 
-Event.create!(
+f = Event.new(
   title: "Painting Class",
   description: "This is a finger-painting only event.",
   venue_name: "SF MOMA",
@@ -151,7 +151,7 @@ Event.create!(
 )
 
 
-Event.create!(
+g = Event.new(
   title: "Hamburger City",
   description: "In every person's lifetime, they are given a chance to witness something incredible.  For many, their chance has come.  From October 12 through the end of May, The Palace of Fine Arts will be showing the world reknowned 'Hamburger City'.  Many have described it as 'awe-inspiring' and 'life-changing,' leaving the exhibit with their notion of reality shifted.
 
@@ -169,7 +169,7 @@ Event.create!(
   user_id: john[:id]
 )
 
-Event.create!(
+h = Event.new(
   title: "Burrito and Beer Festival",
   description: "All you can eat burritos and beer! Enjoy the final days of summer the best way possible, relaxing and eating in the sun (or fog)!",
   venue_name: "Mission Dolores Park",
@@ -185,7 +185,7 @@ Event.create!(
   user_id: john[:id]
 )
 
-Event.create!(
+i = Event.new(
   title: "SoMa Yogathon",
   description: "Greet the dawn at AT&T park for our monthly Yogathon with Rep. Nancy Pelosi!",
   venue_name: "AT&T Park",
@@ -201,7 +201,7 @@ Event.create!(
   user_id: demo[:id]
 )
 
-Event.create!(
+j = Event.new(
   title: "Vote",
   description: "Literally, please just vote.",
   venue_name: "Your Polling Place",
@@ -217,7 +217,7 @@ Event.create!(
   user_id: demo[:id]
 )
 
-Event.create!(
+k = Event.new(
   title: "Midnight Marathon",
   description: "Everyone's favorite marathon is back! Despite permit set backs due to last year's glowstick incident, we're back and better than ever!  BYOhead-lamp and reflective gear.",
   venue_name: "The Bay Bridge",
@@ -232,7 +232,7 @@ Event.create!(
   organizer_description: "Party like it's 490 BCE!",
   user_id: demo[:id]
 )
-Event.create!(
+l = Event.new(
   title: "How Many Times Can You Watch 'The Room'?",
   description: "Last person standing wins a TGIFriday's gift card.",
   venue_name: "The Metreon",
@@ -248,7 +248,7 @@ Event.create!(
   user_id: demo[:id]
 )
 
-Event.create!(
+m = Event.new(
   title: "Lucyfest",
   description: "Lucy is the best dog ever and deserves to be celebrated",
   venue_name: "The Fillmore",
