@@ -13,5 +13,6 @@ Rails.application.routes.draw do
     get 'users/:user_id/user_tickets/:ticket_id', to: 'user_tickets#attending_count', as: 'ticket_count'
     get 'users/:user_id/tickets/', to: 'tickets#attending', as: 'user_profile_tickets'
     resources :categories, only: [:index, :show, :create]
+    resources :event_categories, only: [:index, :show, :create, :update]
   end
 end

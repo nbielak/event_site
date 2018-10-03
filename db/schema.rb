@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_03_210802) do
+ActiveRecord::Schema.define(version: 2018_10_03_212626) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 2018_10_03_210802) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_event_categories_on_category_id", unique: true
+    t.index ["event_id", "category_id"], name: "index_event_categories_on_event_id_and_category_id", unique: true
     t.index ["event_id"], name: "index_event_categories_on_event_id", unique: true
   end
 
