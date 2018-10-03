@@ -12,5 +12,6 @@ Rails.application.routes.draw do
     resources :user_tickets, only: [:index, :show, :create, :destroy]
     get 'users/:user_id/user_tickets/:ticket_id', to: 'user_tickets#attending_count', as: 'ticket_count'
     get 'users/:user_id/tickets/', to: 'tickets#attending', as: 'user_profile_tickets'
+    resources :categories, only: [:index, :show, :create]
   end
 end

@@ -47,6 +47,13 @@ class Event < ApplicationRecord
   has_many :tickets,
     dependent: :destroy
 
+  has_many :event_categories,
+    dependent: :destroy
+
+  has_one :category,
+    through: :event_categories,
+    source: :category
+
   has_one_attached :photo
 
   def ensure_photo
