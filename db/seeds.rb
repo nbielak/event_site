@@ -67,6 +67,10 @@ a = Event.new(
   user_id: nick[:id]
 )
 
+photofile = File.open("app/assets/images/birthday.jpg")
+a.photo.attach(io: photofile, filename: "birthday.jpg")
+a.save!
+
 b = Event.new(
   title: "San Francisco Pirate Party",
   description: "Yo Ho Ho! While the 1700s were by far one of the best centuries of our existence. The sea-faring fashion was uhh-mayy-zing. The lingo was super dope, savvy? And the shanty's were better than watching a landlubber get hornswaggled. So don't be an old Sea Dog, flying the yellow jack! Stike ye colors, splice the mainbrace, and grab a pint o' grog! Even the old salts will be three sheets to the wind, ye scallywag!
@@ -82,9 +86,12 @@ b = Event.new(
   start_date: Date.parse("September 30"),
   organizer_name: "Jolly Roger Industries",
   organizer_description: "Helping worthless maggots go on account since 1646!",
-  user_id: nick[:id],
-  photo: "https://s3-us-west-1.amazonaws.com/eventsite-dev/adventure-2528477_1920.jpg"
+  user_id: nick[:id]
 )
+
+photofile = File.open("app/assets/images/map.jpg")
+b.photo.attach(io: photofile, filename: "map.jpg")
+b.save!
 
 c = Event.new(
   title: "Kitten Parade",
@@ -102,6 +109,10 @@ c = Event.new(
   user_id: jane[:id]
 )
 
+photofile = File.open("app/assets/images/kittens.jpg")
+c.photo.attach(io: photofile, filename: "kittens.jpg")
+c.save!
+
 d = Event.new(
   title: "Dance Party",
   description: "Dance the night away!",
@@ -117,6 +128,10 @@ d = Event.new(
   organizer_description: "We only serve fun!",
   user_id: jane[:id]
 )
+
+photofile = File.open("app/assets/images/mosh.jpg")
+d.photo.attach(io: photofile, filename: "mosh.jpg")
+d.save!
 
 e = Event.new(
   title: "Pizza Networking Social",
@@ -134,6 +149,10 @@ e = Event.new(
   user_id: demo[:id]
 )
 
+photofile = File.open("app/assets/images/audience.jpg")
+e.photo.attach(io: photofile, filename: "audience.jpg")
+e.save!
+
 f = Event.new(
   title: "Painting Class",
   description: "This is a finger-painting only event.",
@@ -149,6 +168,10 @@ f = Event.new(
   organizer_description: "Painting! It's not boring anymore!",
   user_id: john[:id]
 )
+
+photofile = File.open("app/assets/images/balloons.jpg")
+f.photo.attach(io: photofile, filename: "balloons.jpg")
+f.save!
 
 
 g = Event.new(
@@ -169,6 +192,10 @@ g = Event.new(
   user_id: john[:id]
 )
 
+photofile = File.open("app/assets/images/bike.jpg")
+g.photo.attach(io: photofile, filename: "bike.jpg")
+g.save!
+
 h = Event.new(
   title: "Burrito and Beer Festival",
   description: "All you can eat burritos and beer! Enjoy the final days of summer the best way possible, relaxing and eating in the sun (or fog)!",
@@ -184,6 +211,10 @@ h = Event.new(
   organizer_description: "Protecting the City by the Bay from subpar beer and burritos since 1946.",
   user_id: john[:id]
 )
+
+photofile = File.open("app/assets/images/concert.jpg")
+h.photo.attach(io: photofile, filename: "concert.jpg")
+h.save!
 
 i = Event.new(
   title: "SoMa Yogathon",
@@ -201,6 +232,10 @@ i = Event.new(
   user_id: demo[:id]
 )
 
+photofile = File.open("app/assets/images/dj.jpg")
+i.photo.attach(io: photofile, filename: "dj.jpg")
+i.save!
+
 j = Event.new(
   title: "Vote",
   description: "Literally, please just vote.",
@@ -217,6 +252,10 @@ j = Event.new(
   user_id: demo[:id]
 )
 
+photofile = File.open("app/assets/images/food.jpg")
+j.photo.attach(io: photofile, filename: "food.jpg")
+j.save!
+
 k = Event.new(
   title: "Midnight Marathon",
   description: "Everyone's favorite marathon is back! Despite permit set backs due to last year's glowstick incident, we're back and better than ever!  BYOhead-lamp and reflective gear.",
@@ -232,6 +271,11 @@ k = Event.new(
   organizer_description: "Party like it's 490 BCE!",
   user_id: demo[:id]
 )
+
+photofile = File.open("app/assets/images/skateboard.jpg")
+k.photo.attach(io: photofile, filename: "skateboard.jpg")
+k.save!
+
 l = Event.new(
   title: "How Many Times Can You Watch 'The Room'?",
   description: "Last person standing wins a TGIFriday's gift card.",
@@ -248,6 +292,10 @@ l = Event.new(
   user_id: demo[:id]
 )
 
+photofile = File.open("app/assets/images/spin.jpg")
+l.photo.attach(io: photofile, filename: "spin.jpg")
+l.save!
+
 m = Event.new(
   title: "Lucyfest",
   description: "Lucy is the best dog ever and deserves to be celebrated",
@@ -263,6 +311,10 @@ m = Event.new(
   organizer_description: "I love Lucy.",
   user_id: sahar[:id]
 )
+
+photofile = File.open("app/assets/images/ticket.jpg")
+m.photo.attach(io: photofile, filename: "ticket.jpg")
+m.save!
 
 #Tickets
 
