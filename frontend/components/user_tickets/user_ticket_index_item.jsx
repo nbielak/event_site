@@ -66,7 +66,6 @@ class UserTicketIndexItem extends React.Component {
 
 
   render () {
-    console.log(this.props);
     if (!this.props || Object.keys(this.props.userTickets).length === 0) {
       return null;
     }

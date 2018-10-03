@@ -70,7 +70,6 @@ class EventIndexItem extends React.Component {
     if (!this.props || !this.props.event) {
       return null;
     }
-    // debugger;
     return (
       <div className="event-index-item">
         <div className="index-item-content-wrapper">

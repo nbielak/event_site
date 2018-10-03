@@ -41,7 +41,6 @@ class EditEventForm extends React.Component {
     if (!this.state) {
       return null;
     } else if (this.state.userId !== this.props.currentUser) {
-      debugger;
       return (<Redirect to="/" />)
     }
       return (
