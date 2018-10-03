@@ -65,9 +65,8 @@ class CreateUserTicketForm extends React.Component {
               </div>
 
               <select className="quantity-selector" onChange={this.updateQuantity()}>
-                <option selected value="1">
-                  1
-                </option>
+                <option selected disabled>0</option>
+                <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
               </select>

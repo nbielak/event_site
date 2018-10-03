@@ -23,7 +23,6 @@ class Api::EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.user_id = current_user.id
-    # ensure_local_time(@event)
     if @event.save
       render 'api/events/show'
     else
@@ -33,8 +32,6 @@ class Api::EventsController < ApplicationController
 
   def update
     @event = current_user.events.find(params[:id])
-    # ensure_local_time(@event)
-
     if @event.update_attributes(event_params)
       render 'api/events/show'
     else
