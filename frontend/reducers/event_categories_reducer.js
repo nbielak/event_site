@@ -16,4 +16,4 @@ const EventCategoriesReducer = (state={}, action) => {
     }
 }
 
-export const EventCategoriesReducer;
+export default EventCategoriesReducer;

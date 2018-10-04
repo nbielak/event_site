@@ -34,16 +34,6 @@ module.exports = {
   },
   plugins: plugins,
   module: {
-    loaders: [
-      {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader',
-        query: {
-          presets: ['react', 'env']
-        }
-      }
-    ],
     rules: [
       {
         test: /\.jsx?$/,
