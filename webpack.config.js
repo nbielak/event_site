@@ -1,15 +1,14 @@
-
 const path = require('path');
 
 module.exports = {
   context: __dirname,
-  entry: './frontend/event_site.jsx',
+  entry: "./frontend/event_site.jsx",
   output: {
-    path: path.resolve(__dirname, 'app', 'assets', 'javascripts'),
-    filename: 'bundle.js',
+    path: path.resolve(__dirname, "app", "assets", "javascripts"),
+    filename: "bundle.js"
   },
   resolve: {
-    extensions: ['.js', '.jsx', '*'],
+    extensions: [".js", ".jsx", "*"]
   },
   module: {
     rules: [
@@ -17,12 +16,13 @@ module.exports = {
         test: /\.jsx?$/,
         exclude: /(node_modules)/,
         use: {
-          loader: 'babel-loader',
+          loader: "babel-loader",
           query: {
-            presets: ['env', 'react'],
-          },
-        },
-      },
-    ],
+            presets: ["env", "react"]
+          }
+        }
+      }
+    ]
   },
-  devtool: 'source-map',
+  devtool: "source-map"
+};
