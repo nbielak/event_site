@@ -8,6 +8,11 @@ class UserTicketIndexItem extends React.Component {
     this.createStartDate = this.createStartDate.bind(this);
     this.setMonth = this.setMonth.bind(this);
     this.setTime = this.setTime.bind(this);
+    
+  }
+
+  componentDidMount() {
+    window.scrollTo(0, 0);
   }
 
   handleClick(e) {

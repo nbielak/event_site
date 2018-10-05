@@ -13,6 +13,7 @@ class EventShow extends React.Component {
   }
 
   componentDidMount() {
+    window.scrollTo(0, 0);
     this.props.fetchEvent(this.props.match.params.eventId)
       .then(action => this.props.fetchAllTickets(action.event.id))
   }
