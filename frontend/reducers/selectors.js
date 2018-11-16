@@ -39,3 +39,4 @@ export const categoryObjectBuilder = ({categories}) => {
   })
   return result;
 }
+

@@ -65,9 +65,27 @@ class EventIndexItem extends React.Component {
     return `${hour}:${min} ${meridian}`;
   }
 
+  findCategory(event) {
+    let categoryId = null;
+    let keys = Object.keys(this.props.eventCategories);
+
+    for (let i = 0; i < keys.length; i++) {
+      let id = keys[i];
+      let eventCategory = this.props.eventCategories[id];
+      if (eventCategory.eventId === event.id) {
+        categoryId = eventCategory.categoryId
+      }
+    }
+
+    return categoryId ? this.props.categories[categoryId].name : "none";
+  }
+
 
   render () {
-    if (!this.props || !this.props.event) {
+    if (!this.props 
+      || !this.props.event 
+      || Object.keys(this.props.categories).length < 1 
+      || Object.keys(this.props.eventCategories).length < 1) {
       return null;
     }
     return (
@@ -93,7 +111,7 @@ class EventIndexItem extends React.Component {
           </div>
           <div className="event-footer">
             <div className="event-footer-tags">
-              #category
+              #{this.findCategory(this.props.event)}
             </div>
 
             <div className="event-footer-actions">

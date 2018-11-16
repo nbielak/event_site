@@ -8,10 +8,14 @@ class EventIndex extends React.Component {
   }
 
   componentDidMount () {
-    this.props.fetchAllEvents().then(action => this.setState({events: action.events}))
+    this.props.fetchAllEvents()
+      .then(action => this.setState({events: action.events}))
+      .then(action => this.props.fetchAllCategories())
+      .then(action => this.props.fetchAllEventCategories())
   }
 
   render() {
+    // debugger;
     return (
       <div className="splash-page">
         <section className="splash-banner">
@@ -35,7 +39,7 @@ class EventIndex extends React.Component {
             <div className="events-for-you-list-wrapper">
               <ul className="events-for-you-list">
                 {this.props.events.map(event => {
-                  return (<EventIndexItem key={event.id} event={event} />);
+                  return (<EventIndexItem key={event.id} event={event} eventCategories={this.props.eventCategories} categories={this.props.categories}/>);
                 })}
               </ul>
             </div>

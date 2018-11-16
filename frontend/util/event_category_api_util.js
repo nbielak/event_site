@@ -1,3 +1,10 @@
+export const fetchAllEventCategories = () => (
+    $.ajax({
+        method: 'GET',
+        url: `api/event_categories`
+    })
+)
+
 export const fetchEventCategory = eventCategoryId => (
     $.ajax({
         method: 'GET',
