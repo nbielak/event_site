@@ -28,3 +28,14 @@ export const getEventTickets = ({ tickets, eventId }) => {
     }
   }
 } 
+
+export const categoryObjectBuilder = ({categories}) => {
+  let result = {};
+  let categoryIds = Object.keys(categories);
+
+  categoryIds.forEach(categoryId => {
+    let category = categories[categoryId];
+    result[category.name] = category;
+  })
+  return result;
+}

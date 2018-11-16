@@ -1,0 +1,1 @@
+json.partial! "api/event_categories/event_category", event_category: @event_category

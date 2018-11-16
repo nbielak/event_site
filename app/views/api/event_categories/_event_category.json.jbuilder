@@ -1,0 +1,1 @@
+json.extract! event_category, :id, :category_id, :event_id

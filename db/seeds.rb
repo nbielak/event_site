@@ -9,6 +9,8 @@
 Event.delete_all
 User.delete_all
 Ticket.delete_all
+Category.delete_all
+
 #USERS
 
 
@@ -326,3 +328,18 @@ Event.all.each do |event|
     name: "General Admission"
   )
 end
+
+# Categories
+
+music = Category.create!(
+  name: "Music",
+  description: "Sound!"
+)
+party = Category.create!(
+  name: "Party",
+  description: "Fun!"
+)
+food = Category.create!(
+  name: "Food",
+  description: "Yum!"
+)

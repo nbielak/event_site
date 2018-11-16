@@ -9,12 +9,17 @@ class CreateEventForm extends React.Component {
         photoFile: null
       }, 
       ticket: {},
+      eventCategory: {}
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.setTime = this.setTime.bind(this);
     this.updateEvent = this.updateEvent.bind(this);
     this.updateTicket = this.updateTicket.bind(this);
     this.handleFile = this.handleFile.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.fetchAllCategories();
   }
 
   updateEvent(field) {
@@ -33,10 +38,21 @@ class CreateEventForm extends React.Component {
     }
   }
 
-  updateTicketEventId(id) {
+  updateEventId(id) {
     let ticket = this.state.ticket;
+    let eventCategory = this.state.eventCategory;
     ticket["eventId"] = id;
-    this.setState({ ticket });
+    eventCategory["eventId"] = id;
+    this.setState({ ticket, eventCategory });
+  }
+
+  updateEventCategory() {
+    return e => {
+      let eventCategory = this.state.eventCategory;
+      let category = this.props.categories[e.target.value];
+      eventCategory["categoryId"] = category.id;
+      this.setState({ eventCategory });
+    }
   }
 
   handleSubmit(e) {
@@ -65,8 +81,10 @@ class CreateEventForm extends React.Component {
     formData.append("event[organizerDescription]", event.organizerDescription);
   
     this.props.createEvent(formData).then(action => {
-      this.updateTicketEventId(action.event.id);
+      this.updateEventId(action.event.id);
       const ticket = Object.assign({}, this.state.ticket);
+      const eventCategory = Object.assign({}, this.state.eventCategory);
+      this.props.createEventCategory(eventCategory);
       return this.props.createTicket(ticket.eventId, ticket);
     }).then(action => this.props.history.push(`/events/${action.ticket.eventId}`))
   }
@@ -112,6 +130,9 @@ class CreateEventForm extends React.Component {
   }
 
   render() {
+    if (Object.keys(this.props.categories).length < 1) {
+      return null;
+    }
     return <div>
         <div className="create-event-top">
           <h2 className="event-top">Create an Event</h2>
@@ -280,7 +301,34 @@ class CreateEventForm extends React.Component {
                 </div>
               </div>
 
-              <div className="add-categories-wrapper" />
+            <div className="create-categories-wrapper">
+              <div className="create-event-form-content">
+                <div className="form-header-info-wrapper">
+                  <div className="form-header-info">
+                    <span className="detail-block">3</span>
+                    <h2 className="form-headers">Additional Information</h2>
+                  </div>
+                </div>
+
+                <div className="event-location-input">
+                  <div className="event-info-label-wrapper">
+                    <label className="event-info-label">Event Category</label>
+                  </div>
+                  <div className="event-state-zip-country">
+                    <div className="country-select-wrapper">
+                      <select onChange={this.updateEventCategory()} className="country-select">
+                          <option selected disabled>
+                            Choose Category
+                          </option>
+                          {Object.keys(this.props.categories).sort().map(categoryName => {
+                            return (<option key={this.props.categories[categoryName].id} value={categoryName}>{categoryName}</option>);
+                          })}
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
             </div>
           </div>
 
