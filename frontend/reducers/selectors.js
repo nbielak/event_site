@@ -40,3 +40,6 @@ export const categoryObjectBuilder = ({categories}) => {
   return result;
 }
 
+// export const sortEventsByCategory = ({events, eventCategories, categories}) => {
+
+// }

@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom';
 
 const NavBar = ({currentUser, logout}) => {
   const loggedInNavBar = () => <nav id="nav-bar" className="nav-bar">
-      <Link className="nav-bar-link" to="/">
+    <Link className="nav-bar-link" to="/browse">
         browse events
       </Link>
-      <div className="nav-bar-link" to="/">
+      <div className="nav-bar-link">
         {currentUser.firstName}
         <div className="nav-bar-drop-down">
-          <a className="nav-bar-drop-down-list-item" href="/">
+          <a className="nav-bar-drop-down-list-item" href="/#/browse">
             Browse Events
           </a>
           <a className="nav-bar-drop-down-list-item" href={`/#/users/${currentUser.id}/profile`}>

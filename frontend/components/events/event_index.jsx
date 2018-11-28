@@ -4,7 +4,7 @@ import EventIndexItem from './event_index_item';
 class EventIndex extends React.Component {
   constructor(props) {
     super(props);
-
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount () {
@@ -14,8 +14,11 @@ class EventIndex extends React.Component {
       .then(action => this.props.fetchAllEventCategories())
   }
 
+  handleClick(e) {
+    this.props.history.push('/browse');
+  }
+
   render() {
-    // debugger;
     return (
       <div className="splash-page">
         <section className="splash-banner">
@@ -45,7 +48,7 @@ class EventIndex extends React.Component {
             </div>
           </div>
           <div className="see-more-button-wrapper">
-            <button className="see-more-button">See More</button>
+            <button onClick={this.handleClick} className="see-more-button">See More</button>
           </div>
         </div>
       </div>

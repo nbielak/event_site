@@ -10,7 +10,8 @@
 #
 
 class EventCategory < ApplicationRecord
-    validates :event_id, :category_id, presence: true, uniqueness: true
+    validates :event_id, presence: true, uniqueness: true
+    validates :category_id, presence: true
 
     belongs_to :event,
         foreign_key: :event_id

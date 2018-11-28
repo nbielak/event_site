@@ -343,3 +343,13 @@ food = Category.create!(
   name: "Food",
   description: "Yum!"
 )
+
+# Event Categories
+
+Event.all.each do |event|
+  category = Category.all.sample
+  EventCategory.create!(
+    event_id: event.id,
+    category_id: category.id
+  )
+end

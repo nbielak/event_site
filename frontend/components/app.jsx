@@ -15,6 +15,7 @@ import EventShowContainer from './events/event_show_container';
 import CreateEventFormContainer from './events/create_event_form_container';
 import ManageEventsContainer from './events/manage_events_container';
 import EditEventFormContainer from './events/edit_event_form_container';
+import BrowseEventsContainer from "./events/browse_events_container";
 import UserTicketIndexContainer from './user_tickets/user_ticket_index_container';
 import RedirectToMain from './redirect_to_main';
 import PageFooter from './footer/footer';
@@ -42,6 +43,7 @@ const App = () => (
         <ProtectedRoute exact path="/events/:eventId/edit" component={EditEventFormContainer} />
         <ProtectedRoute exact path="/users/:userId/profile" component={UserTicketIndexContainer} />
         <ProtectedRoute exact path="/events/:eventId" component={EventShowContainer} />
+        <ProtectedRoute exact path="/browse" component={BrowseEventsContainer} />
         <Route component={RedirectToMain} />
       </Switch>
     </div>
