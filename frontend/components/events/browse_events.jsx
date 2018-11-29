@@ -28,7 +28,7 @@ class BrowseEvents extends React.Component {
         let result = [];
         Object.keys(this.props.eventCategories).forEach(eventCategoryId => {
             let eventCategory = this.props.eventCategories[eventCategoryId];
-            if (eventCategory.categoryId === categoryId) {
+            if (eventCategory.categoryId.toString() === categoryId) {
                 result.push(eventCategory.eventId);
             }
         })
@@ -37,9 +37,15 @@ class BrowseEvents extends React.Component {
 
     sortEvents(categoryId) {
         let eventIds = this.getEventIds(categoryId);
-        return (eventIds.map(eventId => {
-            this.props.events.filter(event => event.id === eventId)
-        }));
+        let result = [];
+        eventIds.forEach(eventId => {
+            this.props.events.forEach(event => {
+                if (event.id === eventId) {
+                    result.push(event);
+                }
+            })
+        });
+        return result
     }
 
     render() {
@@ -52,11 +58,14 @@ class BrowseEvents extends React.Component {
                     Events In San Francisco
                 </div>
 
-                <div>
+                <div className="browse-categories">
                     {Object.keys(this.props.categories).map(categoryId => {
                         let category = this.props.categories[categoryId].name
                         let events = this.sortEvents(categoryId);
-                        return (<CategoryList key={categoryId} events={events} category={category}/>)
+                        return (<CategoryList key={categoryId} 
+                            eventCategories={this.props.eventCategories} 
+                            events={events} 
+                            category={category}/>)
                     })}
                 </div>
             </div>

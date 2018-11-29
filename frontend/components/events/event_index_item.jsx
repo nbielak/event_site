@@ -66,6 +66,10 @@ class EventIndexItem extends React.Component {
   }
 
   findCategory(event) {
+    if (Object.keys(this.props.categories).length === 1) {
+      let id = Object.keys(this.props.categories)[0];
+      return this.props.categories[id];
+    }
     let categoryId = null;
     let keys = Object.keys(this.props.eventCategories);
 
