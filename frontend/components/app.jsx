@@ -45,7 +45,7 @@ const App = () => (
         <ProtectedRoute exact path="/users/:userId/profile" component={UserTicketIndexContainer} />
         <ProtectedRoute exact path="/events/:eventId" component={EventShowContainer} />
         <ProtectedRoute exact path="/browse" component={BrowseEventsContainer} />
-        <ProtectedRoute exact path="/events/:category" component={CategoryEventsContainer} />
+        <ProtectedRoute exact path="/:category/events" component={CategoryEventsContainer} />
         <Route component={RedirectToMain} />
       </Switch>
     </div>

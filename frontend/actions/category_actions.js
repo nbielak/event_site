@@ -25,11 +25,4 @@ export const fetchCategory = categoryId => dispatch => (
     )
 );
 
-export const getEventsByCategory = category => dispatch => (
-    CategoryApiUtil.getEventsByCategory(category).then(
-        events => dispatch(receiveAllEvents(events)),
-        errors => dispatch(receiveEventErrors(errors.responseJSON))
-    )
-);
 
-//Does this need to be in event API?

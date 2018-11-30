@@ -46,6 +46,13 @@ export const fetchUserEvents = userId => dispatch => (
   )
 );
 
+export const getEventsByCategory = category => dispatch => (
+  EventApiUtil.getEventsByCategory(category).then(
+    events => dispatch(receiveAllEvents(events)),
+    errors => dispatch(receiveEventErrors(errors.responseJSON))
+  )
+);
+
 export const createEvent = event => dispatch => (
   EventApiUtil.createEvent(event).then(
     event => dispatch(receiveEvent(event)),

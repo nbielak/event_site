@@ -19,6 +19,13 @@ export const fetchUserEvents = userId => (
   })
 );
 
+export const getEventsByCategory = name => (
+  $.ajax({
+    method: 'GET',
+    url: `/api/categories/${name}/events`
+  })
+)
+
 export const createEvent = event => (
   $.ajax ({
     method: 'POST',

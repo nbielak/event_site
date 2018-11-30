@@ -13,7 +13,7 @@ const CategoryList = ({events, category, eventCategories}) => {
                 </h1>
                 
                 <div>
-                    <Link className="see-more" to={`/events/${category}`}>See More</Link>
+                    <Link className="see-more" to={`/${category}/events`}>See More</Link>
                 </div>
             </div>
             

@@ -1,5 +1,3 @@
-json.partial! "api/categories/category", category: @category
-
 if @events
     @events.each do |event|
         json.set! event.id do
@@ -37,4 +35,7 @@ if @events
             json.photoUrl url_for(event.photo) if event.photo.attached?
         end
     end
+
+else
+    json.partial! "api/categories/category", category: @category
 end
