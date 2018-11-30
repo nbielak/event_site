@@ -66,3 +66,4 @@ export const deleteEvent = eventId => dispatch => (
     errors => dispatch(receiveEventErrors(errors.responseJSON))
   )
 );
+

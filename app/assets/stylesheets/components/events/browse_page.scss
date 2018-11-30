@@ -1,4 +1,87 @@
+.browse-categories-wrapper {
+    background: #F8F8FA;
+    font-family: Neue Plak,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Helvetica,Tahoma,Arial,sans-serif;
+}
+
 .browse-categories {
     width: 85%;
     margin: auto;
+}
+
+.browse-header {
+    display: flex;
+    height: 425px;
+    margin-bottom: 75px;
+    padding-bottom: 50px;
+}
+
+.browse-header-info {
+    width: 40%;
+    display: flex;
+    padding: 0 16px;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 40px;
+    box-sizing: border-box;
+
+    p {
+        width: 75%;
+        margin-bottom: 20px;
+        margin-top: 16px;
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 21px;
+    }
+
+    h1 {
+        font-size: 48px;
+        font-weight: 700;
+        color: #39364f;
+        margin-bottom: 16px;
+    }
+}
+
+.browse-header-image {
+    background-image: image_url("golden-gate.jpg");
+    width: 60%;
+    background-size: cover;
+}
+
+.category-list {
+    margin-bottom: 50px;
+}
+
+.category-list-header-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.category-list-title {
+    font-size: 35px;
+    font-weight: 600px;
+    margin-bottom: 16px;
+    letter-spacing: 1px;
+}
+
+.see-more {
+    text-decoration: none;
+    color: #4b4d63;
+    font-size: 15px;
+    line-height: 22px;
+    font-weight: 400;
+    
+    &:hover {
+        cursor: pointer;
+        color: #3d64ff;
+        text-decoration: underline;
+    }
+}
+
+.event-list {
+    .event-index-item {
+        &:first-of-type {
+            padding-left: 0px;
+        }
+    }
+    
 }

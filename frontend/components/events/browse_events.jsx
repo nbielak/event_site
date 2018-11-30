@@ -1,5 +1,6 @@
 import React from 'react';
 import CategoryList from './category_list';
+import BrowseHeader from './browse_header';
 
 class BrowseEvents extends React.Component {
     constructor(props) {
@@ -53,20 +54,20 @@ class BrowseEvents extends React.Component {
             return null;
         }
         return(
-            <div>
-                <div>
-                    Events In San Francisco
-                </div>
-
+            <div className="browse-categories-wrapper">
                 <div className="browse-categories">
-                    {Object.keys(this.props.categories).map(categoryId => {
-                        let category = this.props.categories[categoryId].name
-                        let events = this.sortEvents(categoryId);
-                        return (<CategoryList key={categoryId} 
-                            eventCategories={this.props.eventCategories} 
-                            events={events} 
-                            category={category}/>)
-                    })}
+                    <BrowseHeader />
+
+                    <div>
+                        {Object.keys(this.props.categories).map(categoryId => {
+                            let category = this.props.categories[categoryId].name
+                            let events = this.sortEvents(categoryId);
+                            return (<CategoryList key={categoryId} 
+                                eventCategories={this.props.eventCategories} 
+                                events={events} 
+                                category={category}/>)
+                        })}
+                    </div>
                 </div>
             </div>
         )

@@ -1,20 +1,24 @@
 import React from 'react';
 import EventIndexItem from './event_index_item';
+import { Link } from 'react-router-dom';
+
 
 const CategoryList = ({events, category, eventCategories}) => {
     return (
-        <div>
-            <div>
-                <h2>
+        <div className="category-list">
+            <div className="category-list-header-wrapper">
+                
+                <h1 className="category-list-title">
                     {category}
-                </h2>
-            </div>
-
-            <div>
-                See More
+                </h1>
+                
+                <div>
+                    <Link className="see-more" to={`/events/${category}`}>See More</Link>
+                </div>
             </div>
             
-            <ul>
+            
+            <ul className="event-list">
                 {events.slice(0, 3).map(event => {
                     return (
                         <EventIndexItem key={event.id} 

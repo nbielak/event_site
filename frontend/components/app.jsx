@@ -17,6 +17,7 @@ import ManageEventsContainer from './events/manage_events_container';
 import EditEventFormContainer from './events/edit_event_form_container';
 import BrowseEventsContainer from "./events/browse_events_container";
 import UserTicketIndexContainer from './user_tickets/user_ticket_index_container';
+import CategoryEventsContainer from './categories/category_events_container';
 import RedirectToMain from './redirect_to_main';
 import PageFooter from './footer/footer';
 import { AuthRoute, ProtectedRoute, EmailAuthRoute } from '../util/route_util';
@@ -44,6 +45,7 @@ const App = () => (
         <ProtectedRoute exact path="/users/:userId/profile" component={UserTicketIndexContainer} />
         <ProtectedRoute exact path="/events/:eventId" component={EventShowContainer} />
         <ProtectedRoute exact path="/browse" component={BrowseEventsContainer} />
+        <ProtectedRoute exact path="/events/:category" component={CategoryEventsContainer} />
         <Route component={RedirectToMain} />
       </Switch>
     </div>

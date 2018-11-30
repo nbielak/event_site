@@ -8,6 +8,7 @@ class EventIndex extends React.Component {
   }
 
   componentDidMount () {
+    window.scrollTo(0,0);
     this.props.fetchAllEvents()
       .then(action => this.setState({events: action.events}))
       .then(action => this.props.fetchAllCategories())
