@@ -10,6 +10,8 @@ Event.delete_all
 User.delete_all
 Ticket.delete_all
 Category.delete_all
+EventCategory.delete_all
+
 
 #USERS
 
@@ -50,7 +52,39 @@ sahar = User.create!(
   last_name: "Sahar"
 )
 
-#EVENTS
+# Categories
+
+music = Category.create!(
+  name: "Music",
+  description: "Sound!"
+)
+party = Category.create!(
+  name: "Party",
+  description: "Fun!"
+)
+food = Category.create!(
+  name: "Food & Drink",
+  description: "Yum!"
+)
+
+arts = Category.create!(
+  name: "Arts",
+  description: "Wow!"
+)
+
+business = Category.create!(
+  name: "Business",
+  description: "Networking!"
+)
+
+health = Category.create!(
+  name: "Health",
+  description: "Good!"
+)
+
+
+
+#EVENTS & EVENT_CATEGORIES
 
 a = Event.new(
   title: "It's Sahar's Birthday",
@@ -72,6 +106,11 @@ a = Event.new(
 photofile = File.open("app/assets/images/birthday.jpg")
 a.photo.attach(io: photofile, filename: "birthday.jpg")
 a.save!
+
+EventCategory.create!(
+    event_id: a.id,
+    category_id: party.id
+  )
 
 b = Event.new(
   title: "San Francisco Pirate Party",
@@ -95,6 +134,11 @@ photofile = File.open("app/assets/images/map.jpg")
 b.photo.attach(io: photofile, filename: "map.jpg")
 b.save!
 
+EventCategory.create!(
+    event_id: b.id,
+    category_id: party.id
+  )
+
 c = Event.new(
   title: "Kitten Parade",
   description: "All of the Kittens in San Francisco will be parading through the city this Sunday.  The parade will start on the golden gate bridge, and from there, they will disperse in any direction they choose!  This year, we will be providing laser pointers to all attendees in an effort to keep the parade more cohesive!",
@@ -114,6 +158,11 @@ c = Event.new(
 photofile = File.open("app/assets/images/kittens.jpg")
 c.photo.attach(io: photofile, filename: "kittens.jpg")
 c.save!
+
+EventCategory.create!(
+    event_id: c.id,
+    category_id: arts.id
+  )
 
 d = Event.new(
   title: "Dance Party",
@@ -135,6 +184,11 @@ photofile = File.open("app/assets/images/mosh.jpg")
 d.photo.attach(io: photofile, filename: "mosh.jpg")
 d.save!
 
+EventCategory.create!(
+    event_id: d.id,
+    category_id: party.id
+  )
+
 e = Event.new(
   title: "Pizza Networking Social",
   description: "Pizza is the future! Come find your way into this budding marker and talk with industry greats!",
@@ -155,6 +209,11 @@ photofile = File.open("app/assets/images/audience.jpg")
 e.photo.attach(io: photofile, filename: "audience.jpg")
 e.save!
 
+EventCategory.create!(
+    event_id: e.id,
+    category_id: business.id
+  )
+
 f = Event.new(
   title: "Painting Class",
   description: "This is a finger-painting only event.",
@@ -174,6 +233,11 @@ f = Event.new(
 photofile = File.open("app/assets/images/balloons.jpg")
 f.photo.attach(io: photofile, filename: "balloons.jpg")
 f.save!
+
+EventCategory.create!(
+    event_id: f.id,
+    category_id: arts.id
+  )
 
 
 g = Event.new(
@@ -198,6 +262,11 @@ photofile = File.open("app/assets/images/bike.jpg")
 g.photo.attach(io: photofile, filename: "bike.jpg")
 g.save!
 
+EventCategory.create!(
+    event_id: g.id,
+    category_id: arts.id
+  )
+
 h = Event.new(
   title: "Burrito and Beer Festival",
   description: "All you can eat burritos and beer! Enjoy the final days of summer the best way possible, relaxing and eating in the sun (or fog)!",
@@ -217,6 +286,11 @@ h = Event.new(
 photofile = File.open("app/assets/images/concert.jpg")
 h.photo.attach(io: photofile, filename: "concert.jpg")
 h.save!
+
+EventCategory.create!(
+    event_id: h.id,
+    category_id: food.id
+  )
 
 i = Event.new(
   title: "SoMa Yogathon",
@@ -238,6 +312,11 @@ photofile = File.open("app/assets/images/dj.jpg")
 i.photo.attach(io: photofile, filename: "dj.jpg")
 i.save!
 
+EventCategory.create!(
+    event_id: i.id,
+    category_id: health.id
+  )
+
 j = Event.new(
   title: "Vote",
   description: "Literally, please just vote.",
@@ -257,6 +336,11 @@ j = Event.new(
 photofile = File.open("app/assets/images/food.jpg")
 j.photo.attach(io: photofile, filename: "food.jpg")
 j.save!
+
+EventCategory.create!(
+    event_id: j.id,
+    category_id: business.id
+  )
 
 k = Event.new(
   title: "Midnight Marathon",
@@ -278,6 +362,11 @@ photofile = File.open("app/assets/images/skateboard.jpg")
 k.photo.attach(io: photofile, filename: "skateboard.jpg")
 k.save!
 
+EventCategory.create!(
+    event_id: k.id,
+    category_id: health.id
+  )
+
 l = Event.new(
   title: "How Many Times Can You Watch 'The Room'?",
   description: "Last person standing wins a TGIFriday's gift card.",
@@ -297,6 +386,11 @@ l = Event.new(
 photofile = File.open("app/assets/images/spin.jpg")
 l.photo.attach(io: photofile, filename: "spin.jpg")
 l.save!
+
+EventCategory.create!(
+    event_id: l.id,
+    category_id: arts.id
+  )
 
 m = Event.new(
   title: "Lucyfest",
@@ -318,6 +412,11 @@ photofile = File.open("app/assets/images/ticket.jpg")
 m.photo.attach(io: photofile, filename: "ticket.jpg")
 m.save!
 
+EventCategory.create!(
+    event_id: m.id,
+    category_id: music.id
+  )
+
 #Tickets
 
 Event.all.each do |event|
@@ -329,27 +428,4 @@ Event.all.each do |event|
   )
 end
 
-# Categories
 
-music = Category.create!(
-  name: "Music",
-  description: "Sound!"
-)
-party = Category.create!(
-  name: "Party",
-  description: "Fun!"
-)
-food = Category.create!(
-  name: "Food",
-  description: "Yum!"
-)
-
-# Event Categories
-
-Event.all.each do |event|
-  category = Category.all.sample
-  EventCategory.create!(
-    event_id: event.id,
-    category_id: category.id
-  )
-end
