@@ -6,12 +6,6 @@ import { fetchAllCategories } from '../../actions/category_actions';
 import { getSplashCityEvents, sortEventsByCategory } from '../../reducers/selectors';
 
 const mapStateToProps = state => {
-    // let events = getSplashCityEvents({ events: state.entities.events, city: "San Francisco" });
-    // let categories = sortEventsByCategory({
-    //     events, 
-    //     eventCategories: state.entities.eventCategories,
-    //     categories: state.entities.categories
-    // })
 
     return {
         events: getSplashCityEvents({ events: state.entities.events, city: "San Francisco" }),
