@@ -40,9 +40,9 @@ const NavBar = ({currentUser, logout}) => {
 
   const loggedOutNavBar = () => (
     <nav className = "nav-bar">
-      <Link className="nav-bar-link" to="/">browse events</Link>
-      <Link className="nav-bar-link" to="/signin">sign in</Link>
-      <Link className="nav-bar-link" to="/create">create event</Link>
+      <Link className="nav-bar-link" to="/browse" replace>browse events</Link>
+      <Link className="nav-bar-link" to="/signin" replace>sign in</Link>
+      <Link className="nav-bar-link" to="/create" replace>create event</Link>
     </nav>
   );
 

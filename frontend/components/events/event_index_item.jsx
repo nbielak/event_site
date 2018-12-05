@@ -6,13 +6,20 @@ class EventIndexItem extends React.Component {
     super(props);
     this.state = this.props.event
     this.handleClick = this.handleClick.bind(this);
+    this.categoryClick = this.categoryClick.bind(this);
     this.createStartDate = this.createStartDate.bind(this);
     this.setMonth = this.setMonth.bind(this);
     this.setTime = this.setTime.bind(this);
+    this.category = null;
   }
 
   handleClick(e) {
     this.props.history.push(`/events/${this.props.event.id}`)
+  }
+
+  categoryClick(e) {
+    e.stopPropagation();
+    this.props.history.push(`/${this.category}/events`);
   }
 
   createStartDate() {
@@ -92,6 +99,7 @@ class EventIndexItem extends React.Component {
       || Object.keys(this.props.eventCategories).length < 1) {
       return null;
     }
+    this.category = this.findCategory(this.props.event);
     return (
       <div className="event-index-item">
         <div className="index-item-content-wrapper">
@@ -114,8 +122,8 @@ class EventIndexItem extends React.Component {
 
           </div>
           <div className="event-footer">
-            <div className="event-footer-tags">
-              #{this.findCategory(this.props.event)}
+            <div className="event-footer-tags" onClick={this.categoryClick}>
+              #{this.category}
             </div>
 
             <div className="event-footer-actions">

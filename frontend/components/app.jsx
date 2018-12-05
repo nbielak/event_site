@@ -26,7 +26,7 @@ const App = () => (
   <div className="main-content">
     <header>
       <div className="logo" >
-        <Link className="logo-link" to="/">EventSite</Link>
+        <Link className="logo-link" to="/" replace>EventSite</Link>
       </div>
 
       <div className="header-search">

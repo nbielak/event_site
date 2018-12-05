@@ -7,6 +7,7 @@ class CategoryEvents extends React.Component {
     }
 
     componentDidMount() {
+        window.scrollTo(0,0);
         this.props.getEventsByCategory(this.props.match.params.category)
     }
 
@@ -15,15 +16,16 @@ class CategoryEvents extends React.Component {
             return null;
         }
         return (
-            <div>
-                <div>
-                    {this.props.category} events in San Francisco
+            <div className="category-events">
+                <div className="category-events-header">
+                    <h1>{this.props.category} events</h1>
+                    <h1>in <label>San Francisco</label></h1>
                 </div>
 
-                <div>
+                <div className="category-events-list">
                     {Object.keys(this.props.events).map(eventId => {
                         let event = this.props.events[eventId];
-                        return (<CategoryEventsIndexItem event={event} />)
+                        return (<CategoryEventsIndexItem key={event.id} event={event} />)
                     })}
                 </div>
                 

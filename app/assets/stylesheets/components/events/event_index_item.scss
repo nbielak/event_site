@@ -115,6 +115,16 @@
           cursor: pointer;
         }
       }
+
+      .event-footer-tags {
+        &:hover {
+          cursor: pointer;
+          color: #3d64ff;
+          text-decoration: underline;
+        }
+      }
     }
   }
 }
+
+

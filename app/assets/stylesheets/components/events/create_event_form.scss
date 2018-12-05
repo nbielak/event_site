@@ -173,6 +173,11 @@
       background: #fff;
       color: #45494E;
       background: #fff;
+
+      &:hover {
+        cursor: pointer;
+      }
+      
     }
   }
 }
@@ -320,4 +325,8 @@
 .event-image-input-wrapper {
   padding-top: 5px;
   
+}
+
+.country-select-wrapper:last-of-type {
+  margin-bottom: 50px;
 }

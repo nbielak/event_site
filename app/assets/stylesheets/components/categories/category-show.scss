@@ -1,0 +1,76 @@
+.category-events {
+    width: 85%;
+    margin: 0 auto;
+    font-family: Neue Plak,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Helvetica,Tahoma,Arial,sans-serif;
+    margin-bottom: 200px;
+    border-bottom: 1px solid #DBDAE2;
+    box-sizing: border-box;
+}
+
+.category-events-header {
+    height: 140px;
+    padding-left: 12px;
+    padding-bottom: 8px;
+    margin-top: 20px;
+
+    h1 {
+        font-size: 35px;
+        font-weight: 500;
+        line-height: 42px;
+        color: rgb(169, 168, 178);
+        margin-top: 10px;
+
+        &:first-of-type {
+            text-decoration: underline;
+        }
+
+        label {
+            color: black;
+            text-decoration: underline;
+        }
+    }
+    
+}
+
+.category-events-list {
+    width: 66.666666%;
+    margin-bottom: 100px;
+}
+
+.category-event-index-item {
+    display: flex;
+    padding: 15px;
+    border-radius: 4px;
+    width: 100%;
+    margin-bottom: 25px;
+
+    &:hover {
+        box-shadow: 0 4px 15px 0 rgba(40,44,53,.06), 0 2px 2px 0 rgba(40,44,53,.08);
+        cursor: pointer;
+    }
+
+    .event-image-wrapper {
+        width: 220px;
+        height: 110px;
+        position: relative;
+
+        .event-image {
+            height: 100%;
+            width: 100%;
+            left: 0;
+            top: 0;
+            position: absolute;
+            text-align: center;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+        }
+    }
+
+    .event-info {
+        padding-left: 24px;
+        overflow: hidden;
+        font-size: 14px;
+    }
+}
+

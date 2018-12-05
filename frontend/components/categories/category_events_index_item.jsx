@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 class CategoryEventsIndexItem extends React.Component {
     constructor(props) {
@@ -66,20 +67,22 @@ class CategoryEventsIndexItem extends React.Component {
 
     render() {
         return (
-            <div onClick={this.handleClick}>
+            <div className="category-event-index-item"onClick={this.handleClick}>
                 <div className="event-image-wrapper">
                     <div className="event-image" style={{ backgroundImage: `url(${this.state.photoUrl})` }}>
                     </div>
                 </div>
 
-                <h2 className="event-title">{this.state.title}</h2>
-                <time className="event-time">{this.createStartDate()}</time>
-                <div className="event-location">
-                    {this.props.event.venueName || this.props.event.address}, {this.props.event.city}
+                <div className="event-info">
+                    <h1 className="event-title">{this.state.title}</h1>
+                    <time className="event-time">{this.createStartDate()}</time>
+                    <div className="event-location">
+                        {this.props.event.venueName || this.props.event.address}, {this.props.event.city}
+                    </div>
                 </div>
             </div>
         )
     }
 }
 
-export default CategoryEventsIndexItem;
+export default withRouter(CategoryEventsIndexItem);
